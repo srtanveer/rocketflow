@@ -52,7 +52,7 @@ export default function GadgetShopLanding() {
       description: 'Build a hype list automatically. On "Coming Soon" posts, auto-reply to "price" comments: "Reply NOTIFY ME for first access to pre-order link." Launch day: broadcast to entire list and sell out in hours.',
       icon: BellAlertIcon,
       count: '500+ Pre-Orders',
-      color: 'from-primary-dark to-secondary',
+      color: 'from-coral-600 to-red-400',
       benefits: ['Maximize sales during critical product launches', 'Build high-intent marketing list automatically', 'Create seamless and exclusive experience for eager customers']
     },
     {
@@ -135,7 +135,7 @@ export default function GadgetShopLanding() {
       name: 'TechZone Store',
       result: '400% Revenue Growth',
       timeframe: 'In 6 Months',
-      image: '/logo-red-bg.jpg',
+      image: '/RF-Long-logo.webp',
       rating: 4.9,
       reviews: 'Client Success',
       badge: 'Success Story',
@@ -245,26 +245,26 @@ export default function GadgetShopLanding() {
         }}
       />
       
-      <main className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gradient-to-br from-coral-50 via-orange-50 to-red-50">
         <Navbar />
         
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="pt-24 pb-4 bg-white">
+        <nav aria-label="Breadcrumb" className="pt-24 pb-4 bg-white/70 backdrop-blur">
           <Container>
             <ol className="flex items-center space-x-2 text-sm text-gray-600">
               <li>
-                <Link href="/" className="hover:text-primary-dark transition-colors">
+                <Link href="/" className="hover:text-coral-600 transition-colors">
                   Home
                 </Link>
               </li>
               <li className="text-gray-400">/</li>
               <li>
-                <Link href="/industries" className="hover:text-primary-dark transition-colors">
+                <Link href="/industries" className="hover:text-coral-600 transition-colors">
                   Industries
                 </Link>
               </li>
               <li className="text-gray-400">/</li>
-              <li className="text-primary-dark font-medium" aria-current="page">
+              <li className="text-coral-600 font-medium" aria-current="page">
                 Gadget Shop Automation
               </li>
             </ol>
@@ -274,20 +274,25 @@ export default function GadgetShopLanding() {
         {/* Hero Section */}
         <Section 
           as="header" 
-          className="pt-12 pb-16 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100"
+          className="pt-32 pb-24 relative overflow-hidden"
           role="banner"
         >
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+          <div className="absolute top-10 left-14 w-64 h-64 border-4 border-coral-200 rounded-full blur-0"></div>
+          <div className="absolute bottom-16 right-12 w-80 h-80 border-4 border-orange-200 rounded-full -rotate-6"></div>
+          <div className="absolute top-1/3 right-1/4 w-72 h-72 border-4 border-red-200 rounded-full rotate-12"></div>
+        </div>
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <ShinyText className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
+                <ShinyText className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
                   RocketFlow for Gadget Retailers in Bangladesh
                 </ShinyText>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Dominate the <span className="text-primary">Tech Market</span> with 
+                  Dominate the <span className="text-coral-500">Tech Market</span> with 
                   <br />
-                  Smart <span className="text-primary">Automation</span>
+                  Smart <span className="text-coral-500">Automation</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Transform your gadget store into the most responsive tech destination with automated pre-orders, 
@@ -299,12 +304,12 @@ export default function GadgetShopLanding() {
                 <Button 
                   variant="primary" 
                   size="lg" 
-                  className="bg-primary hover:bg-primary-dark"
+                  className="bg-coral-500 hover:bg-coral-600"
                 >
                   <RocketLaunchIcon className="w-5 h-5 mr-2 inline-block" />
                    Start Dominating
                 </Button>
-                <Button variant="outline" size="lg" className="border-primary text-primary-dark hover:bg-blue-50">
+                <Button variant="outline" size="lg" className="border-coral-500 text-coral-600 hover:bg-coral-50">
                   See How It Works
                 </Button>
               </div>
@@ -313,7 +318,7 @@ export default function GadgetShopLanding() {
                 <div className="flex items-center space-x-2">
                   <div className="flex -space-x-2">
                     {[1,2,3,4].map(i => (
-                      <div key={i} className="w-8 h-8 bg-blue-100 rounded-full border-2 border-white"></div>
+                      <div key={i} className="w-8 h-8 bg-coral-100 rounded-full border-2 border-white"></div>
                     ))}
                   </div>
                   <span>500+ Gadget Shops Served</span>
@@ -359,17 +364,17 @@ export default function GadgetShopLanding() {
               </div>
               
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary rounded-full opacity-20"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-coral-500 rounded-full opacity-20"></div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-orange-400 rounded-full opacity-20"></div>
               
               {/* Floating feature badges */}
               <div className="absolute top-4 left-4 z-20">
-                <div className="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                <div className="bg-coral-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                   Client Success
                 </div>
               </div>
               <div className="absolute top-16 left-4 z-20">
-                <div className="bg-white/90 backdrop-blur-sm text-primary-dark px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                <div className="bg-white/90 backdrop-blur-sm text-coral-600 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                   TechZone Store
                 </div>
               </div>
@@ -378,34 +383,38 @@ export default function GadgetShopLanding() {
         </Container>
       </Section>
 
-      {/* Features Bar */}
-      <Section className="py-8 bg-gray-50 border-y">
+      {/* Features Overview */}
+      <Section className="py-20 bg-white/70 backdrop-blur border-y border-white/40">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <feature.icon className="w-5 h-5 text-primary-dark" />
+              <Card
+                key={index}
+                className="h-full border-2 border-coral-100 bg-white/80 transition-all duration-300 hover:border-coral-300 hover:-translate-y-2"
+                animationDelay={index * 0.1}
+              >
+                <div className="flex items-center justify-center w-14 h-14 mb-5 rounded-xl bg-coral-100">
+                  <feature.icon className="w-6 h-6 text-coral-600" />
                 </div>
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">{feature.title}</p>
-                  <p className="text-xs text-gray-600">{feature.description}</p>
-                </div>
-              </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+              </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* Automation Services Section */}
-      <Section as="section" className="py-20" aria-labelledby="services-heading">
+      <ProvideMoreSection />
+
+  {/* Automation Services Section */}
+  <Section as="section" className="py-20 bg-gradient-to-br from-white via-coral-50 to-orange-100" aria-labelledby="services-heading">
         <Container>
           <header className="text-center space-y-4 mb-16">
-            <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
+            <p className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
               RocketFlow's Gadget Shop Solutions
             </p>
             <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-gray-900">
-              Automation for the <span className="text-primary">Fast-Paced Tech Market</span>
+              Automation for the <span className="text-coral-500">Fast-Paced Tech Market</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               From automated pre-order campaigns to 24/7 AI tech support, these 9 comprehensive automation solutions help you dominate every aspect of the gadget market in Bangladesh
@@ -436,7 +445,7 @@ export default function GadgetShopLanding() {
                   <div className="space-y-3">
                     <h3 
                       id={`service-${service.id}-title`}
-                      className="text-xl font-bold text-gray-900 group-hover:text-primary-dark transition-colors"
+                      className="text-xl font-bold text-gray-900 group-hover:text-coral-600 transition-colors"
                       itemProp="name"
                     >
                       {service.title}
@@ -444,7 +453,7 @@ export default function GadgetShopLanding() {
                     <p className="text-gray-600 leading-relaxed" itemProp="description">
                       {service.description}
                     </p>
-                    <p className="text-sm font-semibold text-primary-dark" aria-label={`Service metric: ${service.count}`}>
+                    <p className="text-sm font-semibold text-coral-600" aria-label={`Service metric: ${service.count}`}>
                       {service.count}
                     </p>
                   </div>
@@ -452,7 +461,7 @@ export default function GadgetShopLanding() {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="border-primary text-primary-dark hover:bg-primary hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="border-coral-500 text-coral-600 hover:bg-coral-500 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300"
                     aria-label={`Learn more about ${service.title}`}
                   >
                     Learn More
@@ -465,14 +474,14 @@ export default function GadgetShopLanding() {
       </Section>
 
       {/* How RocketFlow Works Section */}
-      <Section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+  <Section className="py-20 bg-gradient-to-br from-white via-coral-50 to-orange-100">
         <Container>
           <div className="text-center space-y-4 mb-16">
-            <ShinyText className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
+            <ShinyText className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
               How RocketFlow Works
             </ShinyText>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Automate Critical <span className="text-primary">Tech Market Interactions</span>
+              Automate Critical <span className="text-coral-500">Tech Market Interactions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               In the world of gadgets, the sales cycle is driven by launches, pre-orders, and technical details. 
@@ -484,21 +493,21 @@ export default function GadgetShopLanding() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                    <BellAlertIcon className="w-6 h-6 text-primary-dark" />
+                  <div className="w-12 h-12 bg-coral-100 rounded-xl flex items-center justify-center">
+                    <BellAlertIcon className="w-6 h-6 text-coral-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">Build Hype Lists Automatically</h3>
                 </div>
                 <p className="text-gray-600 text-lg leading-relaxed">
                   On your "Coming Soon" post for the new iPhone, automate replies to comments like "price" or "interested": 
-                  <span className="font-semibold text-primary-dark"> "The official price will be announced soon! Reply with 'NOTIFY ME' to be the first to get the pre-order link."</span>
+                  <span className="font-semibold text-coral-600"> "The official price will be announced soon! Reply with 'NOTIFY ME' to be the first to get the pre-order link."</span>
                 </p>
               </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+              <div className="bg-coral-50 border border-coral-200 rounded-xl p-6">
                 <h4 className="font-bold text-gray-900 mb-3">Example Success:</h4>
                 <p className="text-gray-700">
                   You tease the new Samsung Galaxy phone. Hundreds comment "price". RocketFlow builds a list of 500+ interested buyers. 
-                  On launch day, you send one broadcast and <span className="font-bold text-primary-dark">sell out your initial stock in hours</span>.
+                  On launch day, you send one broadcast and <span className="font-bold text-coral-600">sell out your initial stock in hours</span>.
                 </p>
               </div>
             </div>
@@ -507,20 +516,20 @@ export default function GadgetShopLanding() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-gray-500">FACEBOOK POST</span>
-                    <span className="text-xs bg-blue-100 text-primary-dark px-2 py-1 rounded-full group-hover:bg-blue-200 transition-colors duration-300">AUTOMATED</span>
+                    <span className="text-xs bg-coral-100 text-coral-600 px-2 py-1 rounded-full group-hover:bg-coral-200 transition-colors duration-300">AUTOMATED</span>
                   </div>
-                  <div className="border-l-4 border-primary pl-4 group-hover:border-primary-dark transition-colors duration-300">
-                    <p className="font-semibold text-gray-900 group-hover:text-primary-dark transition-colors duration-300">"iPhone 17 Coming Soon! "</p>
+                  <div className="border-l-4 border-coral-500 pl-4 group-hover:border-coral-600 transition-colors duration-300">
+                    <p className="font-semibold text-gray-900 group-hover:text-coral-700 transition-colors duration-300">"iPhone 17 Coming Soon! "</p>
                     <p className="text-gray-600 text-sm mt-1">152 comments 45 shares</p>
                   </div>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Auto-replies sent:</span>
-                      <span className="font-semibold text-primary-dark group-hover:scale-110 transition-transform duration-300">347</span>
+                      <span className="font-semibold text-coral-600 group-hover:scale-110 transition-transform duration-300">347</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Notify Me list:</span>
-                      <span className="font-semibold text-primary-dark group-hover:scale-110 transition-transform duration-300">+523 contacts</span>
+                      <span className="font-semibold text-coral-600 group-hover:scale-110 transition-transform duration-300">+523 contacts</span>
                     </div>
                   </div>
                 </div>
@@ -545,9 +554,9 @@ export default function GadgetShopLanding() {
                       <span className="font-medium">Android_User</span>
                       <span className="text-sm text-gray-600">2,156 customers</span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200 group-hover:bg-blue-100 group-hover:border-blue-300 transition-colors duration-300">
-                      <span className="font-medium text-primary-dark group-hover:text-gray-900 transition-colors duration-300">Smartwatch_Enthusiast</span>
-                      <span className="text-sm text-primary-dark group-hover:text-primary-dark transition-colors duration-300">856 customers</span>
+                    <div className="flex items-center justify-between p-3 bg-coral-50 rounded-lg border border-coral-200 group-hover:bg-coral-100 group-hover:border-coral-300 transition-colors duration-300">
+                      <span className="font-medium text-coral-700 group-hover:text-coral-800 transition-colors duration-300">Smartwatch_Enthusiast</span>
+                      <span className="text-sm text-coral-600 group-hover:text-coral-700 transition-colors duration-300">856 customers</span>
                     </div>
                   </div>
                 </div>
@@ -621,271 +630,26 @@ export default function GadgetShopLanding() {
                 <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 group-hover:text-primary-dark transition-colors duration-300">{item.title}</h4>
+                <h4 className="text-lg font-bold text-gray-900 group-hover:text-coral-600 transition-colors duration-300">{item.title}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                <div className="bg-gray-50 rounded-lg p-3 group-hover:bg-blue-50 transition-colors duration-300">
-                  <p className="text-primary-dark font-bold group-hover:text-primary-dark transition-colors duration-300">{item.impact}</p>
+                <div className="bg-gray-50 rounded-lg p-3 group-hover:bg-coral-50 transition-colors duration-300">
+                  <p className="text-coral-600 font-bold group-hover:text-coral-700 transition-colors duration-300">{item.impact}</p>
                 </div>
               </Card>
             ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Featured Products */}
-      <Section className="py-20 bg-gray-50">
-        <Container>
-          <div className="text-center space-y-4 mb-16">
-            <ShinyText className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
-              Client Success Stories
-            </ShinyText>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Proven <span className="text-primary">Results</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              See how we've helped gadget retailers in Bangladesh achieve remarkable growth and dominate the tech market
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {successStories.map((story, index) => (
-              <Card
-                key={story.id}
-                className={`group relative overflow-hidden ${
-                  hoveredProduct === story.id ? 'rotate-1' : ''
-                }`}
-                hover={true}
-                tiltEffect={true}
-                padding="sm"
-                animationDelay={index * 0.1}
-                onMouseEnter={() => setHoveredProduct(story.id)}
-                onMouseLeave={() => setHoveredProduct(null)}
-              >
-                {/* Background Overlay */}
-                <div className="absolute inset-0 bg-blue-50/50 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 rounded-3xl"></div>
-                
-                {/* Badge */}
-                {story.badge && (
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-primary text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse group-hover:animate-none transform group-hover:scale-110 transition-all duration-300">
-                      {story.badge}
-                    </span>
-                  </div>
-                )}
-
-                {/* Heart Icon */}
-                <button className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white transform hover:scale-110">
-                  <HeartIcon className="w-5 h-5" />
-                </button>
-
-                {/* Header Section with Icon */}
-                <div className="relative h-24 bg-primary overflow-hidden flex items-center justify-center">
-                  {/* Company Initial Circle */}
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500 group-hover:rotate-12 transform">
-                    <span className="text-2xl font-bold text-primary-dark group-hover:scale-110 transition-all duration-300">
-                      {story.name.charAt(0)}
-                    </span>
-                  </div>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute -top-8 -right-8 w-20 h-20 bg-white/20 rounded-full opacity-50 group-hover:opacity-70 transition-all duration-500 group-hover:scale-125"></div>
-                  <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-white/10 rounded-full opacity-40 group-hover:opacity-60 transition-all duration-500 group-hover:scale-110"></div>
-                  
-                  {/* Floating sparkles */}
-                  <div className="absolute top-4 right-4">
-                    <SparklesIcon className="w-6 h-6 text-white/60 opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse transform group-hover:rotate-45 group-hover:scale-125" />
-                  </div>
-                  
-                  {/* Growth arrow indicator */}
-                  <div className="absolute bottom-2 left-2">
-                    <div className="flex items-center space-x-1 text-white/80 text-xs font-medium transform group-hover:scale-110 transition-all duration-300">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse group-hover:scale-150 transition-all duration-300"></div>
-                      <span>Success Story</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="relative p-6 space-y-4">
-                  {/* Company Name & Rating */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-dark transition-colors duration-300 transform group-hover:scale-105 group-hover:translate-x-1">
-                        {story.name}
-                      </h3>
-                      <div className="flex items-center space-x-1">
-                        <div className="flex items-center">
-                          {[...Array(5)].map((_, i) => (
-                            <StarIcon 
-                              key={i} 
-                              className={`w-4 h-4 transition-all duration-300 transform ${
-                                i < Math.floor(story.rating) 
-                                  ? 'fill-yellow-400 text-yellow-400 group-hover:scale-125 group-hover:rotate-12' 
-                                  : 'text-gray-300'
-                              }`}
-                              style={{ transitionDelay: `${i * 75}ms` }}
-                            />
-                          ))}
-                        </div>
-                        <span className="text-sm font-semibold text-gray-700 ml-1 transform group-hover:scale-110 transition-all duration-300">{story.rating}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium border border-green-200 transform group-hover:scale-105 group-hover:bg-green-200 transition-all duration-300">
-                        Γ£ô {story.reviews}
-                      </span>
-                      <span className="text-xs text-gray-500 font-medium transform group-hover:scale-105 group-hover:text-primary-dark transition-all duration-300">
-                        Case Study #{story.id}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Features Tags */}
-                  <div className="space-y-2">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Solutions Used:</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {story.features.slice(0, 2).map((feature, featureIndex) => (
-                        <span 
-                          key={featureIndex} 
-                          className="text-xs bg-blue-100 text-primary-dark px-2.5 py-1 rounded-full font-medium border border-blue-200 group-hover:bg-blue-200 transition-colors duration-300"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                      {story.features.length > 2 && (
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium border border-gray-200 group-hover:bg-gray-200 transition-colors duration-300">
-                          +{story.features.length - 2} more
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Results Section */}
-                  <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100 group-hover:bg-blue-100 transition-all duration-300 transform group-hover:scale-105">
-                    <div className="text-center space-y-1">
-                      <div className="text-2xl font-bold text-primary-dark transform group-hover:scale-110 transition-all duration-300">
-                        {story.result}
-                      </div>
-                      <div className="text-sm text-gray-600 font-medium flex items-center justify-center space-x-1 transform group-hover:scale-105 transition-all duration-300">
-                        <ClockIcon className="w-3 h-3 transform group-hover:rotate-180 transition-all duration-500" />
-                        <span>{story.timeframe}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Action Button */}
-                  <div className="pt-2">
-                    <button className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 flex items-center justify-center space-x-2">
-                      <span>View Full Case Study</span>
-                      <ChartBarSquareIcon className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Hover Effect Border Glow */}
-                <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-blue-300 transition-all duration-300 pointer-events-none group-hover:shadow-xl" style={{ boxShadow: '0 25px 50px -12px rgba(248, 113, 113, 0.25)' }}></div>
-                
-                {/* Subtle shine effect on hover */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none transform group-hover:scale-105"></div>
-                
-                {/* Floating animation elements */}
-                <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary-light rounded-full opacity-0 group-hover:opacity-60 transition-all duration-700 transform group-hover:translate-y-1 group-hover:translate-x-1"></div>
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-500 transform group-hover:-translate-y-1 group-hover:-translate-x-1"></div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="border-primary text-primary-dark hover:bg-primary hover:text-white">
-              View All Success Stories
-            </Button>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Tech Specs Section */}
-      <Section className="py-20">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <ShinyText className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
-                  Why RocketFlow for Gadget Shops
-                </ShinyText>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  Your 24/7 <span className="text-primary">Automated Sales Expert</span>
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  In a fast-paced market like Bangladesh, speed, trust, and managing product hype are everything. 
-                  RocketFlow acts as your automated operations manager, designed to capitalize on the unique dynamics of the tech market.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {[
-                  { icon: BellAlertIcon, title: 'Run Powerful Pre-Order Campaigns', desc: 'Build automated hype lists for new product launches and maximize sales' },
-                  { icon: TagIcon, title: 'Smart Tech Segmentation', desc: 'Target customers by brand allegiance and product category preferences' },
-                  { icon: CurrencyDollarIcon, title: 'Automated Upselling', desc: 'Boost AOV with accessory recommendations and cart recovery sequences' },
-                  { icon: PhoneIcon, title: '24/7 AI Tech Expert', desc: 'Answer endless spec and availability questions automatically' }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-primary-dark" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
-                      <p className="text-gray-600">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-primary rounded-2xl p-8 text-white">
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <GlobeAltIcon className="w-8 h-8" />
-                    <h3 className="text-2xl font-bold">Omnichannel Experience</h3>
-                  </div>
-                  <p className="text-blue-100">
-                    Connect your customer journey across Facebook, SMS, Email, and WhatsApp to create a seamless 
-                    experience from product discovery to post-purchase support.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                      <span>Product launch management</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                      <span>Instant technical support</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                      <span>Sales & trend analytics</span>
-                    </div>
-                  </div>
-                  <Button variant="secondary" className="bg-white text-primary-dark hover:bg-blue-50">
-                    Get Started
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         </Container>
       </Section>
 
       {/* Benefits Summary Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-20 bg-white/80 backdrop-blur">
         <Container>
           <div className="text-center space-y-4 mb-16">
-            <ShinyText className="text-primary-dark font-semibold text-sm uppercase tracking-wider">
+            <ShinyText className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
               Complete Solution Overview
             </ShinyText>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Transform Every Challenge into <span className="text-primary">Growth Opportunity</span>
+              Transform Every Challenge into <span className="text-coral-500">Growth Opportunity</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See how RocketFlow solves the biggest challenges facing gadget retailers in Bangladesh's competitive market
@@ -894,7 +658,7 @@ export default function GadgetShopLanding() {
 
           <div className="overflow-x-auto">
             <table className="w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-              <thead className="bg-primary text-white">
+              <thead className="bg-coral-500 text-white">
                 <tr>
                   <th className="px-6 py-4 text-left font-bold">Category</th>
                   <th className="px-6 py-4 text-left font-bold">Problem</th>
@@ -906,7 +670,7 @@ export default function GadgetShopLanding() {
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-3">
-                      <BellAlertIcon className="w-6 h-6 text-primary" />
+                      <BellAlertIcon className="w-6 h-6 text-coral-500" />
                       <div>
                         <p className="font-semibold text-gray-900">Product Launches</p>
                       </div>
@@ -1010,7 +774,7 @@ export default function GadgetShopLanding() {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-blue-100 rounded-2xl p-8 border border-blue-200">
+            <div className="bg-coral-100 rounded-2xl p-8 border border-coral-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">The Complete Omnichannel Experience</h3>
               <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
                 A customer discovers a product on Facebook, asks questions via Messenger, gets pre-order alerts via SMS, 
@@ -1018,15 +782,15 @@ export default function GadgetShopLanding() {
               </p>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="flex items-center space-x-3">
-                  <CheckCircleIcon className="w-6 h-6 text-primary-dark" />
+                  <CheckCircleIcon className="w-6 h-6 text-coral-600" />
                   <span className="font-semibold text-gray-800">Modern, professional experience</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircleIcon className="w-6 h-6 text-primary-dark" />
+                  <CheckCircleIcon className="w-6 h-6 text-coral-600" />
                   <span className="font-semibold text-gray-800">Builds immense customer trust</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircleIcon className="w-6 h-6 text-primary-dark" />
+                  <CheckCircleIcon className="w-6 h-6 text-coral-600" />
                   <span className="font-semibold text-gray-800">Smooth discovery-to-support journey</span>
                 </div>
               </div>
@@ -1035,22 +799,266 @@ export default function GadgetShopLanding() {
         </Container>
       </Section>
 
+  {/* Client Success Stories */}
+  <Section className="py-20 bg-gradient-to-br from-white via-coral-50 to-orange-100">
+        <Container>
+          <div className="text-center space-y-4 mb-16">
+            <ShinyText className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
+              Client Success Stories
+            </ShinyText>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Proven <span className="text-coral-500">Results</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              See how we've helped gadget retailers in Bangladesh achieve remarkable growth and dominate the tech market
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {successStories.map((story, index) => (
+              <Card
+                key={story.id}
+                className={`group relative overflow-hidden ${
+                  hoveredProduct === story.id ? 'rotate-1' : ''
+                }`}
+                hover={true}
+                tiltEffect={true}
+                padding="sm"
+                animationDelay={index * 0.1}
+                onMouseEnter={() => setHoveredProduct(story.id)}
+                onMouseLeave={() => setHoveredProduct(null)}
+              >
+                {/* Background Overlay */}
+                <div className="absolute inset-0 bg-coral-50/50 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 rounded-3xl"></div>
+                
+                {/* Badge */}
+                {story.badge && (
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="bg-coral-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse group-hover:animate-none transform group-hover:scale-110 transition-all duration-300">
+                      {story.badge}
+                    </span>
+                  </div>
+                )}
+
+                {/* Heart Icon */}
+                <button className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-coral-500 hover:text-white transform hover:scale-110">
+                  <HeartIcon className="w-5 h-5" />
+                </button>
+
+                {/* Header Section with Icon */}
+                <div className="relative h-24 bg-coral-500 overflow-hidden flex items-center justify-center">
+                  {/* Company Initial Circle */}
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500 group-hover:rotate-12 transform">
+                    <span className="text-2xl font-bold text-coral-600 group-hover:scale-110 transition-all duration-300">
+                      {story.name.charAt(0)}
+                    </span>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute -top-8 -right-8 w-20 h-20 bg-white/20 rounded-full opacity-50 group-hover:opacity-70 transition-all duration-500 group-hover:scale-125"></div>
+                  <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-white/10 rounded-full opacity-40 group-hover:opacity-60 transition-all duration-500 group-hover:scale-110"></div>
+                  
+                  {/* Floating sparkles */}
+                  <div className="absolute top-4 right-4">
+                    <SparklesIcon className="w-6 h-6 text-white/60 opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse transform group-hover:rotate-45 group-hover:scale-125" />
+                  </div>
+                  
+                  {/* Growth arrow indicator */}
+                  <div className="absolute bottom-2 left-2">
+                    <div className="flex items-center space-x-1 text-white/80 text-xs font-medium transform group-hover:scale-110 transition-all duration-300">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse group-hover:scale-150 transition-all duration-300"></div>
+                      <span>Success Story</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="relative p-6 space-y-4">
+                  {/* Company Name & Rating */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-coral-600 transition-colors duration-300 transform group-hover:scale-105 group-hover:translate-x-1">
+                        {story.name}
+                      </h3>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <StarIcon 
+                              key={i} 
+                              className={`w-4 h-4 transition-all duration-300 transform ${
+                                i < Math.floor(story.rating) 
+                                  ? 'fill-yellow-400 text-yellow-400 group-hover:scale-125 group-hover:rotate-12' 
+                                  : 'text-gray-300'
+                              }`}
+                              style={{ transitionDelay: `${i * 75}ms` }}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm font-semibold text-gray-700 ml-1 transform group-hover:scale-110 transition-all duration-300">{story.rating}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium border border-green-200 transform group-hover:scale-105 group-hover:bg-green-200 transition-all duration-300">
+                        Γ£ô {story.reviews}
+                      </span>
+                      <span className="text-xs text-gray-500 font-medium transform group-hover:scale-105 group-hover:text-coral-600 transition-all duration-300">
+                        Case Study #{story.id}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Features Tags */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Solutions Used:</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {story.features.slice(0, 2).map((feature, featureIndex) => (
+                        <span 
+                          key={featureIndex} 
+                          className="text-xs bg-coral-100 text-coral-700 px-2.5 py-1 rounded-full font-medium border border-coral-200 group-hover:bg-coral-200 transition-colors duration-300"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                      {story.features.length > 2 && (
+                        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium border border-gray-200 group-hover:bg-gray-200 transition-colors duration-300">
+                          +{story.features.length - 2} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Results Section */}
+                  <div className="bg-coral-50 rounded-2xl p-4 border border-coral-100 group-hover:bg-coral-100 transition-all duration-300 transform group-hover:scale-105">
+                    <div className="text-center space-y-1">
+                      <div className="text-2xl font-bold text-coral-600 transform group-hover:scale-110 transition-all duration-300">
+                        {story.result}
+                      </div>
+                      <div className="text-sm text-gray-600 font-medium flex items-center justify-center space-x-1 transform group-hover:scale-105 transition-all duration-300">
+                        <ClockIcon className="w-3 h-3 transform group-hover:rotate-180 transition-all duration-500" />
+                        <span>{story.timeframe}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="pt-2">
+                    <button className="w-full bg-coral-500 hover:bg-coral-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 flex items-center justify-center space-x-2">
+                      <span>View Full Case Study</span>
+                      <ChartBarSquareIcon className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Hover Effect Border Glow */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-coral-300 transition-all duration-300 pointer-events-none group-hover:shadow-xl" style={{ boxShadow: '0 25px 50px -12px rgba(248, 113, 113, 0.25)' }}></div>
+                
+                {/* Subtle shine effect on hover */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none transform group-hover:scale-105"></div>
+                
+                {/* Floating animation elements */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-coral-400 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-700 transform group-hover:translate-y-1 group-hover:translate-x-1"></div>
+                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-500 transform group-hover:-translate-y-1 group-hover:-translate-x-1"></div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg" className="border-coral-500 text-coral-600 hover:bg-coral-500 hover:text-white">
+              View All Success Stories
+            </Button>
+          </div>
+        </Container>
+      </Section>
+
+  {/* Tech Specs Section */}
+  <Section className="py-20 bg-white/80 backdrop-blur">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <ShinyText className="text-coral-600 font-semibold text-sm uppercase tracking-wider">
+                  Why RocketFlow for Gadget Shops
+                </ShinyText>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  Your 24/7 <span className="text-coral-500">Automated Sales Expert</span>
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  In a fast-paced market like Bangladesh, speed, trust, and managing product hype are everything. 
+                  RocketFlow acts as your automated operations manager, designed to capitalize on the unique dynamics of the tech market.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  { icon: BellAlertIcon, title: 'Run Powerful Pre-Order Campaigns', desc: 'Build automated hype lists for new product launches and maximize sales' },
+                  { icon: TagIcon, title: 'Smart Tech Segmentation', desc: 'Target customers by brand allegiance and product category preferences' },
+                  { icon: CurrencyDollarIcon, title: 'Automated Upselling', desc: 'Boost AOV with accessory recommendations and cart recovery sequences' },
+                  { icon: PhoneIcon, title: '24/7 AI Tech Expert', desc: 'Answer endless spec and availability questions automatically' }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-coral-100 rounded-xl flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-coral-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                      <p className="text-gray-600">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-coral-500 rounded-2xl p-8 text-white">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <GlobeAltIcon className="w-8 h-8" />
+                    <h3 className="text-2xl font-bold">Omnichannel Experience</h3>
+                  </div>
+                  <p className="text-coral-100">
+                    Connect your customer journey across Facebook, SMS, Email, and WhatsApp to create a seamless 
+                    experience from product discovery to post-purchase support.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span>Product launch management</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span>Instant technical support</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span>Sales & trend analytics</span>
+                    </div>
+                  </div>
+                  <Button variant="secondary" className="bg-white text-coral-600 hover:bg-coral-50">
+                    Get Started
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
       {/* CTA Section */}
-      <Section className="py-20 bg-primary">
+      <Section className="py-20 bg-coral-500">
         <Container>
           <div className="text-center text-white space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold">
               Ready to Dominate the Tech Market?
             </h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            <p className="text-xl text-coral-100 max-w-2xl mx-auto">
               Join hundreds of successful gadget retailers in Bangladesh who have transformed their businesses 
               with RocketFlow's automated sales and marketing solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="bg-white text-primary-dark hover:bg-blue-50">
+              <Button variant="secondary" size="lg" className="bg-white text-coral-600 hover:bg-coral-50">
                 Start Your 7-Day Free Trial
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-dark">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-coral-600">
                 Schedule a Demo
               </Button>
             </div>
@@ -1058,7 +1066,7 @@ export default function GadgetShopLanding() {
         </Container>
       </Section>
         <Footer />
-      </main>
+      </div>
     </>
   );
 }

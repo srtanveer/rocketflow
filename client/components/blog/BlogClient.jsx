@@ -39,7 +39,7 @@ function PostCard({ post }) {
           </div>
 
           <div className="mt-4 flex-1 flex flex-col">
-            <h3 id={`post-${post.id}-title`} className="text-lg font-bold text-gray-900 group-hover:text-primary-dark transition-colors">
+            <h3 id={`post-${post.id}-title`} className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
               {post.title}
             </h3>
             <p className="text-sm text-gray-600 mt-2 line-clamp-3">{post.excerpt}</p>
@@ -144,7 +144,7 @@ export default function BlogClient() {
 
   return (
     <main>
-      <Section className="pt-20 pb-8">
+      <Section className="pt-20 pb-8 bg-gradient-to-b from-blue-50 to-white">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900">RocketFlow Blog</h1>
@@ -154,14 +154,14 @@ export default function BlogClient() {
               <label className="sr-only" htmlFor="search">Search posts</label>
               <input
                 id="search"
-                className="flex-1 rounded-lg border border-gray-200 p-3 shadow-sm"
+                className="flex-1 rounded-lg border border-blue-200 p-3 shadow-sm focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Search by title, excerpt or tag..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Search posts"
               />
 
-              <select className="rounded-lg border border-gray-200 p-3 bg-white" value={service} onChange={(e) => setService(e.target.value)} aria-label="Filter by service">
+              <select className="rounded-lg border border-blue-200 p-3 bg-white focus:ring-2 focus:ring-blue-600" value={service} onChange={(e) => setService(e.target.value)} aria-label="Filter by service">
                 {services.map((s) => (
                   <option key={s} value={s}>{s === 'all' ? 'All Services' : s}</option>
                 ))}
@@ -174,7 +174,7 @@ export default function BlogClient() {
                 <button
                   key={t}
                   onClick={() => toggleTag(t)}
-                  className={`text-xs px-3 py-1 rounded-full border ${selectedTags.includes(t) ? 'bg-primary text-white border-primary' : 'bg-white text-gray-700 border-gray-200'}`} 
+                  className={`text-xs px-3 py-1 rounded-full border ${selectedTags.includes(t) ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-blue-200 hover:border-blue-600'}`} 
                   aria-pressed={selectedTags.includes(t)}
                 >
                   {t}
@@ -185,7 +185,7 @@ export default function BlogClient() {
         </Container>
       </Section>
 
-      <Section className="pb-12">
+      <Section className="pb-12 bg-white">
         <Container>
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
@@ -245,8 +245,8 @@ export default function BlogClient() {
                 <h3 className="text-lg font-semibold text-gray-900">Subscribe</h3>
                 <p className="text-sm text-gray-600 mt-2">Get the latest posts to your inbox.</p>
                 <div className="mt-3 flex gap-2">
-                  <input className="flex-1 rounded-lg border border-gray-200 p-2" placeholder="you@company.com" aria-label="Email for blog subscription" />
-                  <button className="bg-primary text-white px-4 rounded-lg">Subscribe</button>
+                  <input className="flex-1 rounded-lg border border-blue-200 p-2 focus:ring-2 focus:ring-blue-600" placeholder="you@company.com" aria-label="Email for blog subscription" />
+                  <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 rounded-lg hover:from-blue-700 hover:to-blue-800">Subscribe</button>
                 </div>
               </div>
             </aside>

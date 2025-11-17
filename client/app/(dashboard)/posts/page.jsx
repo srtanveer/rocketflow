@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import { cn } from '../../../lib/utils'
 import Container from '../../../components/ui/Container'
 import Section from '../../../components/ui/Section'
@@ -10,8 +11,11 @@ import { fetchPosts, deletePost } from '../../../components/admin/api'
 import { toast } from 'react-toastify'
 import confirmWithToast from '../../../components/ui/confirmWithToast'
 import { createPost } from '../../../components/admin/api'
-import dynamic from 'next/dynamic'
-const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), { ssr: false })
+
+const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), {
+  ssr: false,
+  loading: () => <div className="border rounded-xl p-4 bg-white min-h-[200px] flex items-center justify-center text-gray-400">Loading editor...</div>
+})
 
 // Minimal Tabs implementation (stable at module scope)
 function Tabs({ children }) {
@@ -36,7 +40,7 @@ function Tabs({ children }) {
           <button
             key={p.props.name}
             onClick={() => setActive(p.props.name)}
-            className={cn('px-3 py-1 rounded', active === p.props.name ? 'bg-primary text-white' : 'bg-gray-100')}
+            className={cn('px-3 py-1 rounded', active === p.props.name ? 'bg-coral-500 text-white' : 'bg-gray-100')}
             type="button"
             tabIndex={-1}
             aria-pressed={active === p.props.name}
@@ -218,7 +222,7 @@ export default function PostsPage() {
                     {posts.map((p) => (
                       <div key={p.id} className="bg-white p-4 rounded shadow flex items-center justify-between">
                         <div>
-                          <div className="font-semibold text-primary-dark">{p.title}</div>
+                          <div className="font-semibold text-coral-600">{p.title}</div>
                           <div className="text-sm text-gray-500">{p.slug} • {new Date(p.date).toLocaleString()}</div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -235,7 +239,7 @@ export default function PostsPage() {
                 <h3 className="font-semibold text-lg mb-4">Create New Post</h3>
                 <form onSubmit={doCreate} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input ref={titleRef} placeholder="Title" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-primary" value={newPost.title} onChange={(e) => {
+                    <input ref={titleRef} placeholder="Title" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-coral-500" value={newPost.title} onChange={(e) => {
                       const t = e.target.value
                       setNewPost((prev) => ({ ...prev, title: t, slug: slugEdited ? prev.slug : slugify(t) }))
                     }} required onKeyDown={(e) => {
@@ -244,9 +248,9 @@ export default function PostsPage() {
                         slugRef.current && slugRef.current.focus()
                       }
                     }} />
-                    <input ref={slugRef} placeholder="Slug" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-primary" value={newPost.slug} onChange={(e) => { setNewPost({ ...newPost, slug: e.target.value }); setSlugEdited(true) }} required />
+                    <input ref={slugRef} placeholder="Slug" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-coral-500" value={newPost.slug} onChange={(e) => { setNewPost({ ...newPost, slug: e.target.value }); setSlugEdited(true) }} required />
                   </div>
-                  <input placeholder="Excerpt" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-primary" value={newPost.excerpt} onChange={(e) => setNewPost({ ...newPost, excerpt: e.target.value })} />
+                  <input placeholder="Excerpt" className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-coral-500" value={newPost.excerpt} onChange={(e) => setNewPost({ ...newPost, excerpt: e.target.value })} />
                   <BlogEditor value={editorContent} onChange={setEditorContent} onImageUpload={handleImageUpload} />
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">Featured image <span className="text-red-600">*</span></label>
@@ -260,7 +264,7 @@ export default function PostsPage() {
                       </div>
                       <div className="flex flex-col gap-2">
                         <div className="flex gap-2">
-                          <button type="button" onClick={() => featuredInputRef.current.click()} className="bg-primary text-white px-3 py-1 rounded text-sm">Upload featured image</button>
+                          <button type="button" onClick={() => featuredInputRef.current.click()} className="bg-coral-500 text-white px-3 py-1 rounded text-sm">Upload featured image</button>
                           <button type="button" onClick={() => setNewPost({ ...newPost, featuredImage: '' })} className="bg-gray-100 px-3 py-1 rounded text-sm">Remove</button>
                         </div>
                         <div className="text-xs text-gray-500">Recommended: 1200x700px. Featured image is required.</div>
@@ -269,11 +273,11 @@ export default function PostsPage() {
                     <input type="file" accept="image/*" ref={featuredInputRef} style={{ display: 'none' }} onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFeaturedUploadFile(f) }} />
                   </div>
                   <div className="flex gap-3">
-                    <button className="bg-primary text-white px-5 py-2 rounded font-semibold shadow hover:bg-primary-dark transition">Create Post</button>
+                    <button className="bg-coral-500 text-white px-5 py-2 rounded font-semibold shadow hover:bg-coral-600 transition">Create Post</button>
                     <button type="button" onClick={() => setPreviewOpen(!previewOpen)} className="bg-gray-100 text-gray-800 px-4 py-2 rounded">Preview</button>
                   </div>
                 </form>
-                {statusCreate && <div className="mt-4 text-sm text-primary-dark">{statusCreate}</div>}
+                {statusCreate && <div className="mt-4 text-sm text-coral-600">{statusCreate}</div>}
                 {previewOpen && (
                   <div className="mt-6 p-4 border rounded bg-gray-50 overflow-hidden">
                     <h4 className="text-xl font-semibold">Preview: {newPost.title || 'Untitled'}</h4>

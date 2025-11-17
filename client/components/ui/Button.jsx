@@ -12,10 +12,10 @@ const Button = ({
   const baseClasses = "font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary-dark focus:ring-primary hover:scale-105",
-    secondary: "border border-gray-300 text-gray-700 hover:border-primary hover:text-primary bg-white",
-    outline: "border border-primary text-primary hover:bg-primary hover:text-white",
-    ghost: "text-gray-600 hover:text-primary hover:bg-gray-100"
+    primary: "bg-coral-500 text-white hover:bg-coral-600 focus:ring-coral-500 hover:scale-105",
+    secondary: "border border-gray-300 text-gray-700 hover:border-coral-500 hover:text-coral-500 bg-white",
+    outline: "border border-coral-500 text-coral-500 hover:bg-coral-500 hover:text-white",
+    ghost: "text-gray-600 hover:text-coral-500 hover:bg-gray-100"
   };
   
   const sizes = {

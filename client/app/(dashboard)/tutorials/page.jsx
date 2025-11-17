@@ -2,14 +2,18 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import Container from '../../../components/ui/Container'
 import Section from '../../../components/ui/Section'
 import { AdminSidebar } from '../../../components/admin/AdminSidebar'
-import dynamic from 'next/dynamic'
-const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), { ssr: false })
 import { fetchTutorials, createTutorial, deleteTutorial } from '../../../components/admin/api'
 import confirmWithToast from '../../../components/ui/confirmWithToast'
 import { toast } from 'react-toastify'
+
+const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), {
+  ssr: false,
+  loading: () => <div className="border rounded-xl p-4 bg-white min-h-[200px] flex items-center justify-center text-gray-400">Loading editor...</div>
+})
 
 function slugify(text = '') {
   return text
@@ -104,7 +108,7 @@ export default function TutorialsPage() {
                     {items.map(i => (
                       <div key={i.id} className="bg-white p-3 rounded shadow flex items-center justify-between">
                         <div>
-                          <div className="font-semibold text-primary-dark">{i.title}</div>
+                          <div className="font-semibold text-coral-600">{i.title}</div>
                           <div className="text-sm text-gray-500">{i.slug} • {new Date(i.date).toLocaleString()}</div>
                         </div>
                         <div className="flex gap-2">
@@ -133,8 +137,8 @@ export default function TutorialsPage() {
                   </div>
 
                   <div className="flex gap-3">
-                    <button className="bg-primary text-white px-5 py-2 rounded">Create</button>
-                    <div className="text-sm text-primary-dark">{status}</div>
+                    <button className="bg-coral-500 text-white px-5 py-2 rounded">Create</button>
+                    <div className="text-sm text-coral-600">{status}</div>
                   </div>
                 </form>
               </div>

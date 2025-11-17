@@ -7,37 +7,37 @@ const Footer = () => {
     services: {
       title: 'Services',
       links: [
-        { name: 'AI Chatbots', href: '#' },
-        { name: 'Auto Reply Systems', href: '#' },
-        { name: 'Website Development', href: '#' },
-        { name: 'Mobile Applications', href: '#' },
+        { name: 'AI Chatbots', href: '/tutorial' },
+        { name: 'Auto Reply Systems', href: '/corporate-office' },
+        { name: 'Website Development', href: '/corporate-office' },
+        { name: 'Mobile Applications', href: '/corporate-office' },
       ]
     },
     industries: {
       title: 'Industries',
       links: [
-        { name: 'Photography', href: '#' },
-        { name: 'Education', href: '#' },
-        { name: 'Hotels & Resorts', href: '#' },
-        { name: 'E-commerce', href: '#' },
+        { name: 'Photography', href: '/photography' },
+        { name: 'Education', href: '/education' },
+        { name: 'Hotels & Resorts', href: '/hotel-and-resort' },
+        { name: 'E-commerce', href: '/ecommerce' },
       ]
     },
     company: {
       title: 'Company',
       links: [
-        { name: 'About Us', href: '#' },
-        { name: 'Our Team', href: '#' },
-        { name: 'Careers', href: '#' },
-        { name: 'Blog', href: '#' },
+        { name: 'About Us', href: '/corporate-office' },
+        { name: 'Our Team', href: '/corporate-office' },
+        { name: 'Careers', href: '/corporate-office' },
+        { name: 'Blog', href: '/blog' },
       ]
     },
     support: {
       title: 'Support',
       links: [
-        { name: 'Help Center', href: '#' },
-        { name: 'Contact Us', href: '#' },
-        { name: 'Documentation', href: '#' },
-        { name: 'API Reference', href: '#' },
+        { name: 'Help Center', href: '/tutorial' },
+        { name: 'Contact Us', href: '/contact' },
+        { name: 'Documentation', href: '/tutorial' },
+        { name: 'API Reference', href: '/tutorial' },
       ]
     }
   };
@@ -82,13 +82,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-gradient-to-b from-white to-blue-50 border-t border-blue-200">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="col-span-2 lg:col-span-1">
-            <div className="text-2xl font-bold text-gray-800 mb-4">
+            <div className="text-2xl font-bold text-blue-600 mb-4">
               RocketFlow
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
@@ -101,7 +101,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-primary transition-colors duration-200"
+                  className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -113,7 +113,7 @@ const Footer = () => {
           {/* Footer Links */}
           {Object.entries(footerSections).map(([key, section]) => (
             <div key={key}>
-              <h3 className="text-sm font-semibold text-gray-800 tracking-wider uppercase mb-4">
+              <h3 className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
                 {section.title}
               </h3>
               <ul className="space-y-3">
@@ -121,7 +121,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-primary transition-colors duration-200"
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
                     >
                       {link.name}
                     </a>
@@ -133,7 +133,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-blue-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
@@ -148,9 +148,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-full sm:w-64"
+                className="px-4 py-2 border border-blue-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent w-full sm:w-64"
               />
-              <button className="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-all duration-200 hover:scale-105">
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
                 Subscribe
               </button>
             </div>
@@ -158,20 +158,20 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-8 pt-8 border-t border-gray-200">
+        <div className="mt-8 pt-8 border-t border-blue-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-gray-500 mb-4 md:mb-0">
               © {currentYear} RocketFlow. All rights reserved.
             </div>
             
             <div className="flex space-x-6 text-sm text-gray-500">
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <a href="#" className="hover:text-blue-600 transition-colors duration-200">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <a href="#" className="hover:text-blue-600 transition-colors duration-200">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <a href="#" className="hover:text-blue-600 transition-colors duration-200">
                 Cookie Policy
               </a>
             </div>

@@ -4,7 +4,6 @@ const nextConfig = {
   output: 'standalone',
   
   // Enable experimental features for better SEO
-  output: 'standalone',
   experimental: {
     // Disable CSS optimization temporarily due to critters dependency issue
     // optimizeCss: true,

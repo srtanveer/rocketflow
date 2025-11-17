@@ -1,4 +1,4 @@
-const prisma = require('../db')
+const { pool, generateId } = require('../db')
 let sanitizeHtml
 try { sanitizeHtml = require('sanitize-html') } catch (e) { sanitizeHtml = null }
 
@@ -23,15 +23,54 @@ function normalizeSteps(s) {
   return []
 }
 
+function normalizeTags(t) {
+  if (!t) return []
+  if (Array.isArray(t)) return t
+  if (typeof t === 'string') {
+    try {
+      const parsed = JSON.parse(t)
+      return Array.isArray(parsed) ? parsed : parsed ? [parsed] : []
+    } catch (e) {
+      return t.split(',').map(s => s.trim()).filter(Boolean)
+    }
+  }
+  return []
+}
+
 exports.list = async (req, res) => {
-  const items = await prisma.tutorial.findMany({ orderBy: { date: 'desc' } })
-  res.json(items)
+  try {
+    const [items] = await pool.query('SELECT * FROM Tutorial ORDER BY date DESC')
+    
+    // Parse JSON fields
+    const parsed = items.map(item => ({
+      ...item,
+      tags: typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags,
+      steps: typeof item.steps === 'string' ? JSON.parse(item.steps) : item.steps
+    }))
+    
+    res.json(parsed)
+  } catch (err) {
+    console.error('List tutorials error:', err)
+    return res.status(500).json({ error: 'Failed to fetch tutorials' })
+  }
 }
 
 exports.get = async (req, res) => {
-  const item = await prisma.tutorial.findUnique({ where: { slug: req.params.slug } })
-  if (!item) return res.status(404).json({ error: 'Not found' })
-  res.json(item)
+  try {
+    const [rows] = await pool.query('SELECT * FROM Tutorial WHERE slug = ?', [req.params.slug])
+    const item = rows[0]
+    
+    if (!item) return res.status(404).json({ error: 'Tutorial not found' })
+    
+    // Parse JSON fields
+    item.tags = typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags
+    item.steps = typeof item.steps === 'string' ? JSON.parse(item.steps) : item.steps
+    
+    res.json(item)
+  } catch (err) {
+    console.error('Get tutorial error:', err)
+    return res.status(500).json({ error: 'Failed to fetch tutorial' })
+  }
 }
 
 exports.create = async (req, res) => {
@@ -52,12 +91,25 @@ exports.create = async (req, res) => {
     }
     if (content) content = safeSanitize(content)
 
-    const data = { title, slug, excerpt: excerpt || '', content: content || '', author, tags: tags || [], videoUrl, steps }
-    const item = await prisma.tutorial.create({ data })
+    const id = generateId()
+    const date = new Date()
+    const normalizedTags = JSON.stringify(normalizeTags(tags))
+    const normalizedSteps = JSON.stringify(steps)
+
+    await pool.query(
+      'INSERT INTO Tutorial (id, slug, title, excerpt, content, date, author, tags, videoUrl, steps) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [id, slug, title, excerpt || '', content || '', date, author, normalizedTags, videoUrl, normalizedSteps]
+    )
+    
+    const [rows] = await pool.query('SELECT * FROM Tutorial WHERE id = ?', [id])
+    const item = rows[0]
+    item.tags = typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags
+    item.steps = typeof item.steps === 'string' ? JSON.parse(item.steps) : item.steps
+    
     return res.status(201).json(item)
   } catch (err) {
     console.error('Create tutorial error', err && err.message ? err.message : err)
-    if (err && err.code === 'P2002') return res.status(409).json({ error: 'Slug already exists' })
+    if (err && err.code === 'ER_DUP_ENTRY') return res.status(409).json({ error: 'Slug already exists' })
     return res.status(500).json({ error: err && err.message ? err.message : 'Create failed' })
   }
 }
@@ -66,17 +118,84 @@ exports.update = async (req, res) => {
   try {
     const body = req.body || {}
     if (body.content) body.content = safeSanitize(body.content)
-    if (body.steps) body.steps = normalizeSteps(body.steps)
-    const item = await prisma.tutorial.update({ where: { slug: req.params.slug }, data: body })
+
+    const updateFields = []
+    const updateValues = []
+
+    if (body.title !== undefined) {
+      updateFields.push('title = ?')
+      updateValues.push(body.title)
+    }
+    if (body.slug !== undefined) {
+      updateFields.push('slug = ?')
+      updateValues.push(body.slug)
+    }
+    if (body.excerpt !== undefined) {
+      updateFields.push('excerpt = ?')
+      updateValues.push(body.excerpt)
+    }
+    if (body.content !== undefined) {
+      updateFields.push('content = ?')
+      updateValues.push(body.content)
+    }
+    if (body.author !== undefined) {
+      updateFields.push('author = ?')
+      updateValues.push(body.author)
+    }
+    if (body.tags !== undefined) {
+      updateFields.push('tags = ?')
+      updateValues.push(JSON.stringify(normalizeTags(body.tags)))
+    }
+    if (body.videoUrl !== undefined) {
+      updateFields.push('videoUrl = ?')
+      updateValues.push(body.videoUrl)
+    }
+    if (body.steps !== undefined) {
+      updateFields.push('steps = ?')
+      updateValues.push(JSON.stringify(normalizeSteps(body.steps)))
+    }
+
+    if (updateFields.length === 0) {
+      return res.status(400).json({ error: 'No fields to update' })
+    }
+
+    updateValues.push(req.params.slug)
+
+    const result = await pool.query(
+      `UPDATE Tutorial SET ${updateFields.join(', ')} WHERE slug = ?`,
+      updateValues
+    )
+
+    if (result[0].affectedRows === 0) {
+      return res.status(404).json({ error: 'Tutorial not found' })
+    }
+
+    const [rows] = await pool.query('SELECT * FROM Tutorial WHERE slug = ?', [body.slug || req.params.slug])
+    const item = rows[0]
+    item.tags = typeof item.tags === 'string' ? JSON.parse(item.tags) : item.tags
+    item.steps = typeof item.steps === 'string' ? JSON.parse(item.steps) : item.steps
+    
     res.json(item)
   } catch (err) {
     console.error('Update tutorial error', err)
-    if (err && err.code === 'P2025') return res.status(404).json({ error: 'Tutorial not found' })
+    if (err && err.code === 'ER_DUP_ENTRY') {
+      return res.status(409).json({ error: 'Slug already exists' })
+    }
     return res.status(500).json({ error: err && err.message ? err.message : 'Update failed' })
   }
 }
 
 exports.remove = async (req, res) => {
-  await prisma.tutorial.delete({ where: { slug: req.params.slug } })
-  res.json({ ok: true })
+  try {
+    const result = await pool.query('DELETE FROM Tutorial WHERE slug = ?', [req.params.slug])
+    
+    if (result[0].affectedRows === 0) {
+      return res.status(404).json({ error: 'Tutorial not found' })
+    }
+    
+    res.json({ ok: true })
+  } catch (err) {
+    console.error('Delete tutorial error:', err)
+    return res.status(500).json({ error: 'Failed to delete tutorial' })
+  }
 }

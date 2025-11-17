@@ -142,7 +142,7 @@ function addImageClasses(html = '') {
           </ToolbarButton>
         </div>
         <div>
-          <button type="button" className="bg-coral-500 text-white px-3 py-1 rounded text-sm" onClick={insertImageFile}>{uploading ? 'Uploading...' : 'Insert image'}</button>
+          <button type="button" className="bg-primary text-white px-3 py-1 rounded text-sm" onClick={insertImageFile}>{uploading ? 'Uploading...' : 'Insert image'}</button>
         </div>
       </div>
 
@@ -164,7 +164,7 @@ function addImageClasses(html = '') {
 
 function ToolbarButton({ children, onClick, active }) {
   return (
-    <button onClick={onClick} type="button" className={`p-2 rounded ${active ? 'bg-coral-500 text-white' : 'bg-gray-100 text-gray-700'}`}>
+    <button onClick={onClick} type="button" className={`p-2 rounded ${active ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'}`}>
       {children}
     </button>
   )

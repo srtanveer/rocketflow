@@ -3,16 +3,12 @@
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import dynamic from 'next/dynamic'
 import Container from '../../../../components/ui/Container'
 import Section from '../../../../components/ui/Section'
 import { AdminSidebar } from '../../../../components/admin/AdminSidebar'
+import dynamic from 'next/dynamic'
+const BlogEditor = dynamic(() => import('../../../../components/admin/BlogEditor'), { ssr: false })
 import { fetchPost, updatePost } from '../../../../components/admin/api'
-
-const BlogEditor = dynamic(() => import('../../../../components/admin/BlogEditor'), {
-  ssr: false,
-  loading: () => <div className="border rounded-xl p-4 bg-white min-h-[200px] flex items-center justify-center text-gray-400">Loading editor...</div>
-})
 
 export default function EditPostPage({ params }) {
   // Next.js may pass params as a Promise — unwrap with React.use()
@@ -120,7 +116,7 @@ export default function EditPostPage({ params }) {
                   </div>
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-2">
-                      <button type="button" onClick={() => featuredInputRef.current.click()} className="bg-coral-500 text-white px-3 py-1 rounded text-sm">Upload featured image</button>
+                      <button type="button" onClick={() => featuredInputRef.current.click()} className="bg-primary text-white px-3 py-1 rounded text-sm">Upload featured image</button>
                       <button type="button" onClick={() => setPost({ ...post, featuredImage: '' })} className="bg-gray-100 px-3 py-1 rounded text-sm">Remove</button>
                     </div>
                     <div className="text-xs text-gray-500">Recommended: 1200x700px. Featured image is required.</div>
@@ -130,7 +126,7 @@ export default function EditPostPage({ params }) {
               </div>
 
               <div className="flex gap-2">
-                <button className="bg-coral-500 text-white px-4 py-2 rounded">Save</button>
+                <button className="bg-primary text-white px-4 py-2 rounded">Save</button>
                 <button type="button" onClick={() => router.push('/posts')} className="bg-gray-100 px-4 py-2 rounded">Cancel</button>
               </div>
             </form>

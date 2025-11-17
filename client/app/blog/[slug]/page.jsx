@@ -238,7 +238,7 @@ export default async function PostPage({ params }) {
           <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3">
               <main className="lg:col-span-2 p-8 lg:p-12">
-                <Link href="/blog" className="text-sm text-coral-500 hover:underline mb-2 inline-block">← Back to Blog</Link>
+                <Link href="/blog" className="text-sm text-primary hover:underline mb-2 inline-block">← Back to Blog</Link>
 
                 {/* Lead insight with featured image on top */}
                 <div className="mt-2">
@@ -282,8 +282,8 @@ export default async function PostPage({ params }) {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${typeof window !== 'undefined' ? window.location.href : ''}`} target="_blank" rel="noreferrer" className="text-sm text-gray-600 hover:text-coral-500">Share on Twitter</a>
-                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${typeof window !== 'undefined' ? window.location.href : ''}`} target="_blank" rel="noreferrer" className="text-sm text-gray-600 hover:text-coral-500">Share on LinkedIn</a>
+                    <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${typeof window !== 'undefined' ? window.location.href : ''}`} target="_blank" rel="noreferrer" className="text-sm text-gray-600 hover:text-primary">Share on Twitter</a>
+                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${typeof window !== 'undefined' ? window.location.href : ''}`} target="_blank" rel="noreferrer" className="text-sm text-gray-600 hover:text-primary">Share on LinkedIn</a>
                   </div>
                 </div>
               </main>
@@ -320,7 +320,7 @@ export default async function PostPage({ params }) {
                   <h4 className="text-sm font-semibold text-gray-900">Ready to try RocketFlow?</h4>
                   <p className="text-sm text-gray-600 mt-2">Create an account and launch automated campaigns in minutes.</p>
                   <div className="mt-3">
-                    <a href="https://rocketflow.biz/create_account/selected_package" className="inline-block bg-coral-500 text-white px-4 py-2 rounded-md text-sm">Get Started</a>
+                    <a href="https://rocketflow.biz/create_account/selected_package" className="inline-block bg-primary text-white px-4 py-2 rounded-md text-sm">Get Started</a>
                   </div>
                 </div>
               </aside>

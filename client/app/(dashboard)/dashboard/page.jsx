@@ -3,14 +3,10 @@
 import { useState, useEffect } from 'react'
 import { cn } from '../../../lib/utils'
 import { useRouter } from 'next/navigation'
-import dynamic from 'next/dynamic'
 import { fetchPosts, createPost } from '../../../components/admin/api'
 import { AdminSidebar } from '../../../components/admin/AdminSidebar'
-
-const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), {
-  ssr: false,
-  loading: () => <div className="border rounded-xl p-4 bg-white min-h-[200px] flex items-center justify-center text-gray-400">Loading editor...</div>
-})
+import dynamic from 'next/dynamic'
+const BlogEditor = dynamic(() => import('../../../components/admin/BlogEditor'), { ssr: false })
 
 export default function Dashboard() {
   const router = useRouter()
@@ -87,8 +83,8 @@ export default function Dashboard() {
             <p className="text-sm text-gray-500">Manage posts, tutorials and site settings</p>
           </div>
           <div className="flex items-center gap-3">
-            <input placeholder="Search posts..." className="border rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-coral-500" />
-            <button onClick={logout} className="bg-coral-500 text-white px-4 py-2 rounded shadow hover:bg-coral-600 transition">Logout</button>
+            <input placeholder="Search posts..." className="border rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-primary" />
+            <button onClick={logout} className="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">Logout</button>
           </div>
         </header>
 
@@ -136,7 +132,7 @@ function Tabs({ children }) {
     <div>
       <div className="flex gap-2 mb-4">
         {panels.map((p) => (
-          <button key={p.props.name} onClick={() => setActive(p.props.name)} className={cn('px-3 py-1 rounded', active === p.props.name ? 'bg-coral-500 text-white' : 'bg-gray-100')}>{p.props.name}</button>
+          <button key={p.props.name} onClick={() => setActive(p.props.name)} className={cn('px-3 py-1 rounded', active === p.props.name ? 'bg-primary text-white' : 'bg-gray-100')}>{p.props.name}</button>
         ))}
       </div>
       <div>

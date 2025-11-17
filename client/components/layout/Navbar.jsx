@@ -79,24 +79,25 @@ const Navbar = () => {
 
     { name: 'Blog', href: '/blog' },
     { name: 'Tutorial', href: '/tutorial' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Contact', href: '/contact' },
+
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] sm:w-[90%] max-w-7xl px-2 sm:px-0">
-      <div className="backdrop-blur-2xl bg-blue-50/40 border border-blue-100/50 shadow-2xl rounded-full px-3 sm:px-6">
-        <div className="flex justify-between items-center h-12 sm:h-14 gap-2 sm:gap-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/RF-Long-logo.webp" alt="RocketFlow Logo" className="h-6 sm:h-7 w-auto" />
+              <img src="/logo.png" alt="RocketFlow Logo" className="h-8 w-auto" />
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:block flex-grow">
-            <div className="flex items-center justify-center space-x-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.hasDropdown ? (
@@ -107,15 +108,11 @@ const Navbar = () => {
                     >
                       <a
                         href={item.href}
-                        className={`px-3 py-1.5 text-base font-semibold transition-all duration-200 flex items-center rounded-full whitespace-nowrap ${
-                          pathname === item.href 
-                            ? 'text-blue-600 bg-white/60' 
-                            : 'text-gray-800 hover:text-blue-600 hover:bg-white/40'
-                        }`}
+                        className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
                       >
                         {item.name}
                         <svg 
-                          className={`ml-1 h-5 w-5 transition-transform duration-200 ${
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${
                             (item.name === 'Industries' && isIndustriesDropdownOpen) 
                               ? 'rotate-180' : ''
                           }`}
@@ -131,11 +128,11 @@ const Navbar = () => {
                       {(item.name === 'Industries' && isIndustriesDropdownOpen) && (
                         <>
                           {/* Invisible bridge to prevent losing hover */}
-                          <div className="fixed left-0 right-0 h-2 z-40" style={{ top: '4.5rem' }} />
+                          <div className="fixed left-0 right-0 h-1 z-40" style={{ top: '4rem' }} />
                           
                           <div 
                             className="fixed left-0 right-0 bg-white shadow-2xl border-t border-gray-200 z-50" 
-                            style={{ top: '5rem' }}
+                            style={{ top: '4rem' }}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                           >
@@ -145,10 +142,10 @@ const Navbar = () => {
                               {item.dropdownColumns.map((column, columnIndex) => (
                                 <div 
                                   key={column.title} 
-                                  className={`space-y-2 ${columnIndex < item.dropdownColumns.length - 1 ? 'border-r border-blue-200 pr-8' : ''}`}
+                                  className={`space-y-2 ${columnIndex < item.dropdownColumns.length - 1 ? 'border-r border-gray-200 pr-8' : ''}`}
                                   style={{ gridColumn: `span ${column.colSpan || 1}` }}
                                 >
-                                  <h3 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 pb-2 border-b border-blue-200">
+                                  <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 pb-2 border-b border-gray-200">
                                     {column.title}
                                   </h3>
                                   <div className={column.colSpan > 1 ? 'grid grid-cols-2 gap-x-8 gap-y-0.5' : 'space-y-0.5'}>
@@ -156,7 +153,7 @@ const Navbar = () => {
                                       <a
                                         key={dropdownItem.name}
                                         href={dropdownItem.href}
-                                        className="block px-3 py-1.5 text-base font-semibold text-gray-800 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 leading-snug"
+                                        className="block px-3 py-1.5 text-base font-semibold text-gray-900 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200 leading-snug"
                                       >
                                         {dropdownItem.name}
                                       </a>
@@ -172,7 +169,7 @@ const Navbar = () => {
                                 <a
                                   key={dropdownItem.name}
                                   href={dropdownItem.href}
-                                  className="block px-4 py-2 text-sm text-gray-600 hover:text-coral-500 hover:bg-gray-50 transition-colors duration-200"
+                                  className="block px-4 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors duration-200"
                                 >
                                   {dropdownItem.name}
                                 </a>
@@ -184,31 +181,27 @@ const Navbar = () => {
                       )}
                     </div>
                   ) : (
-                    <Link
+                    <a
                       href={item.href}
-                      className={`px-3 py-1.5 text-base font-semibold transition-all duration-200 rounded-full whitespace-nowrap ${
-                        pathname === item.href 
-                          ? 'text-blue-600 bg-white/60' 
-                          : 'text-gray-800 hover:text-blue-600 hover:bg-white/40'
-                      }`}
+                      className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200"
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   )}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
 
             <Link href="https://rocketflow.biz/create_account/selected_package">
               <button
-                className={`group relative px-4 py-2 text-base font-semibold rounded-full transition-all duration-300 ease-out transform hover:scale-105
+                className={`group relative px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ease-out transform hover:scale-105
                   ${pathname === '/signup'
-                    ? 'text-white bg-blue-600 shadow-lg ring-2 ring-blue-400 ring-opacity-50 scale-105'
-                    : 'text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl'}`}
+                    ? 'text-white bg-primary shadow-lg ring-2 ring-primary-light ring-opacity-50 scale-105'
+                    : 'text-white bg-primary  hover:from-primary-dark hover:to-secondary shadow-lg hover:shadow-xl'}`}
               >
                 <span className="relative z-10 flex items-center">
                   Get Started
@@ -221,10 +214,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex-shrink-0">
+          <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-full text-gray-800 hover:text-blue-600 hover:bg-white/40 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
@@ -243,14 +236,14 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="lg:hidden mt-2">
-          <div className="px-4 pt-3 pb-4 space-y-2 backdrop-blur-2xl bg-blue-50/40 border border-blue-100/50 shadow-2xl rounded-3xl max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-b border-gray-200">
             {navItems.map((item) => (
               <div key={item.name}>
                 {item.hasDropdown ? (
                   <div>
                     <button
-                      className="w-full text-left text-gray-800 hover:text-blue-600 hover:bg-white/40 px-3 py-2 text-sm sm:text-base font-semibold rounded-xl transition-all duration-200 flex items-center justify-between"
+                      className="w-full text-left text-gray-600 hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 flex items-center justify-between"
                       onClick={() => {
                         if (item.name === 'Industries') setIsIndustriesDropdownOpen(!isIndustriesDropdownOpen);
                       }}
@@ -269,26 +262,24 @@ const Navbar = () => {
                       </svg>
                     </button>
                     {(item.name === 'Industries' && isIndustriesDropdownOpen) && (
-                      <div className="pl-4 sm:pl-6 space-y-3 max-h-96 overflow-y-auto">
+                      <div className="pl-6 space-y-1">
                         {item.dropdownColumns ? (
-                          // Multi-column layout for mobile
+                          // Multi-column layout for mobile (stacked vertically)
                           item.dropdownColumns.map((column) => (
                             <div key={column.title} className="mt-2">
-                              <h3 className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2 px-3">
+                              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 px-3">
                                 {column.title}
                               </h3>
-                              <div className="grid grid-cols-2 gap-1">
-                                {column.items.map((dropdownItem) => (
-                                  <a
-                                    key={dropdownItem.name}
-                                    href={dropdownItem.href}
-                                    className="block text-gray-600 hover:text-blue-600 hover:bg-white/40 px-2 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-lg"
-                                    onClick={() => setIsMenuOpen(false)}
-                                  >
-                                    {dropdownItem.name}
-                                  </a>
-                                ))}
-                              </div>
+                              {column.items.map((dropdownItem) => (
+                                <a
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="block text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200"
+                                  onClick={() => setIsMenuOpen(false)}
+                                >
+                                  {dropdownItem.name}
+                                </a>
+                              ))}
                             </div>
                           ))
                         ) : (
@@ -297,7 +288,7 @@ const Navbar = () => {
                             <a
                               key={dropdownItem.name}
                               href={dropdownItem.href}
-                              className="block text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                              className="block text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {dropdownItem.name}
@@ -308,34 +299,46 @@ const Navbar = () => {
                     )}
                   </div>
                 ) : (
-                  <Link
+                  <a
                     href={item.href}
-                    className={`block px-3 py-2 text-sm sm:text-base font-semibold rounded-xl transition-all duration-200 ${
-                      pathname === item.href 
-                        ? 'text-blue-600 bg-white/60' 
-                        : 'text-gray-800 hover:text-blue-600 hover:bg-white/40'
-                    }`}
+                    className="text-gray-600 hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 )}
               </div>
             ))}
-            <div className="pt-4 pb-2">
-              <Link href="https://rocketflow.biz/create_account/selected_package" className="block">
+            <div className="pt-4 pb-2 space-y-3">
+              <Link href="/signin" className="block">
                 <button 
-                  className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 ease-out transform hover:scale-[1.02] text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl"
+                  className={`w-full px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-out transform hover:scale-[1.02]
+                    ${pathname === '/signin'
+                      ? 'text-white bg-primary shadow-lg ring-2 ring-primary-light ring-opacity-50'
+                      : 'text-primary-dark bg-white border-2 border-primary hover:bg-primary hover:text-white hover:shadow-md'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="flex items-center justify-center">
-                    Get Started
-                    <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    Sign In
                   </span>
                 </button>
               </Link>
+              <Link href="/signup" className="block">
+                <button 
+                  className={`w-full px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-out transform hover:scale-[1.02]
+                    ${pathname === '/signup'
+                      ? 'text-white bg-gradient-to-r from-primary-dark to-secondary shadow-xl ring-2 ring-primary-light ring-opacity-50'
+                      : 'text-white bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary shadow-lg hover:shadow-xl'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="flex items-center justify-center">
+                        Sign Up
+                        <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    </button>
+                  </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-const prisma = require('../db')
+const { pool, generateId } = require('../db')
 let sanitizeHtml
 try {
   sanitizeHtml = require('sanitize-html')
@@ -62,14 +62,37 @@ function safeSanitize(dirty) {
 exports.safeSanitize = safeSanitize
 
 exports.list = async (req, res) => {
-  const posts = await prisma.post.findMany({ orderBy: { date: 'desc' } })
-  res.json(posts)
+  try {
+    const [posts] = await pool.query('SELECT * FROM Post ORDER BY date DESC')
+    
+    // Parse JSON fields
+    const parsed = posts.map(post => ({
+      ...post,
+      tags: typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    }))
+    
+    res.json(parsed)
+  } catch (err) {
+    console.error('List posts error:', err)
+    return res.status(500).json({ error: 'Failed to fetch posts' })
+  }
 }
 
 exports.get = async (req, res) => {
-  const post = await prisma.post.findUnique({ where: { slug: req.params.slug } })
-  if (!post) return res.status(404).json({ error: 'Not found' })
-  res.json(post)
+  try {
+    const [rows] = await pool.query('SELECT * FROM Post WHERE slug = ?', [req.params.slug])
+    const post = rows[0]
+    
+    if (!post) return res.status(404).json({ error: 'Post not found' })
+    
+    // Parse JSON fields
+    post.tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    
+    res.json(post)
+  } catch (err) {
+    console.error('Get post error:', err)
+    return res.status(500).json({ error: 'Failed to fetch post' })
+  }
 }
 
 exports.create = async (req, res) => {
@@ -94,7 +117,7 @@ exports.create = async (req, res) => {
     // sanitize content before saving
     if (content) content = safeSanitize(content)
 
-    // normalize tags to an array (JSON field in prisma)
+    // normalize tags to an array (JSON field)
     function normalizeTags(t) {
       if (!t) return []
       if (Array.isArray(t)) return t
@@ -110,22 +133,24 @@ exports.create = async (req, res) => {
       return []
     }
 
-    const data = {
-      title,
-      slug,
-      excerpt: excerpt || '',
-      content: content || '',
-      featuredImage,
-      author,
-      tags: normalizeTags(tags)
-    }
+    const id = generateId()
+    const date = new Date()
+    const normalizedTags = JSON.stringify(normalizeTags(tags))
 
-    const post = await prisma.post.create({ data })
+    await pool.query(
+      'INSERT INTO Post (id, slug, title, excerpt, content, featuredImage, date, author, tags, views, likes, service) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [id, slug, title, excerpt || '', content || '', featuredImage, date, author, normalizedTags, 0, 0, null]
+    )
+    
+    const [rows] = await pool.query('SELECT * FROM Post WHERE id = ?', [id])
+    const post = rows[0]
+    post.tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    
     return res.status(201).json(post)
   } catch (err) {
     console.error('Create post error', err && err.message ? err.message : err)
-    // handle unique constraint (slug) from Prisma
-    if (err && err.code === 'P2002') {
+    // handle unique constraint (slug)
+    if (err && err.code === 'ER_DUP_ENTRY') {
       return res.status(409).json({ error: 'Slug already exists' })
     }
     return res.status(500).json({ error: err && err.message ? err.message : 'Create failed' })
@@ -152,21 +177,82 @@ exports.update = async (req, res) => {
       return []
     }
 
-    const updateData = { ...body }
-    if (body.tags) updateData.tags = normalizeTags(body.tags)
+    const updateFields = []
+    const updateValues = []
 
-    const post = await prisma.post.update({ where: { slug: req.params.slug }, data: updateData })
+    if (body.title !== undefined) {
+      updateFields.push('title = ?')
+      updateValues.push(body.title)
+    }
+    if (body.slug !== undefined) {
+      updateFields.push('slug = ?')
+      updateValues.push(body.slug)
+    }
+    if (body.excerpt !== undefined) {
+      updateFields.push('excerpt = ?')
+      updateValues.push(body.excerpt)
+    }
+    if (body.content !== undefined) {
+      updateFields.push('content = ?')
+      updateValues.push(body.content)
+    }
+    if (body.featuredImage !== undefined) {
+      updateFields.push('featuredImage = ?')
+      updateValues.push(body.featuredImage)
+    }
+    if (body.author !== undefined) {
+      updateFields.push('author = ?')
+      updateValues.push(body.author)
+    }
+    if (body.tags !== undefined) {
+      updateFields.push('tags = ?')
+      updateValues.push(JSON.stringify(normalizeTags(body.tags)))
+    }
+    if (body.service !== undefined) {
+      updateFields.push('service = ?')
+      updateValues.push(body.service)
+    }
+
+    if (updateFields.length === 0) {
+      return res.status(400).json({ error: 'No fields to update' })
+    }
+
+    updateValues.push(req.params.slug)
+
+    const result = await pool.query(
+      `UPDATE Post SET ${updateFields.join(', ')} WHERE slug = ?`,
+      updateValues
+    )
+
+    if (result[0].affectedRows === 0) {
+      return res.status(404).json({ error: 'Post not found' })
+    }
+
+    const [rows] = await pool.query('SELECT * FROM Post WHERE slug = ?', [body.slug || req.params.slug])
+    const post = rows[0]
+    post.tags = typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags
+    
     res.json(post)
   } catch (err) {
     console.error('Update post error', err)
-    if (err && err.code === 'P2025') {
-      return res.status(404).json({ error: 'Post not found' })
+    if (err && err.code === 'ER_DUP_ENTRY') {
+      return res.status(409).json({ error: 'Slug already exists' })
     }
     return res.status(500).json({ error: err && err.message ? err.message : 'Update failed' })
   }
 }
 
 exports.remove = async (req, res) => {
-  await prisma.post.delete({ where: { slug: req.params.slug } })
-  res.json({ ok: true })
+  try {
+    const result = await pool.query('DELETE FROM Post WHERE slug = ?', [req.params.slug])
+    
+    if (result[0].affectedRows === 0) {
+      return res.status(404).json({ error: 'Post not found' })
+    }
+    
+    res.json({ ok: true })
+  } catch (err) {
+    console.error('Delete post error:', err)
+    return res.status(500).json({ error: 'Failed to delete post' })
+  }
 }

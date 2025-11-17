@@ -1,25 +1,91 @@
-require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const prisma = require('./db')
+const dotenv = require('dotenv')
+const path = require('path')
+const logger = require('./middleware/logger')
 
-const authRouter = require('./routes/auth')
-const postsRouter = require('./routes/posts')
-const tutorialsRouter = require('./routes/tutorials')
-const uploadsRouter = require('./routes/uploads')
+dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 4000
 
-app.use(cors())
-app.use(express.json())
+// Request logging
+if (process.env.NODE_ENV !== 'production') {
+  app.use(logger)
+}
 
-app.use('/auth', authRouter)
-app.use('/posts', postsRouter)
-app.use('/tutorials', tutorialsRouter)
-app.use('/uploads', uploadsRouter)
+// Enhanced CORS configuration
+const allowedOrigins = [
+  'https://beta.rocketflow.biz',
+  'https://www.beta.rocketflow.biz',
+  'https://api.beta.rocketflow.biz',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://127.0.0.1:3000'
+]
 
-// simple health
-app.get('/health', (req, res) => res.json({ ok: true }))
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman, or curl)
+    if (!origin) return callback(null, true)
+    
+    // In development, allow all origins
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true)
+    }
+    
+    // In production, check against allowed origins
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      console.warn('CORS blocked origin:', origin)
+      callback(null, false)
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 
-app.listen(PORT, () => console.log(`Admin API listening on ${PORT}`))
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true, limit: '10mb' }))
+
+// attach routes
+const authRoutes = require('./routes/auth')
+const postsRoutes = require('./routes/posts')
+const tutorialsRoutes = require('./routes/tutorials')
+const uploadsRoutes = require('./routes/uploads')
+
+// Routes with /api prefix (standard)
+app.use('/api/auth', authRoutes)
+app.use('/api/posts', postsRoutes)
+app.use('/api/tutorials', tutorialsRoutes)
+app.use('/api/uploads', uploadsRoutes)
+
+// Routes without /api prefix (for backward compatibility)
+app.use('/auth', authRoutes)
+app.use('/posts', postsRoutes)
+app.use('/tutorials', tutorialsRoutes)
+app.use('/uploads', uploadsRoutes)
+
+// Health check endpoints
+app.get('/api/health', (req, res) => res.json({ ok: true, ts: Date.now(), env: process.env.NODE_ENV || 'development' }))
+app.get('/health', (req, res) => res.json({ ok: true, ts: Date.now(), env: process.env.NODE_ENV || 'development' }))
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' })
+})
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error('Global error handler:', err)
+  res.status(err.status || 500).json({ 
+    error: err.message || 'Internal server error',
+    ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
+  })
+})
+
+const port = process.env.PORT || 4000
+app.listen(port, () => console.log(`Admin API listening on ${port}`))
+
+module.exports = app

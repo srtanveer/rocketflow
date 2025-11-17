@@ -334,7 +334,7 @@ export default function EducationPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className={`cursor-pointer transition-all duration-300 border-2 ${
+                className={`card-hover cursor-pointer border-2 ${
                   activeFeature === index
                     ? 'bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-300 scale-105'
                     : 'border-gray-200 hover:border-purple-200'
@@ -377,9 +377,9 @@ export default function EducationPage() {
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredService === solution.id 
-                    ? 'border-purple-300 scale-105 -translate-y-2' 
+                    ? 'border-purple-300' 
                     : 'border-gray-200 hover:border-purple-200'
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
@@ -394,7 +394,7 @@ export default function EducationPage() {
                 </div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -449,7 +449,7 @@ export default function EducationPage() {
                 animationDelay={index * 0.1}
                 className="bg-gradient-to-br from-slate-50 to-blue-50 border-2 border-blue-100"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
@@ -685,7 +685,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-fuchsia-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Lead Management</span>
@@ -708,7 +708,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-fuchsia-50 hover:to-pink-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <UserGroupIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Conversion Rate</span>
@@ -731,7 +731,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-fuchsia-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <CogIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Admin Overload</span>
@@ -754,7 +754,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-fuchsia-50 hover:to-pink-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ChartBarIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Sales & Marketing</span>
@@ -777,7 +777,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-fuchsia-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <BookOpenIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Data Management</span>
@@ -800,7 +800,7 @@ export default function EducationPage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-fuchsia-50 hover:to-pink-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <SparklesIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Student Experience</span>

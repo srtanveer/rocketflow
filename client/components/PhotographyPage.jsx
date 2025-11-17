@@ -324,7 +324,7 @@ export default function PhotographyPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-gradient-to-br from-white to-purple-50 border-2 border-purple-100 hover:border-purple-300 h-full flex flex-col"
+                className="card-hover card-shimmer bg-gradient-to-br from-white to-purple-50 border-2 border-purple-100 h-full flex flex-col"
                 padding="lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0">
@@ -381,9 +381,9 @@ export default function PhotographyPage() {
             {filteredSolutions.map((solution) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group h-full flex flex-col ${
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group h-full flex flex-col ${
                   hoveredCard === solution.id 
-                    ? 'border-purple-300 scale-105 -translate-y-2' 
+                    ? 'border-purple-300' 
                     : 'border-purple-100 hover:border-purple-200'
                 }`}
                 onMouseEnter={() => setHoveredCard(solution.id)}
@@ -398,7 +398,7 @@ export default function PhotographyPage() {
                 </div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -451,7 +451,7 @@ export default function PhotographyPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="text-center h-full flex flex-col justify-between"
+                className="card-hover card-shimmer text-center h-full flex flex-col justify-between"
               >
                 <div className={`w-20 h-20 bg-gradient-to-br ${benefit.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl`}>
                   <benefit.icon className="w-10 h-10 text-white" />
@@ -501,7 +501,7 @@ export default function PhotographyPage() {
                 <Card
                   key={index}
                   animationDelay={index * 0.15}
-                  className="border-2 border-purple-100"
+                  className="card-hover card-shimmer border-2 border-purple-100"
                   padding="lg"
                 >
                   {/* Header */}
@@ -905,7 +905,7 @@ export default function PhotographyPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+            <Card className="card-hover card-shimmer p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 border-none shadow-lg relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-primary-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-secondary-100 to-transparent opacity-30 rounded-full"></div>
@@ -935,7 +935,7 @@ export default function PhotographyPage() {
               </div>
             </Card>
             
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-secondary-50 to-primary-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+            <Card className="card-hover card-shimmer p-8 rounded-2xl bg-gradient-to-br from-secondary-50 to-primary-50 border-none shadow-lg relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-secondary-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-primary-100 to-transparent opacity-30 rounded-full"></div>

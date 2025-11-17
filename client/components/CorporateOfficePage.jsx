@@ -341,7 +341,7 @@ export default function CorporateOfficePage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className={`cursor-pointer transition-all duration-300 border-2 ${
+                className={`card-hover cursor-pointer border-2 ${
                   activeFeature === index
                     ? 'bg-gradient-to-br from-blue-50 to-indigo-50 border-indigo-300 scale-105'
                     : 'border-gray-200 hover:border-indigo-200'
@@ -384,9 +384,9 @@ export default function CorporateOfficePage() {
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredService === solution.id 
-                    ? 'border-indigo-300 scale-105 -translate-y-2' 
+                    ? 'border-indigo-300' 
                     : 'border-gray-200 hover:border-indigo-200'
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
@@ -401,7 +401,7 @@ export default function CorporateOfficePage() {
                 </div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -689,7 +689,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <BriefcaseIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Lead Generation</span>
@@ -712,7 +712,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ChartBarIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Sales Cycle</span>
@@ -735,7 +735,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <UsersIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Client Management</span>
@@ -758,7 +758,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ClipboardDocumentCheckIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Project Management</span>
@@ -781,7 +781,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-violet-50 hover:to-purple-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <PresentationChartLineIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Marketing</span>
@@ -804,7 +804,7 @@ export default function CorporateOfficePage() {
                   <tr className="group hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <BoltIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Efficiency</span>

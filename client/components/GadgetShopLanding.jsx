@@ -390,7 +390,7 @@ export default function GadgetShopLanding() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="h-full border-2 border-coral-100 bg-white/80 transition-all duration-300 hover:border-coral-300 hover:-translate-y-2"
+                className="card-hover card-shimmer h-full border-2 border-coral-100 bg-white/80"
                 animationDelay={index * 0.1}
               >
                 <div className="flex items-center justify-center w-14 h-14 mb-5 rounded-xl bg-coral-100">
@@ -425,9 +425,7 @@ export default function GadgetShopLanding() {
             {services.map((service, index) => (
               <Card
                 key={service.id}
-                className="group cursor-pointer border-0"
-                hover={true}
-                tiltEffect={true}
+                className="card-hover cursor-pointer"
                 padding="lg"
                 animationDelay={index * 0.1}
                 onMouseEnter={() => setHoveredCategory(service.id)}
@@ -438,7 +436,7 @@ export default function GadgetShopLanding() {
                 itemType="https://schema.org/Service"
               >
                 <div className="text-center space-y-6">
-                  <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`} aria-hidden="true">
+                  <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center`} aria-hidden="true">
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   
@@ -512,7 +510,7 @@ export default function GadgetShopLanding() {
               </div>
             </div>
             <div className="relative">
-              <Card hover={true} tiltEffect={true} padding="lg" className="group">
+              <Card padding="lg" className="card-border-gradient group">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-gray-500">FACEBOOK POST</span>
@@ -525,11 +523,11 @@ export default function GadgetShopLanding() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Auto-replies sent:</span>
-                      <span className="font-semibold text-coral-600 group-hover:scale-110 transition-transform duration-300">347</span>
+                      <span className="font-semibold text-coral-600">347</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Notify Me list:</span>
-                      <span className="font-semibold text-coral-600 group-hover:scale-110 transition-transform duration-300">+523 contacts</span>
+                      <span className="font-semibold text-coral-600">+523 contacts</span>
                     </div>
                   </div>
                 </div>
@@ -539,7 +537,7 @@ export default function GadgetShopLanding() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="order-2 lg:order-1 relative">
-              <Card hover={true} tiltEffect={true} padding="lg" className="group">
+              <Card padding="lg" className="card-border-gradient group">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-gray-500">CUSTOMER SEGMENTS</span>
@@ -621,13 +619,11 @@ export default function GadgetShopLanding() {
             ].map((item, index) => (
               <Card 
                 key={index} 
-                className="text-center space-y-4 group"
-                hover={true}
-                tiltEffect={true}
+                className="card-glow text-center space-y-4 group"
                 padding="lg"
                 animationDelay={index * 0.15}
               >
-                <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center`}>
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-lg font-bold text-gray-900 group-hover:text-coral-600 transition-colors duration-300">{item.title}</h4>
@@ -818,11 +814,9 @@ export default function GadgetShopLanding() {
             {successStories.map((story, index) => (
               <Card
                 key={story.id}
-                className={`group relative overflow-hidden ${
+                className={`card-tilt group relative overflow-hidden ${
                   hoveredProduct === story.id ? 'rotate-1' : ''
                 }`}
-                hover={true}
-                tiltEffect={true}
                 padding="sm"
                 animationDelay={index * 0.1}
                 onMouseEnter={() => setHoveredProduct(story.id)}
@@ -834,29 +828,29 @@ export default function GadgetShopLanding() {
                 {/* Badge */}
                 {story.badge && (
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-coral-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse group-hover:animate-none transform group-hover:scale-110 transition-all duration-300">
+                    <span className="bg-coral-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse group-hover:animate-none transition-all duration-300">
                       {story.badge}
                     </span>
                   </div>
                 )}
 
                 {/* Heart Icon */}
-                <button className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-coral-500 hover:text-white transform hover:scale-110">
+                <button className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-coral-500 hover:text-white">
                   <HeartIcon className="w-5 h-5" />
                 </button>
 
                 {/* Header Section with Icon */}
                 <div className="relative h-24 bg-coral-500 overflow-hidden flex items-center justify-center">
                   {/* Company Initial Circle */}
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500 group-hover:rotate-12 transform">
-                    <span className="text-2xl font-bold text-coral-600 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl">
+                    <span className="text-2xl font-bold text-coral-600">
                       {story.name.charAt(0)}
                     </span>
                   </div>
                   
                   {/* Decorative elements */}
                   <div className="absolute -top-8 -right-8 w-20 h-20 bg-white/20 rounded-full opacity-50 group-hover:opacity-70 transition-all duration-500 group-hover:scale-125"></div>
-                  <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-white/10 rounded-full opacity-40 group-hover:opacity-60 transition-all duration-500 group-hover:scale-110"></div>
+                  <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-white/10 rounded-full opacity-40"></div>
                   
                   {/* Floating sparkles */}
                   <div className="absolute top-4 right-4">
@@ -865,7 +859,7 @@ export default function GadgetShopLanding() {
                   
                   {/* Growth arrow indicator */}
                   <div className="absolute bottom-2 left-2">
-                    <div className="flex items-center space-x-1 text-white/80 text-xs font-medium transform group-hover:scale-110 transition-all duration-300">
+                    <div className="flex items-center space-x-1 text-white/80 text-xs font-medium">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse group-hover:scale-150 transition-all duration-300"></div>
                       <span>Success Story</span>
                     </div>
@@ -877,7 +871,7 @@ export default function GadgetShopLanding() {
                   {/* Company Name & Rating */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-coral-600 transition-colors duration-300 transform group-hover:scale-105 group-hover:translate-x-1">
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-coral-600 transition-colors duration-300 group-hover:translate-x-1">
                         {story.name}
                       </h3>
                       <div className="flex items-center space-x-1">
@@ -894,15 +888,15 @@ export default function GadgetShopLanding() {
                             />
                           ))}
                         </div>
-                        <span className="text-sm font-semibold text-gray-700 ml-1 transform group-hover:scale-110 transition-all duration-300">{story.rating}</span>
+                        <span className="text-sm font-semibold text-gray-700 ml-1">{story.rating}</span>
                       </div>
                     </div>
                     
                     <div className="flex justify-between items-center">
-                      <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium border border-green-200 transform group-hover:scale-105 group-hover:bg-green-200 transition-all duration-300">
+                      <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium border border-green-200 group-hover:bg-green-200 transition-all duration-300">
                         Γ£ô {story.reviews}
                       </span>
-                      <span className="text-xs text-gray-500 font-medium transform group-hover:scale-105 group-hover:text-coral-600 transition-all duration-300">
+                      <span className="text-xs text-gray-500 font-medium group-hover:text-coral-600 transition-all duration-300">
                         Case Study #{story.id}
                       </span>
                     </div>
@@ -929,12 +923,12 @@ export default function GadgetShopLanding() {
                   </div>
 
                   {/* Results Section */}
-                  <div className="bg-coral-50 rounded-2xl p-4 border border-coral-100 group-hover:bg-coral-100 transition-all duration-300 transform group-hover:scale-105">
+                  <div className="bg-coral-50 rounded-2xl p-4 border border-coral-100 group-hover:bg-coral-100 transition-all duration-300">
                     <div className="text-center space-y-1">
-                      <div className="text-2xl font-bold text-coral-600 transform group-hover:scale-110 transition-all duration-300">
+                      <div className="text-2xl font-bold text-coral-600">
                         {story.result}
                       </div>
-                      <div className="text-sm text-gray-600 font-medium flex items-center justify-center space-x-1 transform group-hover:scale-105 transition-all duration-300">
+                      <div className="text-sm text-gray-600 font-medium flex items-center justify-center space-x-1 transition-all duration-300">
                         <ClockIcon className="w-3 h-3 transform group-hover:rotate-180 transition-all duration-500" />
                         <span>{story.timeframe}</span>
                       </div>
@@ -954,11 +948,11 @@ export default function GadgetShopLanding() {
                 <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-coral-300 transition-all duration-300 pointer-events-none group-hover:shadow-xl" style={{ boxShadow: '0 25px 50px -12px rgba(248, 113, 113, 0.25)' }}></div>
                 
                 {/* Subtle shine effect on hover */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none transform group-hover:scale-105"></div>
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 
                 {/* Floating animation elements */}
                 <div className="absolute -top-2 -right-2 w-4 h-4 bg-coral-400 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-700 transform group-hover:translate-y-1 group-hover:translate-x-1"></div>
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-500 transform group-hover:-translate-y-1 group-hover:-translate-x-1"></div>
+                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-500 group-hover:-translate-y-1 group-hover:-translate-x-1"></div>
               </Card>
             ))}
           </div>

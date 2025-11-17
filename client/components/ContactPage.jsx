@@ -157,7 +157,7 @@ export default function ContactPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="border-2 border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all duration-300 text-center bg-white"
+                className="card-hover card-shimmer border-2 border-blue-100 text-center bg-white"
               >
                 <div className={`w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-200`}>
                   <info.icon className="w-8 h-8 text-white" />
@@ -177,7 +177,7 @@ export default function ContactPage() {
           {/* Main Contact Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="border-2 border-blue-100 bg-white shadow-lg" padding="lg">
+            <Card className="card-hover card-shimmer border-2 border-blue-100 bg-white shadow-lg" padding="lg">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text mb-6">
                 Send us a Message
               </h2>

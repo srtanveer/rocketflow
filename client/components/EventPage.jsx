@@ -268,8 +268,8 @@ export default function EventPage() {
         <Container className="relative">
           {/* Enterprise Badge */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full transform hover:scale-105 transition-all duration-300 cursor-pointer group hover:from-blue-500/20 hover:to-indigo-500/20 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.2)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.3)]">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full cursor-pointer group hover:from-blue-500/20 hover:to-indigo-500/20 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.2)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.3)]">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <BuildingOfficeIcon className="w-5 h-5 text-white" />
               </div>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-semibold ml-3 text-lg">Enterprise-Grade Event Platform</span>
@@ -293,8 +293,8 @@ export default function EventPage() {
               </p>
  
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                <div className="group flex flex-col p-6 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="group flex flex-col p-6 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4">
                     <ChartBarIcon className="w-7 h-7 text-white" />
                   </div>
                   <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">1.2K+</div>
@@ -831,10 +831,10 @@ export default function EventPage() {
                 key={solution.id}
                 onMouseEnter={() => setHoveredSolution(solution.id)}
                 onMouseLeave={() => setHoveredSolution(null)}
-                className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105 h-[28rem]">
+                className="card-hover card-shimmer group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] h-[28rem]">
                 <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient || 'from-blue-500 to-indigo-600'} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6">
                     <solution.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -876,10 +876,10 @@ export default function EventPage() {
                 key={index}
                 onMouseEnter={() => setHoveredBenefit(index)}
                 onMouseLeave={() => setHoveredBenefit(null)}
-                className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105 h-[15rem]"
+                className="card-hover card-shimmer group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] h-[15rem]"
               >
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 mx-auto">
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{benefit.title}</h3>
@@ -905,7 +905,7 @@ export default function EventPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               
               <div className="relative">
@@ -933,7 +933,7 @@ export default function EventPage() {
               </div>
             </Card>
             
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               
               <div className="relative">

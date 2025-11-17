@@ -407,7 +407,7 @@ export default function HotelandResort() {
                 <div className="space-y-4">
                   <Card
                     animationDelay={0}
-                    className="!bg-gradient-to-br !from-teal-500 !to-cyan-600 !text-white"
+                    className="card-glow !bg-gradient-to-br !from-teal-500 !to-cyan-600 !text-white"
                   >
                     <div className="flex items-center justify-between mb-6">
                       <div>
@@ -430,7 +430,7 @@ export default function HotelandResort() {
                   <div className="grid grid-cols-2 gap-4">
                     <Card
                       animationDelay={0.1}
-                      className="border-2 border-indigo-100"
+                      className="card-glow border-2 border-indigo-100"
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
                         <UsersIcon className="w-6 h-6 text-white" />
@@ -444,7 +444,7 @@ export default function HotelandResort() {
                     </Card>
                     <Card
                       animationDelay={0.15}
-                      className="border-2 border-purple-100"
+                      className="card-glow border-2 border-purple-100"
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
                         <ClockIcon className="w-6 h-6 text-white" />
@@ -459,7 +459,7 @@ export default function HotelandResort() {
                   </div>
                   <Card
                     animationDelay={0.2}
-                    className="border-2 border-blue-100"
+                    className="card-border-gradient border-2 border-blue-100"
                   >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -510,7 +510,7 @@ export default function HotelandResort() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className={`cursor-pointer transition-all duration-300 border-2 ${
+                className={`card-hover cursor-pointer border-2 ${
                   activeFeature === index
                     ? "bg-gradient-to-br from-teal-50 to-cyan-50 border-cyan-300 scale-105"
                     : "border-gray-200 hover:border-cyan-200"
@@ -560,9 +560,9 @@ export default function HotelandResort() {
             {travelSolutions.map((solution) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredService === solution.id
-                    ? "border-indigo-300 scale-105 -translate-y-2"
+                    ? "border-indigo-300"
                     : "border-gray-200 hover:border-indigo-200"
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
@@ -577,7 +577,7 @@ export default function HotelandResort() {
                 </div>
 
                 <div
-                  className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}
+                  className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}
                 >
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
@@ -635,7 +635,7 @@ export default function HotelandResort() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-gradient-to-br from-slate-50 to-cyan-50 border-2 border-cyan-100"
+                className="card-glow bg-gradient-to-br from-slate-50 to-cyan-50 border-2 border-cyan-100"
               >
                 <div
                   className={`w-16 h-16 bg-gradient-to-br from-${benefit.color === 'blue' ? 'teal' : benefit.color}-500 to-${benefit.color === 'blue' ? 'cyan' : benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
@@ -802,7 +802,7 @@ export default function HotelandResort() {
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
                         <div
-                          className={`w-12 h-12 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-12 h-12 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}
                         >
                           <benefit.icon className="w-6 h-6 text-white" />
                         </div>
@@ -859,7 +859,7 @@ export default function HotelandResort() {
               <Card
                 key={index}
                 animationDelay={index * 0.15}
-                className="border-2 border-indigo-100"
+                className="card-hover card-shimmer border-2 border-indigo-100"
                 padding="lg"
               >
                 {/* Company Header */}

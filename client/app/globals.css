@@ -286,3 +286,292 @@ a:focus-visible {
 .shadow-xl {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
+
+/* ========================================
+   IMPRESSIVE CARD HOVER EFFECTS
+   ======================================== */
+
+/* Card lift and glow effect */
+.card-hover {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-hover:hover {
+  /* Use box-shadow for the highlight and only change border color to avoid layout shift.
+     Do NOT modify border-width here because cards may use different base border sizes (border, border-2). */
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.25), 0 0 8px 2px rgba(37,99,235,0.15);
+  border-color: rgba(59,130,246,0.35) !important;
+}
+
+.card-hover:hover::before {
+  opacity: 1;
+}
+
+/* Smooth shimmer effect (disabled) */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+  /* shimmer intentionally disabled */
+  transition: none !important;
+}
+
+/* Remove/hide shimmer pseudo-element entirely so there's no visual sweep */
+.card-shimmer::after {
+  display: none !important;
+  content: none !important;
+}
+
+.card-shimmer:hover::after {
+  transform: none !important;
+}
+
+/* Border gradient animation */
+.card-border-gradient {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  transition: all 0.4s ease;
+}
+
+.card-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: gradient-rotate 3s linear infinite;
+}
+
+.card-border-gradient:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradient-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tilt effect on hover */
+.card-tilt {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px);
+  box-shadow: 
+    0 25px 50px -12px rgba(37, 99, 235, 0.25),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* Glow pulse effect */
+.card-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px -10px rgba(37, 99, 235, 0.4),
+    0 0 80px -20px rgba(59, 130, 246, 0.6);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 20px 40px -10px rgba(37, 99, 235, 0.4),
+      0 0 80px -20px rgba(59, 130, 246, 0.6);
+  }
+  50% {
+    box-shadow: 
+      0 20px 40px -10px rgba(37, 99, 235, 0.5),
+      0 0 100px -20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* Scale and shadow effect */
+.card-scale {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-scale:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 
+    0 25px 50px -12px rgba(37, 99, 235, 0.35),
+    0 0 0 1px rgba(59, 130, 246, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Spotlight effect */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.card-spotlight:hover::before {
+  width: 500px;
+  height: 500px;
+}
+
+.card-spotlight:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px -10px rgba(37, 99, 235, 0.3);
+}
+
+/* Float and rotate effect */
+.card-float-rotate {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-float-rotate:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 
+    0 20px 40px -10px rgba(37, 99, 235, 0.3),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* Neon glow effect */
+.card-neon {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.card-neon:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 20px 40px -10px rgba(37, 99, 235, 0.3);
+}
+
+/* Content reveal effect */
+.card-reveal {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.card-reveal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: linear-gradient(to top, rgba(37, 99, 235, 0.1), transparent);
+  transition: height 0.4s ease;
+}
+
+.card-reveal:hover::after {
+  height: 100%;
+}
+
+.card-reveal:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.35);
+}
+
+/* Inner shadow effect */
+.card-inner-shadow {
+  transition: all 0.3s ease;
+}
+
+.card-inner-shadow:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px -10px rgba(37, 99, 235, 0.3),
+    inset 0 -4px 20px rgba(59, 130, 246, 0.1);
+}
+
+/* ========================================
+   GLOBAL OVERRIDES: DISABLE CARD ANIMATIONS
+   The user requested no animation on cards. These overrides remove
+   transitions, transforms and CSS animations for the card-* classes
+   while preserving immediate border-color/box-shadow changes.
+   Using !important ensures these rules win over utility classes.
+   ======================================== */
+
+.card-hover,
+.card-border-gradient,
+.card-tilt,
+.card-glow,
+.card-scale,
+.card-spotlight,
+.card-float-rotate,
+.card-neon,
+.card-reveal,
+.card-inner-shadow,
+.card-shimmer {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Prevent any transform on hover for card classes (no translate/scale) */
+.card-hover:hover,
+.card-border-gradient:hover,
+.card-tilt:hover,
+.card-glow:hover,
+.card-scale:hover,
+.card-spotlight:hover,
+.card-float-rotate:hover,
+.card-neon:hover,
+.card-reveal:hover,
+.card-inner-shadow:hover,
+.card-shimmer:hover {
+  transform: none !important;
+  /* set hover border and shadow to site primary color (instant, no transition) */
+  border-color: rgba(37,99,235,0.35) !important; /* var(--primary) ~ rgb(37,99,235) */
+  box-shadow: 0 10px 20px -6px rgba(37,99,235,0.25), 0 0 8px 2px rgba(37,99,235,0.12) !important;
+  animation: none !important;
+}
+
+/* Ensure shimmer pseudo-element stays disabled */
+.card-shimmer::after {
+  display: none !important;
+  content: none !important;
+  transition: none !important;
+}

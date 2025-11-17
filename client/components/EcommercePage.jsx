@@ -330,7 +330,7 @@ export default function EcommercePage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-gradient-to-br from-white to-red-50 border-2 border-red-100 hover:border-red-300"
+                className="card-hover card-shimmer bg-gradient-to-br from-white to-red-50 border-2 border-red-100"
                 padding="lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
@@ -387,9 +387,9 @@ export default function EcommercePage() {
             {filteredSolutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredCard === solution.id 
-                    ? 'border-red-300 scale-105 -translate-y-2' 
+                    ? 'border-red-300' 
                     : 'border-red-100 hover:border-red-200'
                 }`}
                 onMouseEnter={() => setHoveredCard(solution.id)}
@@ -404,7 +404,7 @@ export default function EcommercePage() {
                 </div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -455,7 +455,7 @@ export default function EcommercePage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="text-center"
+                className="card-hover card-shimmer text-center"
               >
                 <div className={`w-20 h-20 bg-gradient-to-br ${benefit.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl`}>
                   <benefit.icon className="w-10 h-10 text-white" />

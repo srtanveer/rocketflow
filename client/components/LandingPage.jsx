@@ -448,7 +448,7 @@ export default function LandingPage() {
             <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
               
               {/* SVG Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
                 <defs>
                   {/* Gradient definitions for colorful connections */}
                   <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -482,7 +482,7 @@ export default function LandingPage() {
                 <line x1="50%" y1="50%" x2="20%" y2="10%" stroke="url(#lineGradient1)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0s' }} />
                 
                 {/* Top Center - Google */}
-                <line x1="50%" y1="50%" x2="50%" y2="5%" stroke="url(#lineGradient6)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <line x1="50%" y1="50%" x2="50%" y2="8%" stroke="url(#lineGradient6)" strokeWidth="4" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
                 
                 {/* Top Right - Instagram */}
                 <line x1="50%" y1="50%" x2="80%" y2="10%" stroke="url(#lineGradient2)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
@@ -738,7 +738,7 @@ export default function LandingPage() {
           {/* Channel Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center max-w-5xl mx-auto px-4">
             {/* Left Side - Phone Mockup with Real Images */}
-            <div className="relative flex justify-center order-2 md:order-1">
+            <div className="relative hidden md:flex justify-center order-2 md:order-1">
               <div className="relative w-full max-w-[280px] sm:max-w-xs mx-auto">
                 {/* iPhone Frame */}
                 <div className="relative bg-black rounded-[2rem] sm:rounded-[2.5rem] p-1.5 sm:p-2 shadow-xl">

@@ -267,7 +267,7 @@ export default function Restaurants() {
                   <Button className="bg-primary hover:bg-primary-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                     Start Growing Today
                   </Button>
-                  <Button className="bg-primary hover:bg-primary-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
                     Watch Demo
                   </Button>
                 </div>

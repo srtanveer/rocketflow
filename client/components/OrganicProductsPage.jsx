@@ -267,8 +267,8 @@ export default function OrganicProductsPage() {
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 border-gray-100 hover:border-green-200 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden ${
-                  hoveredService === solution.id ? 'scale-105' : ''
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 border-gray-100 shadow-lg group overflow-hidden ${
+                  hoveredService === solution.id ? 'border-green-300' : ''
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
                 onMouseLeave={() => setHoveredService(null)}
@@ -277,7 +277,7 @@ export default function OrganicProductsPage() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 

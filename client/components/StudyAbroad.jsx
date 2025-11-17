@@ -346,7 +346,7 @@ export default function StudyAbroad() {
             <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-gradient-radial from-blue-50 to-transparent opacity-30 rounded-full"></div>
             {/* Automated Email Responses */}
             <Card
-              className={`p-8 rounded-2xl border-2 bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+              className={`card-hover p-8 rounded-2xl border-2 bg-white ${
                 hoveredSolution === 'auto-mail' ? 'shadow-2xl border-blue-300 bg-blue-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('auto-mail')}
@@ -382,7 +382,7 @@ export default function StudyAbroad() {
 
             {/* AI Chat Assistant */}
             <Card
-              className={`p-8 rounded-2xl border-2 bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+              className={`card-hover p-8 rounded-2xl border-2 bg-white ${
                 hoveredSolution === 'chat-reply' ? 'shadow-2xl border-indigo-300 bg-indigo-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('chat-reply')}
@@ -418,7 +418,7 @@ export default function StudyAbroad() {
 
             {/* SMS Notification System */}
             <Card
-              className={`p-8 rounded-2xl border-2 bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+              className={`card-hover p-8 rounded-2xl border-2 bg-white ${
                 hoveredSolution === 'sms-notifications' ? 'shadow-2xl border-purple-300 bg-purple-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('sms-notifications')}
@@ -434,19 +434,19 @@ export default function StudyAbroad() {
               <p className="text-gray-600 mb-6 text-lg">Automated text messaging service to keep students updated on application status, deadlines, and important announcements</p>
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-700 group">
-                  <span className="w-3 h-3 rounded-full mr-3 group-hover:scale-125 transition-transform bg-gradient-to-r from-purple-500 to-pink-600"></span>
+                  <span className="w-3 h-3 rounded-full mr-3 bg-gradient-to-r from-purple-500 to-pink-600"></span>
                   <span className="group-hover:text-purple-700 transition-colors">Application alerts</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-700 group">
-                  <span className="w-3 h-3 rounded-full mr-3 group-hover:scale-125 transition-transform bg-gradient-to-r from-purple-500 to-pink-600"></span>
+                  <span className="w-3 h-3 rounded-full mr-3 bg-gradient-to-r from-purple-500 to-pink-600"></span>
                   <span className="group-hover:text-purple-700 transition-colors">Interview reminders</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-700 group">
-                  <span className="w-3 h-3 rounded-full mr-3 group-hover:scale-125 transition-transform bg-gradient-to-r from-purple-500 to-pink-600"></span>
+                  <span className="w-3 h-3 rounded-full mr-3 bg-gradient-to-r from-purple-500 to-pink-600"></span>
                   <span className="group-hover:text-purple-700 transition-colors">Deadline notifications</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-700 group">
-                  <span className="w-3 h-3 rounded-full mr-3 group-hover:scale-125 transition-transform bg-gradient-to-r from-purple-500 to-pink-600"></span>
+                  <span className="w-3 h-3 rounded-full mr-3 bg-gradient-to-r from-purple-500 to-pink-600"></span>
                   <span className="group-hover:text-purple-700 transition-colors">Document requests</span>
                 </div>
               </div>
@@ -454,7 +454,7 @@ export default function StudyAbroad() {
 
             {/* AI Integration Platform */}
             <Card
-              className={`p-6 rounded-xl border-2 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+              className={`card-hover p-6 rounded-xl border-2 hover:shadow-xl ${
                 hoveredSolution === 'ai-integration' ? 'shadow-2xl border-cyan-300 bg-cyan-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('ai-integration')}
@@ -487,7 +487,7 @@ export default function StudyAbroad() {
 
             {/* Document Processing System */}
             <Card
-              className={`p-6 rounded-xl border-2 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+              className={`card-hover p-6 rounded-xl border-2 hover:shadow-xl ${
                 hoveredSolution === 'document-automation' ? 'shadow-2xl border-blue-300 bg-blue-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('document-automation')}
@@ -520,7 +520,7 @@ export default function StudyAbroad() {
 
             {/* Application Tracking Portal */}
             <Card
-              className={`p-6 rounded-xl border-2 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+              className={`card-hover p-6 rounded-xl border-2 hover:shadow-xl ${
                 hoveredSolution === 'application-tracking' ? 'shadow-2xl border-indigo-300 bg-indigo-50/50' : 'border-gray-100'
               }`}
               onMouseEnter={() => setHoveredSolution('application-tracking')}
@@ -578,7 +578,7 @@ export default function StudyAbroad() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="p-6 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 hover:shadow-2xl transition-all duration-300 text-center transform hover:-translate-y-2 bg-white"
+                className="card-glow p-6 rounded-2xl border-2 border-gray-100 text-center transform bg-white"
               >
                 <div className="w-16 h-16 mx-auto mb-5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
                   <category.icon className="w-8 h-8 text-white" />
@@ -619,7 +619,7 @@ export default function StudyAbroad() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {/* Enhanced Student Experience */}
-            <Card className="p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 h-full flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <Card className="card-tilt p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 h-full flex flex-col">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white mb-5 shadow-md">
                 <StarIcon className="w-7 h-7" />
               </div>
@@ -632,7 +632,7 @@ export default function StudyAbroad() {
             </Card>
 
             {/* Operational Efficiency */}
-            <Card className="p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-teal-100 border-2 border-teal-200 h-full flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <Card className="card-tilt p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-teal-100 border-2 border-teal-200 h-full flex flex-col">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center text-white mb-5 shadow-md">
                 <BoltIcon className="w-7 h-7" />
               </div>
@@ -645,7 +645,7 @@ export default function StudyAbroad() {
             </Card>
 
             {/* Improved Communication */}
-            <Card className="p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 h-full flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <Card className="card-tilt p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 h-full flex flex-col">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white mb-5 shadow-md">
                 <ChatBubbleOvalLeftIcon className="w-7 h-7" />
               </div>
@@ -658,7 +658,7 @@ export default function StudyAbroad() {
             </Card>
 
             {/* Data-Driven Insights */}
-            <Card className="p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100 border-2 border-indigo-200 h-full flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <Card className="card-tilt p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100 border-2 border-indigo-200 h-full flex flex-col">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white mb-5 shadow-md">
                 <ChartBarIcon className="w-7 h-7" />
               </div>
@@ -1060,7 +1060,7 @@ export default function StudyAbroad() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+            <Card className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-blue-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-indigo-100 to-transparent opacity-30 rounded-full"></div>
@@ -1090,7 +1090,7 @@ export default function StudyAbroad() {
               </div>
             </Card>
             
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+            <Card className="p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-indigo-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-purple-100 to-transparent opacity-30 rounded-full"></div>

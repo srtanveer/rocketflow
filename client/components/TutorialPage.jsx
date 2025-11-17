@@ -368,7 +368,7 @@ export default function TutorialPage({ tutorials = null }) {
                 {tutorialSections.map((section) => (
                   <Card
                     key={section.id}
-                    className={`cursor-pointer transition-all duration-300 border backdrop-blur-sm shadow-sm ${
+                    className={`card-hover cursor-pointer border backdrop-blur-sm shadow-sm ${
                       activeVideo.startsWith(section.id) 
                         ? 'bg-gradient-to-r from-blue-50/90 to-white border-blue-600 shadow-blue-600/10'
                         : 'bg-white/70 border-gray-100 hover:bg-blue-50/50 hover:border-blue-200 hover:shadow-md hover:shadow-blue-600/5'
@@ -518,7 +518,7 @@ export default function TutorialPage({ tutorials = null }) {
             {securityTips.map((tip, index) => (
               <Card 
                 key={index} 
-                className="h-64 p-1.5 backdrop-blur-sm bg-white/70 border border-gray-100 hover:shadow-xl hover:shadow-blue-600/5 hover:border-blue-100 transition-all duration-300"
+                className="card-glow h-64 p-1.5 backdrop-blur-sm bg-white/70 border border-gray-100"
               >
                 <div className="rounded-2xl w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-4">
                   <tip.icon className="w-8 h-8 text-blue-600" />

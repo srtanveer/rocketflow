@@ -361,7 +361,7 @@ export default function SalonPage() {
             <div className="relative">
               <div className="relative">
                 {/* Main Card - Booking Dashboard */}
-                <Card className="border-2 border-purple-100 mb-6">
+                <Card className="card-border-gradient border-2 border-purple-100 mb-6">
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <div className="text-sm text-gray-600 mb-1">This Month's Revenue</div>
@@ -379,14 +379,14 @@ export default function SalonPage() {
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
-                  <Card className="!bg-gradient-to-br !from-purple-500 !to-fuchsia-600 !text-white">
+                  <Card className="card-glow !bg-gradient-to-br !from-purple-500 !to-fuchsia-600 !text-white">
                     <div className="w-12 h-12 bg-red bg-opacity-20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
                       <UserGroupIcon className="w-6 h-6 text-white" />
                     </div>
                     <div className="text-3xl font-bold mb-1">185</div>
                     <div className="text-sm opacity-90">Active Clients</div>
                   </Card>
-                  <Card className="!bg-gradient-to-br !from-fuchsia-500 !to-pink-600 !text-white">
+                  <Card className="card-glow !bg-gradient-to-br !from-fuchsia-500 !to-pink-600 !text-white">
                     <div className="w-12 h-12 bg-red bg-opacity-20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
                       <ChartBarIcon className="w-6 h-6 text-white" />
                     </div>
@@ -423,7 +423,7 @@ export default function SalonPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-gradient-to-br from-white to-purple-50 border-2 border-purple-100 hover:border-purple-300 h-full flex flex-col"
+                className="card-hover card-shimmer bg-gradient-to-br from-white to-purple-50 border-2 border-purple-100 h-full flex flex-col"
                 padding="lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0">
@@ -480,9 +480,9 @@ export default function SalonPage() {
             {filteredSolutions.map((solution) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group h-full flex flex-col ${
+                className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group h-full flex flex-col ${
                   hoveredCard === solution.id 
-                    ? 'border-purple-300 scale-105 -translate-y-2' 
+                    ? 'border-purple-300' 
                     : 'border-purple-100 hover:border-purple-200'
                 }`}
                 onMouseEnter={() => setHoveredCard(solution.id)}
@@ -497,7 +497,7 @@ export default function SalonPage() {
                 </div>
 
                 {/* Icon */}
-                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}>
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 

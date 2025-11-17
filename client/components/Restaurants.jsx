@@ -279,7 +279,7 @@ export default function Restaurants() {
                   {/* Dashboard Cards Stack */}
                   <div className="space-y-4">
                     {/* Top Card - Analytics */}
-                    <Card animationDelay={0} className="!bg-primary !text-black">
+                    <Card animationDelay={0} className="card-glow !bg-primary !text-black">
                       <div className="flex items-center justify-between mb-6">
                         <div>
                           <div className="text-sm opacity-80 mb-1">Monthly Reservations</div>
@@ -299,14 +299,14 @@ export default function Restaurants() {
 
                     {/* Middle Cards - Side by Side */}
                     <div className="grid grid-cols-2 gap-4">
-                      <Card animationDelay={0.1} className="border-2 border-primary-100">
+                      <Card animationDelay={0.1} className="card-glow border-2 border-primary-100">
                         <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center mb-4">
                           <DevicePhoneMobileIcon className="w-6 h-6 text-white" />
                         </div>
                         <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
                         <div className="text-sm text-gray-600">SMS Delivered</div>
                       </Card>
-                      <Card animationDelay={0.15} className="border-2 border-secondary-100">
+                      <Card animationDelay={0.15} className="card-glow border-2 border-secondary-100">
                         <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center mb-4">
                           <HeartIcon className="w-6 h-6 text-white" />
                         </div>
@@ -316,7 +316,7 @@ export default function Restaurants() {
                     </div>
 
                     {/* Bottom Card - Activity */}
-                    <Card animationDelay={0.2} className="border-2 border-primary-100">
+                    <Card animationDelay={0.2} className="card-border-gradient border-2 border-primary-100">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold">
                           AI
@@ -360,7 +360,7 @@ export default function Restaurants() {
                 <Card
                   key={index}
                   animationDelay={index * 0.1}
-                  className={`cursor-pointer transition-all duration-300 border-2 ${
+                  className={`card-hover cursor-pointer transition-all duration-300 border-2 ${
                     activeFeature === index
                       ? 'bg-primary-50 border-primary-300 scale-105'
                       : 'border-gray-200 hover:border-primary-200'
@@ -403,9 +403,9 @@ export default function Restaurants() {
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredService === solution.id 
-                    ? 'border-primary-300 scale-105 -translate-y-2' 
+                    ? 'border-primary-300' 
                     : 'border-gray-200 hover:border-primary-200'
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
@@ -417,7 +417,7 @@ export default function Restaurants() {
                 </div>
 
                 {/* Icon */}
-                <div className="relative w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <div className="relative w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -469,7 +469,7 @@ export default function Restaurants() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-primary-50 border-2 border-primary-100"
+                className="card-glow bg-primary-50 border-2 border-primary-100"
               >
                 <div className={`w-16 h-16 bg-${benefit.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-8 h-8 text-white" />
@@ -707,7 +707,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ShoppingCartIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Revenue & Orders</span>
@@ -730,7 +730,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <CalendarIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Reservations</span>
@@ -753,7 +753,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Service</span>
@@ -776,7 +776,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <SparklesIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Marketing</span>
@@ -799,7 +799,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <HeartIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Loyalty</span>
@@ -822,7 +822,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                           <ShoppingBagIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">High-Value Bookings</span>

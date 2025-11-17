@@ -21,7 +21,7 @@ function formatDate(iso) {
 function PostCard({ post }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <Card hover={true} tiltEffect={true} padding="md" className="group">
+  <Card padding="md" className="card-hover card-shimmer group">
         <article aria-labelledby={`post-${post.id}-title`} className="flex flex-col h-full">
           <div className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-50">
             {post.featuredImage ? (

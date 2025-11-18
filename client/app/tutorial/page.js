@@ -6,11 +6,13 @@ export const metadata = {
   keywords: 'admin tutorial, landing page management, RocketFlow tutorials, event management tutorials',
 };
 
+export const dynamic = 'force-static'
+
 export default async function Page() {
   const base = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
   let tutorials = null
   try {
-    const res = await fetch(`${base.replace(/\/$/, '')}/tutorials`, { cache: 'no-store' })
+    const res = await fetch(`${base.replace(/\/$/, '')}/tutorials`, { cache: 'force-cache' })
     if (res.ok) tutorials = await res.json()
   } catch (e) {
     // ignore — component will fallback to static samples

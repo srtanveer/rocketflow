@@ -7,6 +7,7 @@ import Footer from '../../../components/layout/Footer'
 import Container from '../../../components/ui/Container'
 import Section from '../../../components/ui/Section'
 import { normalizeImageUrl } from '../../../lib/utils'
+import POSTS from '../../../components/blog/posts'
 
 function isValidUrl(value) {
   if (!value || typeof value !== 'string') return false
@@ -19,14 +20,20 @@ function isValidUrl(value) {
 }
 
 export async function generateStaticParams() {
+  // Try to fetch from API first, fallback to local posts
   try {
-    const res = await fetch(`${API}/posts`)
-    if (!res.ok) return []
-    const posts = await res.json()
-    return posts.map((p) => ({ slug: p.slug }))
+    const res = await fetch(`${API}/posts`, { cache: 'force-cache' })
+    if (res.ok) {
+      const posts = await res.json()
+      if (posts && posts.length > 0) {
+        return posts.map((p) => ({ slug: p.slug }))
+      }
+    }
   } catch (err) {
-    return []
+    console.log('API not available during build, using local posts')
   }
+  // Fallback to local posts
+  return POSTS.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }) {

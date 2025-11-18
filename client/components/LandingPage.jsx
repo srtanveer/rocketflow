@@ -47,6 +47,41 @@ export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [pricingPeriod, setPricingPeriod] = useState('month');
   const [showPricingTable, setShowPricingTable] = useState(false);
+  // live pricing data (fetched from backend). Keep design unchanged.
+  const [packages, setPackages] = useState(null)
+
+  useEffect(() => {
+    const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+    let mounted = true
+    async function loadPricing() {
+      try {
+        const res = await fetch(`${API_BASE}/api/pricing`)
+        if (!res.ok) throw new Error('pricing fetch failed')
+        const data = await res.json()
+        if (mounted) setPackages(Array.isArray(data.packages) ? data.packages : [])
+      } catch (err) {
+        // silent fallback to preserve existing UI
+        console.warn('pricing load error', err)
+        if (mounted) setPackages([])
+      }
+    }
+    loadPricing()
+    return () => { mounted = false }
+  }, [])
+
+  function getDisplayedPrice(period) {
+    // Keep original hard-coded fallback values so design remains identical when backend is unavailable
+    const fallbackMonth = 7
+    const fallbackYear = 30
+    if (!packages || packages.length === 0) {
+      return period === 'month' ? fallbackMonth : fallbackYear
+    }
+    // Prefer popular package when available
+    const pkg = packages.find(p => p.is_popular) || packages[0]
+    const monthly = (pkg && pkg.monthly_price != null) ? Number(pkg.monthly_price) : fallbackMonth
+    const yearly = (pkg && pkg.yearly_price != null) ? Number(pkg.yearly_price) : Math.round(monthly * 12 * 0.85 * 100) / 100
+    return period === 'month' ? monthly : yearly
+  }
 
   // Check if mobile on mount and resize
   useEffect(() => {
@@ -1174,7 +1209,7 @@ export default function LandingPage() {
                           <td className="px-4 py-3 text-sm font-semibold text-gray-700 border-r border-gray-200">Price</td>
                           <td className="px-4 py-3 text-left">
                             <div className="text-lg font-bold text-blue-600">
-                              BDT {pricingPeriod === 'month' ? '7' : '30'} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
+                              BDT {getDisplayedPrice(pricingPeriod)} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
                             </div>
                           </td>
                         </tr>

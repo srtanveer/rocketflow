@@ -8,6 +8,7 @@ export { default as Card } from './ui/Card';
 export { default as Section } from './ui/Section';
 export { default as Container } from './ui/Container';
 export { default as ShinyText } from './ui/ShinyText';
+export { default as VideoModal } from './ui/VideoModal';
 
 // Shared Components
 export { default as ProvideMoreSection } from './ProvideMoreSection';

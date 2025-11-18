@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { Navbar, Footer, Button, Card, Section, Container } from '.';
+import { Navbar, Footer, Button, Card, Section, Container, VideoModal } from '.';
 import Link from 'next/link';
 import {
   ChatBubbleLeftRightIcon,
@@ -46,6 +46,7 @@ export default function LandingPage() {
   const [activeDashboard, setActiveDashboard] = useState(0);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Check if mobile on mount and resize
   useEffect(() => {
@@ -278,12 +279,12 @@ export default function LandingPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-start mb-5 sm:mb-0">
-                <Link href="/tutorial" className="w-full sm:w-auto">
+                <button onClick={() => setIsVideoModalOpen(true)} className="w-full sm:w-auto">
                   <Button size="lg" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all py-3 sm:py-3 text-sm sm:text-base font-semibold rounded-xl">
                     <PlayIcon className="w-5 h-5 text-white" />
                     How It Works
                   </Button>
-                </Link>
+                </button>
                 
                 <Link href="/pricing" className="w-full sm:w-auto">
                   <button className="w-full px-6 py-3 bg-white text-blue-600 font-semibold hover:bg-blue-50 border-2 border-blue-600 rounded-xl transition-all hover:shadow-md text-sm sm:text-base">
@@ -1270,6 +1271,14 @@ export default function LandingPage() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl="https://www.youtube.com/embed/MZnyjXSUX3Q"
+        title="RocketFlow - How It Works"
+      />
     </div>
   );
 }

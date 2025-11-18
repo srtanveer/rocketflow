@@ -448,7 +448,7 @@ export default function LandingPage() {
             <p className="text-center text-blue-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] uppercase tracking-widest mb-10 sm:mb-12 font-bold">Seamlessly Integrated With</p>
             
             {/* Integration Hub - Network Design */}
-            <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
+            <div className="relative max-w-6xl mx-auto h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center">
               
               {/* SVG Connection Lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
@@ -482,45 +482,45 @@ export default function LandingPage() {
 
                 {/* Connection lines from center to each platform - 6 platforms in hexagonal pattern */}
                 {/* Top Left - Facebook */}
-                <line x1="50%" y1="50%" x2="25%" y2="14%" stroke="url(#lineGradient1)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0s' }} />
+                <line x1="50%" y1="50%" x2="25%" y2="14%" stroke="url(#lineGradient1)" strokeWidth="2" className="animate-pulse sm:strokeWidth-3" style={{ animationDelay: '0s' }} />
                 
                 {/* Top Right - Google */}
-                <line x1="50%" y1="50%" x2="75%" y2="16%" stroke="url(#lineGradient6)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <line x1="50%" y1="50%" x2="75%" y2="16%" stroke="url(#lineGradient6)" strokeWidth="2" className="animate-pulse sm:strokeWidth-3" style={{ animationDelay: '0.2s' }} />
                 
                 {/* Right - Instagram */}
-                <line x1="50%" y1="50%" x2="88%" y2="51%" stroke="url(#lineGradient2)" strokeWidth="4" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
+                <line x1="50%" y1="50%" x2="88%" y2="51%" stroke="url(#lineGradient2)" strokeWidth="3" className="animate-pulse sm:strokeWidth-4" style={{ animationDelay: '0.4s' }} />
                 
                 {/* Bottom Right - Twitter/X */}
-                <line x1="50%" y1="50%" x2="75%" y2="86%" stroke="url(#lineGradient5)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.6s' }} />
+                <line x1="50%" y1="50%" x2="75%" y2="86%" stroke="url(#lineGradient5)" strokeWidth="2" className="animate-pulse sm:strokeWidth-3" style={{ animationDelay: '0.6s' }} />
                 
                 {/* Bottom Left - WhatsApp */}
-                <line x1="50%" y1="50%" x2="25%" y2="84%" stroke="url(#lineGradient3)" strokeWidth="4" className="animate-pulse" style={{ animationDelay: '0.8s' }} />
+                <line x1="50%" y1="50%" x2="25%" y2="84%" stroke="url(#lineGradient3)" strokeWidth="3" className="animate-pulse sm:strokeWidth-4" style={{ animationDelay: '0.8s' }} />
                 
                 {/* Left - Messenger */}
-                <line x1="50%" y1="50%" x2="12%" y2="49%" stroke="url(#lineGradient1)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                <line x1="50%" y1="50%" x2="12%" y2="49%" stroke="url(#lineGradient1)" strokeWidth="2" className="animate-pulse sm:strokeWidth-3" style={{ animationDelay: '1s' }} />
               </svg>
 
               {/* Center Globe/Logo */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <div className="relative">
+                <div className="relative w-[90px] h-[90px] sm:w-[150px] sm:h-[150px]">
                   {/* Outer glow rings */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 via-white to-blue-300 rounded-full blur-3xl opacity-40 animate-pulse" style={{ width: '200px', height: '200px', left: '-50px', top: '-50px' }}></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full blur-2xl opacity-30" style={{ width: '180px', height: '180px', left: '-40px', top: '-40px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+                  <div className="absolute w-[120px] h-[120px] sm:w-[200px] sm:h-[200px] -left-[15px] -top-[15px] sm:-left-[25px] sm:-top-[25px] bg-gradient-to-r from-blue-300 via-white to-blue-300 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+                  <div className="absolute w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] -left-[5px] -top-[5px] sm:-left-[15px] sm:-top-[15px] bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                   
                   {/* Main globe container */}
-                  <div className="relative bg-white rounded-full p-8 shadow-2xl border-4 border-white/80" style={{ width: '150px', height: '150px' }}>
+                  <div className="relative bg-white rounded-full p-4 sm:p-8 shadow-2xl border-2 sm:border-4 border-white/80 w-full h-full">
                     {/* Inner gradient glow */}
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-100/60 to-white"></div>
                     
                     {/* Logo */}
                     <div className="relative z-10 w-full h-full flex items-center justify-center">
-                      <img src="/RF-small-logo.webp" alt="RocketFlow" className="w-20 h-20 object-contain" />
+                      <img src="/RF-small-logo.webp" alt="RocketFlow" className="w-12 h-12 sm:w-20 sm:h-20 object-contain" />
                     </div>
                   </div>
                   
                   {/* Orbiting ring */}
-                  <div className="absolute inset-0 border-2 border-white/40 border-dashed rounded-full animate-spin" style={{ width: '150px', height: '150px', animationDuration: '20s' }}>
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-lg"></div>
+                  <div className="absolute inset-0 border border-white/40 sm:border-2 border-dashed rounded-full w-full h-full" style={{ animation: 'spin 20s linear infinite' }}>
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full shadow-lg"></div>
                   </div>
                 </div>
               </div>
@@ -530,9 +530,9 @@ export default function LandingPage() {
               {/* Top Left - Facebook */}
               <div className="absolute top-[12%] left-[22%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-blue-100">
-                    <FaFacebook className="w-10 h-10 text-blue-600" />
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-blue-100 sm:border-2">
+                    <FaFacebook className="w-6 h-6 sm:w-10 sm:h-10 text-blue-600" />
                   </div>
                 </div>
               </div>
@@ -540,9 +540,9 @@ export default function LandingPage() {
               {/* Top Right - Google */}
               <div className="absolute top-[12%] right-[22%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-red-400 to-orange-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-gray-200">
-                    <FaGoogle className="w-10 h-10 text-red-500" />
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-red-400 to-orange-500 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-gray-200 sm:border-2">
+                    <FaGoogle className="w-6 h-6 sm:w-10 sm:h-10 text-red-500" />
                   </div>
                 </div>
               </div>
@@ -550,9 +550,9 @@ export default function LandingPage() {
               {/* Middle Right - Instagram */}
               <div className="absolute top-1/2 transform -translate-y-1/2 right-[8%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-pink-400 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-pink-100">
-                    <FaInstagram className="w-10 h-10 text-pink-600" />
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-pink-400 to-purple-600 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-pink-100 sm:border-2">
+                    <FaInstagram className="w-6 h-6 sm:w-10 sm:h-10 text-pink-600" />
                   </div>
                 </div>
               </div>
@@ -560,9 +560,9 @@ export default function LandingPage() {
               {/* Bottom Right - Twitter/X */}
               <div className="absolute bottom-[12%] right-[22%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-gray-700 to-black rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-gray-200">
-                    <svg className="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-gray-700 to-black rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-gray-200 sm:border-2">
+                    <svg className="w-6 h-6 sm:w-10 sm:h-10 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                   </div>
@@ -572,9 +572,9 @@ export default function LandingPage() {
               {/* Bottom Left - WhatsApp */}
               <div className="absolute bottom-[12%] left-[22%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-green-400 to-green-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-green-100">
-                    <svg className="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-green-100 sm:border-2">
+                    <svg className="w-6 h-6 sm:w-10 sm:h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
                     </svg>
                   </div>
@@ -584,9 +584,9 @@ export default function LandingPage() {
               {/* Middle Left - Messenger */}
               <div className="absolute top-1/2 transform -translate-y-1/2 left-[8%] z-10 group">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
-                  <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-blue-100">
-                    <FaFacebookMessenger className="w-10 h-10 text-blue-600" />
+                  <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl sm:rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border border-blue-100 sm:border-2">
+                    <FaFacebookMessenger className="w-6 h-6 sm:w-10 sm:h-10 text-blue-600" />
                   </div>
                 </div>
               </div>

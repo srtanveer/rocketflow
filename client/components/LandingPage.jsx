@@ -279,16 +279,17 @@ export default function LandingPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-stretch sm:items-start mb-4 sm:mb-0">
-                <button onClick={() => setIsVideoModalOpen(true)} className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all py-2.5 sm:py-2.5 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] font-semibold rounded-xl whitespace-nowrap">
-                    <PlayIcon className="w-5 h-5 text-white flex-shrink-0" />
-
-                    How It Works
-                  </Button>
-                </button>
+                <Button 
+                  size="lg" 
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all py-2.5 sm:py-2.5 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] font-semibold rounded-xl whitespace-nowrap"
+                >
+                  <PlayIcon className="w-5 h-5 text-white flex-shrink-0" />
+                  How It Works
+                </Button>
                 
                 <Link href="/pricing" className="w-full sm:w-auto">
-                  <button className="w-full px-5 py-2.5 bg-white text-blue-600 font-semibold hover:bg-blue-50 border-2 border-blue-600 rounded-xl transition-all hover:shadow-md text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
+                  <button className="w-full px-5 py-2.5 bg-white text-blue-600 font-semibold hover:bg-blue-50 border-2 border-blue-600 rounded-xl transition-all hover:shadow-md text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] whitespace-nowrap">
                     Try It For Free →
                   </button>
                 </Link>

@@ -160,7 +160,7 @@ export default function StudyAbroad() {
       <Navbar />
       
       {/* Hero Section - Corporate & Professional */}
-      <Section className="pt-32 pb-24 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Geometric Background Pattern */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -179,7 +179,7 @@ export default function StudyAbroad() {
                 <span className="text-blue-900 font-semibold text-sm">Enterprise-Grade Solutions</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                 <span className="text-gray-900">Streamlining Workflows for</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -233,12 +233,12 @@ export default function StudyAbroad() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                   Get Started Today
                 </Button>
-                <Button className="border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   View Success Stories
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -273,14 +273,14 @@ export default function StudyAbroad() {
                       <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
                         <UserGroupIcon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
+                      <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">98%</div>
                       <div className="text-sm text-gray-600">Success Rate</div>
                     </Card>
                     <Card animationDelay={0.15} className="border-2 border-purple-100">
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
                         <BoltIcon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">3x</div>
+                      <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">3x</div>
                       <div className="text-sm text-gray-600">Conversion</div>
                     </Card>
                   </div>
@@ -358,7 +358,7 @@ export default function StudyAbroad() {
                   <EnvelopeIcon className="w-10 h-10" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Automated Email Responses</h3>
+              <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4">Automated Email Responses</h3>
               <p className="text-gray-600 mb-6 text-base leading-relaxed">Intelligent email automation system that sends personalized responses to student inquiries based on their specific questions and requirements</p>
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-700 group">
@@ -394,7 +394,7 @@ export default function StudyAbroad() {
                   <ChatBubbleLeftRightIcon className="w-10 h-10" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">AI Chat Assistant</h3>
+              <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4">AI Chat Assistant</h3>
               <p className="text-gray-600 mb-6 text-base leading-relaxed">24/7 conversational AI to engage with prospective students, answer FAQs about universities, courses, and application procedures</p>
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-700 group">
@@ -430,7 +430,7 @@ export default function StudyAbroad() {
                   <DevicePhoneMobileIcon className="w-10 h-10" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">SMS Notification System</h3>
+              <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4">SMS Notification System</h3>
               <p className="text-gray-600 mb-6 text-lg">Automated text messaging service to keep students updated on application status, deadlines, and important announcements</p>
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-700 group">
@@ -555,9 +555,9 @@ export default function StudyAbroad() {
       </Section>
 
       {/* Service Categories Section */}
-      <Section className="py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+      <Section className="py-16 sm:py-18 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-white border border-indigo-200 rounded-full mb-6 shadow-sm">
               <span className="text-indigo-700 font-semibold text-sm">Our Coverage</span>
             </div>
@@ -568,7 +568,7 @@ export default function StudyAbroad() {
                 Study Programs
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               From undergraduate degrees to language courses, our solutions adapt to your specific service offerings.
             </p>
           </div>
@@ -583,7 +583,7 @@ export default function StudyAbroad() {
                 <div className="w-16 h-16 mx-auto mb-5 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
                   <category.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{category.name}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{category.name}</h3>
                 <p className="text-gray-600">{category.description}</p>
               </Card>
             ))}
@@ -600,7 +600,7 @@ export default function StudyAbroad() {
         </div>
         
         <Container className="relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-6">
               <span className="text-blue-700 font-semibold text-sm">Why Choose Us</span>
             </div>
@@ -611,7 +611,7 @@ export default function StudyAbroad() {
                 Study Abroad Consultancies
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Our solutions deliver measurable improvements in student placements, operational efficiency, 
               and consultancy growth.
             </p>
@@ -673,7 +673,7 @@ export default function StudyAbroad() {
 
           {/* Additional Stats Section */}
           <div className="mt-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
               <div className="text-center">
                 <div className="text-5xl font-bold text-white mb-2">100+</div>
                 <div className="text-blue-100 font-semibold">Consultancies</div>
@@ -715,21 +715,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserGroupIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Lead Management</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Management</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Too many inquiries to handle manually</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Too many inquiries to handle manually</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated replies & tagging</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated replies & tagging</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Faster response, more leads</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Faster response, more leads</p>
                 </div>
               </div>
             </div>
@@ -741,21 +741,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Follow-Up</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Follow-Up</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Students don't reply after the first message</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Students don't reply after the first message</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Multi-channel sequence automation (Messenger, Email, SMS)</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Multi-channel sequence automation (Messenger, Email, SMS)</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Re-engages cold leads</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Re-engages cold leads</p>
                 </div>
               </div>
             </div>
@@ -770,21 +770,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <GlobeAltIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Campaign Targeting</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Campaign Targeting</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Same message to all</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Same message to all</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Smart segmentation for multi-channel broadcasts</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Smart segmentation for multi-channel broadcasts</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Higher engagement & reach</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher engagement & reach</p>
                 </div>
               </div>
             </div>
@@ -796,21 +796,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <DocumentTextIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Data Handling</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Data Handling</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Scattered info across platforms</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Scattered info across platforms</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Integrated forms & sheets with unified communication logs</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Integrated forms & sheets with unified communication logs</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Organized lead tracking</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Organized lead tracking</p>
                 </div>
               </div>
             </div>
@@ -822,21 +822,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <BoltIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Counselor Productivity</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Counselor Productivity</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Repetitive tasks and reminders</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Repetitive tasks and reminders</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">AI chat assistant & automated Email/SMS alerts</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">AI chat assistant & automated Email/SMS alerts</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">50% less manual work</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">50% less manual work</p>
                 </div>
               </div>
             </div>
@@ -848,21 +848,21 @@ export default function StudyAbroad() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ChartBarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Conversion Rate</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Conversion Rate</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Lost leads in the pipeline</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Lost leads in the pipeline</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Smart, multi-channel broadcasting & follow-ups</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Smart, multi-channel broadcasting & follow-ups</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Up to 3x conversion growth</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Up to 3x conversion growth</p>
                 </div>
               </div>
             </div>
@@ -1046,20 +1046,20 @@ export default function StudyAbroad() {
       </section>
 
       {/* Testimonials Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
               What Our 
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Clients Say</span>
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Hear from study abroad consultants who have transformed their businesses with our solutions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             <Card className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-blue-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
@@ -1124,7 +1124,7 @@ export default function StudyAbroad() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/3 translate-y-1/3"></div>

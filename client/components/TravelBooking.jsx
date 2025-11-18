@@ -255,7 +255,7 @@ export default function TravelBookingPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <Section className="pt-32 pb-24 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-20 left-20 w-64 h-64 border-4 border-blue-200 transform rotate-45"></div>
@@ -274,7 +274,7 @@ export default function TravelBookingPage() {
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                 <span className="text-gray-900">Plan Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
@@ -339,12 +339,12 @@ export default function TravelBookingPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                   Book Now
                 </Button>
-                <Button className="border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Explore Packages
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -382,7 +382,7 @@ export default function TravelBookingPage() {
                       <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
                           <UsersIcon className="w-6 h-6 text-white" />
                         </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">
+                      <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">
                         98%
                       </div>
                       <div className="text-sm text-gray-600">
@@ -396,7 +396,7 @@ export default function TravelBookingPage() {
                       <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
                           <ClockIcon className="w-6 h-6 text-white" />
                         </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">
+                      <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">
                         2min
                       </div>
                       <div className="text-sm text-gray-600">
@@ -437,17 +437,17 @@ export default function TravelBookingPage() {
       </Section>
 
       {/* Continue Features, Solutions, Benefits, Case Studies, CTA sections exactly same structure but replace content with travel-related content */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Complete Suite for
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 Travelers
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Everything a traveler needs in one powerful platform
             </p>
           </div>
@@ -467,7 +467,7 @@ export default function TravelBookingPage() {
                 <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
@@ -487,22 +487,22 @@ export default function TravelBookingPage() {
         </Container>
       </Section>
 
-      <Section className="py-20 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Travel Solutions
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {" "}
                 For Every Journey
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               AI-powered travel tools for smooth and hassle-free trips
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
@@ -528,7 +528,7 @@ export default function TravelBookingPage() {
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -560,22 +560,22 @@ export default function TravelBookingPage() {
       <ProvideMoreSection />
 
       {/* Benefits & Stats */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why Travelers
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 Love Us
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Millions trust us for hassle-free bookings
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -587,7 +587,7 @@ export default function TravelBookingPage() {
                 >
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">
                   {benefit.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
@@ -603,7 +603,7 @@ export default function TravelBookingPage() {
           </div>
 
           <div className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 rounded-3xl p-12 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -646,21 +646,21 @@ export default function TravelBookingPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <benefit.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">{benefit.title}</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">{benefit.title}</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">{benefit.description}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{benefit.description}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">{benefit.metric}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">{benefit.metric}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
                       {benefit.title.includes("Efficiency")
                         ? "Faster operations"
                         : benefit.title.includes("Security") || benefit.title.includes("Safe")
@@ -680,21 +680,21 @@ export default function TravelBookingPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <benefit.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">{benefit.title}</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">{benefit.title}</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">{benefit.description}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{benefit.description}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">{benefit.metric}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">{benefit.metric}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
                       {benefit.title.includes("Efficiency")
                         ? "Faster operations"
                         : benefit.title.includes("Security") || benefit.title.includes("Safe")
@@ -784,22 +784,22 @@ export default function TravelBookingPage() {
       </Section>
 
       {/* Case Studies Section */}
-      <Section className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Success Stories from
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 {" "}
                 Travel Leaders
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Real results from top travel companies
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             {caseStudies.map((study, index) => (
               <Card
                 key={index}
@@ -813,7 +813,7 @@ export default function TravelBookingPage() {
                     {study.logo}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">
                       {study.company}
                     </h3>
                     <div className="text-indigo-600 font-semibold">
@@ -877,7 +877,7 @@ export default function TravelBookingPage() {
       </Section>
 
       {/* Travel CTA Section */}
-  <Section className="py-24 bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-700 relative overflow-hidden">
+  <Section className="py-16 sm:py-18 bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-700 relative overflow-hidden">
         {/* Animated Background Patterns */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">

@@ -207,7 +207,7 @@ export default function EducationPage() {
       <Navbar />
       
       {/* Hero Section - Following CorporateOfficePage structure */}
-      <Section className="pt-32 pb-24 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Geometric Background Pattern */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -218,15 +218,15 @@ export default function EducationPage() {
         </div>
 
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-purple-100 to-fuchsia-100 rounded-full mb-6 border border-purple-200">
-                <AcademicCapIcon className="w-5 h-5 text-purple-600 mr-2" />
-                <span className="text-purple-900 font-semibold text-sm">IELTS Coaching Excellence</span>
+              <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-purple-100 to-fuchsia-100 rounded-full mb-5 border border-purple-200">
+                <AcademicCapIcon className="w-4 h-4 text-purple-600 mr-2" />
+                <span className="text-purple-900 font-semibold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">IELTS Coaching Excellence</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-5">
                 <span className="text-gray-900">Rocket Flow for</span>
                 <br />
                 <span className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
@@ -234,58 +234,58 @@ export default function EducationPage() {
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 mb-6 leading-relaxed">
                 Revolutionize your IELTS coaching center with intelligent automation for lead generation, 
                 student management, and operational efficiency. Act as a 24/7 virtual admissions officer.
               </p>
 
               {/* Key Highlights */}
-              <div className="grid grid-cols-2 gap-4 mb-10">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <ChatBubbleLeftRightIcon className="w-5 h-5 text-white" />
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                <div className="flex items-start gap-2">
+                  <div className="w-9 h-9 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <ChatBubbleLeftRightIcon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">80% Automated</div>
-                    <div className="text-sm text-gray-600">FAQs handled</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">80% Automated</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">FAQs handled</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <ClockIcon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-2">
+                  <div className="w-9 h-9 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <ClockIcon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">24/7 Active</div>
-                    <div className="text-sm text-gray-600">Lead capture</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">24/7 Active</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Lead capture</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <CheckCircleIcon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-2">
+                  <div className="w-9 h-9 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <CheckCircleIcon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">92% Attendance</div>
-                    <div className="text-sm text-gray-600">With reminders</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">92% Attendance</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">With reminders</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <ChartBarIcon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-2">
+                  <div className="w-9 h-9 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <ChartBarIcon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">3x Higher</div>
-                    <div className="text-sm text-gray-600">Conversion rate</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">3x Higher</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Conversion rate</div>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                   Start Free Trial
                 </Button>
-                <Button className="border-2 border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-purple-600 text-purple-700 hover:bg-purple-50 px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all hover:shadow-md">
                   Watch Demo
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -303,12 +303,12 @@ export default function EducationPage() {
               </div>
               
               {/* Video Caption */}
-              <p className="text-center text-sm text-gray-500 mt-4">
+              <p className="text-center text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-500 mt-3">
                 See how Rocket Flow transforms IELTS coaching centers
               </p>
 
               {/* Floating Badge */}
-              <div className="absolute -top-8 -right-8 bg-gradient-to-r from-purple-500 to-fuchsia-600 text-white px-6 py-3 rounded-full shadow-2xl font-bold text-sm transform rotate-6 hover:rotate-0 transition-transform duration-300">
+              <div className="absolute -top-8 -right-8 bg-gradient-to-r from-purple-500 to-fuchsia-600 text-white px-5 py-2.5 rounded-full shadow-2xl font-bold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] transform rotate-6 hover:rotate-0 transition-transform duration-300">
                 🎓 IELTS Optimized
               </div>
             </div>
@@ -317,14 +317,14 @@ export default function EducationPage() {
       </Section>
 
       {/* Features Showcase - Interactive Tabs */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Complete Suite for
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> IELTS Centers</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Everything your coaching center needs in one powerful platform
             </p>
           </div>
@@ -344,7 +344,7 @@ export default function EducationPage() {
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center mb-4">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{feature.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
                 <div className="space-y-2">
                   {feature.stats.map((stat, idx) => (
@@ -361,19 +361,19 @@ export default function EducationPage() {
       </Section>
 
       {/* Solutions Grid - 9 Powerful Features */}
-      <Section className="py-20 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               9 Powerful Features
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> for IELTS Centers</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Automate every aspect of your student journey from first contact to final enrollment and beyond
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
@@ -399,7 +399,7 @@ export default function EducationPage() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -430,19 +430,19 @@ export default function EducationPage() {
       <ProvideMoreSection />
 
       {/* Benefits Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why IELTS Centers
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> Choose Rocket Flow</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Join hundreds of coaching centers transforming their operations
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -452,7 +452,7 @@ export default function EducationPage() {
                   <div className={`w-16 h-16 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
                 <div className={`inline-block px-4 py-2 bg-${benefit.color}-100 text-${benefit.color}-700 rounded-full text-sm font-bold`}>
                   {benefit.metric}
@@ -463,7 +463,7 @@ export default function EducationPage() {
 
           {/* Stats Bar */}
           <div className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 rounded-3xl p-12 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -494,21 +494,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Lead Management</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Management</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">High volume of repetitive inquiries</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">High volume of repetitive inquiries</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">AI Chat Assistant & Automated First Response</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">AI Chat Assistant & Automated First Response</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">80% of FAQs handled automatically</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">80% of FAQs handled automatically</p>
                   </div>
                 </div>
               </div>
@@ -520,21 +520,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <UserGroupIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Conversion Rate</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Conversion Rate</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Leads go cold after the first inquiry</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Leads go cold after the first inquiry</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Multi-channel Nurturing Sequences (Email, SMS)</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Multi-channel Nurturing Sequences (Email, SMS)</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Higher lead-to-enrollment ratio</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher lead-to-enrollment ratio</p>
                   </div>
                 </div>
               </div>
@@ -549,21 +549,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <CogIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Admin Overload</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Admin Overload</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Manually sending class/test reminders</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manually sending class/test reminders</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated SMS & Email Reminder System</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS & Email Reminder System</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Increased attendance, less admin work</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increased attendance, less admin work</p>
                   </div>
                 </div>
               </div>
@@ -575,21 +575,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChartBarIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Sales & Marketing</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Sales & Marketing</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Sending generic offers to everyone</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Sending generic offers to everyone</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Smart Tagging & Segmented Campaigns</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Smart Tagging & Segmented Campaigns</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Higher campaign ROI & upsells</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher campaign ROI & upsells</p>
                   </div>
                 </div>
               </div>
@@ -601,21 +601,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <BookOpenIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Data Management</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Data Management</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Manual data entry for new students</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manual data entry for new students</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Form Integration to CRM/Sheets</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Form Integration to CRM/Sheets</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Error-free, organized student data</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Error-free, organized student data</p>
                   </div>
                 </div>
               </div>
@@ -627,21 +627,21 @@ export default function EducationPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <SparklesIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Student Experience</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Student Experience</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Slow response times & scattered info</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Slow response times & scattered info</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Unified Communication Hub & Instant Info Delivery</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Unified Communication Hub & Instant Info Delivery</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Professional and seamless student journey</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Professional and seamless student journey</p>
                   </div>
                 </div>
               </div>
@@ -850,19 +850,19 @@ export default function EducationPage() {
       </Section>
 
       {/* Case Studies */}
-      <Section className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Success Stories from
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> IELTS Center Owners</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Real results from coaching centers like yours
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             {caseStudies.map((study, index) => (
               <Card
                 key={index}
@@ -876,7 +876,7 @@ export default function EducationPage() {
                     {study.logo}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{study.company}</h3>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.company}</h3>
                     <div className="text-purple-600 font-semibold">{study.industry}</div>
                   </div>
                 </div>
@@ -921,7 +921,7 @@ export default function EducationPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
         {/* Animated Background Patterns */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">

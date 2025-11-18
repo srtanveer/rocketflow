@@ -172,7 +172,7 @@ export default function CorporateOfficePage() {
       <Navbar />
       
       {/* Hero Section - Corporate & Professional */}
-      <Section className="pt-32 pb-24 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Geometric Background Pattern */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -183,15 +183,15 @@ export default function CorporateOfficePage() {
         </div>
 
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mb-6 border border-blue-200">
+              <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mb-4 border border-blue-200">
                 <BuildingOfficeIcon className="w-5 h-5 text-blue-600 mr-2" />
-                <span className="text-blue-900 font-semibold text-sm">Enterprise-Grade Solutions</span>
+                <span className="text-blue-900 font-semibold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Enterprise-Grade Solutions</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-4 sm:mb-5">
                 <span className="text-gray-900">Empower Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -199,20 +199,20 @@ export default function CorporateOfficePage() {
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 mb-6 leading-relaxed">
                 Transform your corporate communications with AI-powered automation, intelligent chatbots, 
                 and enterprise-grade messaging solutions designed for modern businesses.
               </p>
 
               {/* Key Highlights */}
-              <div className="grid grid-cols-2 gap-4 mb-10">
+              <div className="grid grid-cols-2 gap-3 mb-6 sm:mb-8">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ShieldCheckIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">ISO Certified</div>
-                    <div className="text-sm text-gray-600">Enterprise security</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">ISO Certified</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Enterprise security</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -220,8 +220,8 @@ export default function CorporateOfficePage() {
                     <BoltIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">70% Efficiency</div>
-                    <div className="text-sm text-gray-600">Time savings</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">70% Efficiency</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Time savings</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -229,8 +229,8 @@ export default function CorporateOfficePage() {
                     <UsersIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">500+ Clients</div>
-                    <div className="text-sm text-gray-600">Trusted globally</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">500+ Clients</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Trusted globally</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -238,19 +238,19 @@ export default function CorporateOfficePage() {
                     <ClockIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">24/7 Support</div>
-                    <div className="text-sm text-gray-600">Always available</div>
+                    <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">24/7 Support</div>
+                    <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Always available</div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                   Request Demo
                 </Button>
-                <Button className="border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all hover:shadow-md">
                   View Pricing
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -258,13 +258,13 @@ export default function CorporateOfficePage() {
             <div className="relative">
               <div className="relative">
                 {/* Dashboard Cards Stack */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {/* Top Card - Analytics */}
                   <Card animationDelay={0} className="!bg-gradient-to-br !from-blue-600 !to-indigo-700 !text-white">
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-4">
                       <div>
-                        <div className="text-sm opacity-80 mb-1">Monthly Communications</div>
-                        <div className="text-4xl font-bold">1.2M+</div>
+                        <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] opacity-80 mb-1">Monthly Communications</div>
+                        <div className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold">1.2M+</div>
                       </div>
                       <div className="w-16 h-16 bg-black bg-opacity-20 rounded-xl flex items-center justify-center backdrop-blur-sm">
                         <ChartBarIcon className="w-8 h-8" />
@@ -274,39 +274,39 @@ export default function CorporateOfficePage() {
                       <div className="flex-1 bg-white bg-opacity-20 rounded-full h-2">
                         <div className="bg-white rounded-full h-2 w-3/4"></div>
                       </div>
-                      <span className="text-sm font-semibold">+24%</span>
+                      <span className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold">+24%</span>
                     </div>
                   </Card>
 
                   {/* Middle Cards - Side by Side */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3">
                     <Card animationDelay={0.1} className="border-2 border-indigo-100">
-                      <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-3">
                         <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
-                      <div className="text-sm text-gray-600">Response Rate</div>
+                      <div className="text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] font-bold text-gray-900 mb-1">98%</div>
+                      <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Response Rate</div>
                     </Card>
                     <Card animationDelay={0.15} className="border-2 border-purple-100">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-3">
                         <ClockIcon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">2.5min</div>
-                      <div className="text-sm text-gray-600">Avg Response</div>
+                      <div className="text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] font-bold text-gray-900 mb-1">2.5min</div>
+                      <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Avg Response</div>
                     </Card>
                   </div>
 
                   {/* Bottom Card - Activity */}
                   <Card animationDelay={0.2} className="border-2 border-blue-100">
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold">
                         AI
                       </div>
                       <div className="flex-1">
-                        <div className="font-bold text-gray-900">AI Assistant Active</div>
-                        <div className="text-sm text-gray-600">Handling 45 queries now</div>
+                        <div className="font-bold text-gray-900 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">AI Assistant Active</div>
+                        <div className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600">Handling 45 queries now</div>
                       </div>
-                      <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">
+                      <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold">
                         Live
                       </div>
                     </div>
@@ -314,7 +314,7 @@ export default function CorporateOfficePage() {
                 </div>
 
                 {/* Floating Elements */}
-                <div className="absolute -top-8 -right-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full shadow-2xl font-bold text-sm transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute -top-8 -right-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-5 py-2.5 rounded-full shadow-2xl font-bold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] transform rotate-6 hover:rotate-0 transition-transform duration-300">
                   🏢 Enterprise Ready
                 </div>
               </div>
@@ -324,19 +324,19 @@ export default function CorporateOfficePage() {
       </Section>
 
       {/* Features Showcase - Interactive Tabs */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Complete Suite for
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Modern Offices</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Everything your corporate office needs in one powerful platform
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -348,14 +348,14 @@ export default function CorporateOfficePage() {
                 }`}
                 onClick={() => setActiveFeature(index)}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-2">{ feature.title}</h3>
+                <p className="text-gray-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] mb-3">{feature.description}</p>
                 <div className="space-y-2">
                   {feature.stats.map((stat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm">
+                    <div key={idx} className="flex items-center gap-2 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">
                       <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
                       <span className="text-gray-700">{stat}</span>
                     </div>
@@ -368,23 +368,23 @@ export default function CorporateOfficePage() {
       </Section>
 
       {/* Solutions Grid */}
-      <Section className="py-20 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Enterprise Solutions
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Built for Scale</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               AI-powered tools designed for corporate excellence and operational efficiency
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
+                className={`card-hover card-shimmer relative p-6 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
                   hoveredService === solution.id 
                     ? 'border-indigo-300' 
                     : 'border-gray-200 hover:border-indigo-200'
@@ -396,7 +396,7 @@ export default function CorporateOfficePage() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
 
                 {/* Stats Badge */}
-                <div className="absolute top-6 right-6 bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
+                <div className="absolute top-4 right-4 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold shadow-md">
                   {solution.stats.value}
                 </div>
 
@@ -406,17 +406,17 @@ export default function CorporateOfficePage() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3 relative z-10">
                   {solution.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
+                <p className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] text-gray-600 mb-4 leading-relaxed relative z-10">
                   {solution.description}
                 </p>
 
                 {/* Features List */}
-                <div className="space-y-3 relative z-10">
+                <div className="space-y-2 relative z-10">
                   {solution.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-sm">
+                    <div key={idx} className="flex items-center gap-3 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">
                       <div className={`w-2 h-2 bg-gradient-to-r ${solution.gradient} rounded-full flex-shrink-0`}></div>
                       <span className="text-gray-700">{feature}</span>
                     </div>
@@ -424,8 +424,8 @@ export default function CorporateOfficePage() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-6 pt-6 border-t border-gray-100 relative z-10">
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">{solution.stats.label}</div>
+                <div className="mt-4 pt-4 border-t border-gray-100 relative z-10">
+                  <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] text-gray-500 uppercase tracking-wider">{solution.stats.label}</div>
                 </div>
               </Card>
             ))}
@@ -434,31 +434,31 @@ export default function CorporateOfficePage() {
       </Section>
       <ProvideMoreSection />
       {/* Benefits Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why Leading Corporations
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Trust Us</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Join Fortune 500 companies leveraging our enterprise solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
                 animationDelay={index * 0.1}
                 className="bg-gradient-to-br from-slate-50 to-blue-50 border-2 border-blue-100"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                  <benefit.icon className="w-8 h-8 text-white" />
+                <div className={`w-14 h-14 bg-gradient-to-br from-${benefit.color}-500 to-${benefit.color}-700 rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                  <benefit.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
-                <div className={`inline-block px-4 py-2 bg-${benefit.color}-100 text-${benefit.color}-700 rounded-full text-sm font-bold`}>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] text-gray-600 mb-3 leading-relaxed">{benefit.description}</p>
+                <div className={`inline-block px-3 py-1.5 bg-${benefit.color}-100 text-${benefit.color}-700 rounded-full text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold`}>
                   {benefit.metric}
                 </div>
               </Card>
@@ -466,27 +466,27 @@ export default function CorporateOfficePage() {
           </div>
 
           {/* Stats Bar */}
-          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 sm:p-10 shadow-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <stat.icon className="w-8 h-8 text-black" />
+                  <div className="w-14 h-14 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <stat.icon className="w-7 h-7 text-black" />
                   </div>
-                  <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                  <div className="text-blue-100 font-semibold">{stat.label}</div>
+                  <div className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-white mb-2">{stat.number}</div>
+                  <div className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] text-blue-100 font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Summary of Benefits */}
-          <div className="mt-20">
-            <div className="text-center mb-8 sm:mb-12">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
+          <div className="mt-12 sm:mt-14">
+            <div className="text-center mb-6 sm:mb-8">
+              <h3 className="text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] font-bold text-gray-900 mb-2 sm:mb-3 px-4">
                 Summary of <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Benefits</span>
               </h3>
-              <p className="text-base sm:text-lg text-gray-600 px-4">How Rocket Flow transforms corporate operations</p>
+              <p className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] text-gray-600 px-4">How Rocket Flow transforms corporate operations</p>
             </div>
 
             {/* Mobile Card View */}
@@ -498,21 +498,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <BriefcaseIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Lead Generation</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Generation</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Inconsistent or low-quality lead flow</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Inconsistent or low-quality lead flow</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Lead Magnet Delivery & Inquiry Qualification</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Lead Magnet Delivery & Inquiry Qualification</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Consistent pre-qualified leads</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Consistent pre-qualified leads</p>
                   </div>
                 </div>
               </div>
@@ -524,21 +524,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChartBarIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Sales Cycle</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Sales Cycle</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Leads going cold during the long nurturing process</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Leads going cold during the long nurturing process</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated, Value-Driven Email Nurturing Sequences</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated, Value-Driven Email Nurturing Sequences</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Higher conversion rates</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher conversion rates</p>
                   </div>
                 </div>
               </div>
@@ -553,21 +553,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <UsersIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Client Management</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Management</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Manual, time-consuming client onboarding process</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manual, time-consuming client onboarding process</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Onboarding & Communication Workflows</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Onboarding & Communication Workflows</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Better client satisfaction</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Better client satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -579,21 +579,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ClipboardDocumentCheckIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Project Management</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Project Management</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Chasing clients for feedback and approvals</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Chasing clients for feedback and approvals</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Client Deadline & Meeting Reminders</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Client Deadline & Meeting Reminders</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Better project timelines</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Better project timelines</p>
                   </div>
                 </div>
               </div>
@@ -605,21 +605,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <PresentationChartLineIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Marketing</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Generic marketing messages to all prospects</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Generic marketing messages to all prospects</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Smart Segmentation for Targeted Content Distribution</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Smart Segmentation for Targeted Content Distribution</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Better lead quality</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Better lead quality</p>
                   </div>
                 </div>
               </div>
@@ -631,21 +631,21 @@ export default function CorporateOfficePage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <BoltIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Efficiency</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Efficiency</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Expert staff bogged down by admin tasks</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Expert staff bogged down by admin tasks</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">AI Assistant for FAQs & Automated Scheduling</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">AI Assistant for FAQs & Automated Scheduling</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Focus on strategic work</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Focus on strategic work</p>
                   </div>
                 </div>
               </div>
@@ -687,22 +687,22 @@ export default function CorporateOfficePage() {
                 <tbody className="divide-y divide-gray-200">
                   {/* Lead Generation */}
                   <tr className="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <BriefcaseIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <BriefcaseIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Lead Generation</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Generation</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Inconsistent or low-quality lead flow</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Inconsistent or low-quality lead flow</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">Automated Lead Magnet Delivery & Inquiry Qualification</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Automated Lead Magnet Delivery & Inquiry Qualification</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Consistent pre-qualified leads
                       </p>
                     </td>
@@ -710,22 +710,22 @@ export default function CorporateOfficePage() {
 
                   {/* Sales Cycle */}
                   <tr className="group hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <ChartBarIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <ChartBarIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Sales Cycle</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Sales Cycle</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Leads going cold during the long nurturing process</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Leads going cold during the long nurturing process</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">Automated, Value-Driven Email Nurturing Sequences</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Automated, Value-Driven Email Nurturing Sequences</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Higher conversion rates
                       </p>
                     </td>
@@ -733,22 +733,22 @@ export default function CorporateOfficePage() {
 
                   {/* Client Management */}
                   <tr className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <UsersIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <UsersIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Client Management</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Management</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Manual, time-consuming client onboarding process</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Manual, time-consuming client onboarding process</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">Automated Onboarding & Communication Workflows</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Automated Onboarding & Communication Workflows</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Better client satisfaction
                       </p>
                     </td>
@@ -756,22 +756,22 @@ export default function CorporateOfficePage() {
 
                   {/* Project Management */}
                   <tr className="group hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <ClipboardDocumentCheckIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <ClipboardDocumentCheckIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Project Management</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Project Management</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Chasing clients for feedback and approvals</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Chasing clients for feedback and approvals</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">Automated Client Deadline & Meeting Reminders</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Automated Client Deadline & Meeting Reminders</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Better project timelines
                       </p>
                     </td>
@@ -779,22 +779,22 @@ export default function CorporateOfficePage() {
 
                   {/* Marketing */}
                   <tr className="group hover:bg-gradient-to-r hover:from-violet-50 hover:to-purple-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <PresentationChartLineIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <PresentationChartLineIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Marketing</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Generic marketing messages to all prospects</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Generic marketing messages to all prospects</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">Smart Segmentation for Targeted Content Distribution</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Smart Segmentation for Targeted Content Distribution</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Better lead quality
                       </p>
                     </td>
@@ -802,22 +802,22 @@ export default function CorporateOfficePage() {
 
                   {/* Efficiency */}
                   <tr className="group hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-300">
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                          <BoltIcon className="w-6 h-6 text-white" />
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                          <BoltIcon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-gray-900 text-lg">Efficiency</span>
+                        <span className="font-bold text-gray-900 text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Efficiency</span>
                       </div>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed">Expert staff bogged down by admin tasks</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Expert staff bogged down by admin tasks</p>
                     </td>
-                    <td className="px-6 py-6 border-r border-gray-200">
-                      <p className="text-gray-700 leading-relaxed font-medium">AI Assistant for FAQs & Automated Scheduling</p>
+                    <td className="px-5 py-5 border-r border-gray-200">
+                      <p className="text-gray-700 leading-relaxed font-medium text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">AI Assistant for FAQs & Automated Scheduling</p>
                     </td>
-                    <td className="px-6 py-6">
-                      <p className="text-green-600 leading-relaxed font-bold">
+                    <td className="px-5 py-5">
+                      <p className="text-green-600 leading-relaxed font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">
                         Focus on strategic work
                       </p>
                     </td>
@@ -830,19 +830,19 @@ export default function CorporateOfficePage() {
       </Section>
 
       {/* Case Studies */}
-      <Section className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Success Stories from
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Industry Leaders</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Real results from real corporations
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {caseStudies.map((study, index) => (
               <Card
                 key={index}
@@ -851,45 +851,45 @@ export default function CorporateOfficePage() {
                 padding="lg"
               >
                 {/* Company Header */}
-                <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-gray-100">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-white font-bold text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] shadow-lg">
                     {study.logo}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{study.company}</h3>
-                    <div className="text-indigo-600 font-semibold">{study.industry}</div>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.company}</h3>
+                    <div className="text-indigo-600 font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{study.industry}</div>
                   </div>
                 </div>
 
                 {/* Challenge */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Challenge</span>
+                    <span className="font-bold text-gray-900 uppercase text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] tracking-wider">Challenge</span>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">{study.challenge}</p>
+                  <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{study.challenge}</p>
                 </div>
 
                 {/* Solution */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Solution</span>
+                    <span className="font-bold text-gray-900 uppercase text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] tracking-wider">Solution</span>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">{study.solution}</p>
+                  <p className="text-gray-700 leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{study.solution}</p>
                 </div>
 
                 {/* Results */}
                 <div>
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Results</span>
+                    <span className="font-bold text-gray-900 uppercase text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] tracking-wider">Results</span>
                   </div>
-                  <div className="grid grid-cols-1 gap-3">
+                  <div className="grid grid-cols-1 gap-2">
                     {study.results.map((result, idx) => (
-                      <div key={idx} className="flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
-                        <div className="text-2xl">✓</div>
-                        <span className="text-gray-900 font-semibold">{result}</span>
+                      <div key={idx} className="flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-3 border border-green-100">
+                        <div className="text-[1.25rem] sm:text-[1.5rem]">✓</div>
+                        <span className="text-gray-900 font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{result}</span>
                       </div>
                     ))}
                   </div>
@@ -901,7 +901,7 @@ export default function CorporateOfficePage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 relative overflow-hidden">
         {/* Animated Background Patterns */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -912,43 +912,43 @@ export default function CorporateOfficePage() {
 
         <Container className="relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-full mb-8">
-              <BriefcaseIcon className="w-6 h-6 text-black mr-2" />
-              <span className="text-black font-semibold">Enterprise Solutions Available</span>
+            <div className="inline-flex items-center px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full mb-6">
+              <BriefcaseIcon className="w-5 h-5 text-black mr-2" />
+              <span className="text-black font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Enterprise Solutions Available</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
+            <h2 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold text-white mb-6">
               Transform Your Corporate
               <br />
               Communication Today
             </h2>
             
-            <p className="text-xl md:text-2xl text-white text-opacity-90 mb-12 leading-relaxed">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-white text-opacity-90 mb-8 leading-relaxed">
               Join 500+ corporations already saving 70% of time with our AI-powered solutions.
               Get started with a personalized demo.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button className="bg-white text-indigo-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center mb-8">
+              <Button className="bg-white text-indigo-700 hover:bg-gray-100 px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                 Schedule Enterprise Demo
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-indigo-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="border-3 border-white text-white hover:bg-white hover:text-indigo-700 px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
                 Contact Sales Team
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-8 text-white text-opacity-90">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-white text-opacity-90">
               <div className="flex items-center gap-2">
-                <ShieldCheckIcon className="w-6 h-6" />
-                <span>Enterprise-grade security</span>
+                <ShieldCheckIcon className="w-5 h-5" />
+                <span className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Enterprise-grade security</span>
               </div>
               <div className="flex items-center gap-2">
-                <ClockIcon className="w-6 h-6" />
-                <span>24/7 dedicated support</span>
+                <ClockIcon className="w-5 h-5" />
+                <span className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">24/7 dedicated support</span>
               </div>
               <div className="flex items-center gap-2">
-                <BoltIcon className="w-6 h-6" />
-                <span>Quick implementation</span>
+                <BoltIcon className="w-5 h-5" />
+                <span className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Quick implementation</span>
               </div>
             </div>
           </div>

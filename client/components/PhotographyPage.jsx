@@ -187,7 +187,7 @@ export default function PhotographyPage() {
       <Navbar />
       
       {/* Hero Section - Dynamic & Eye-catching */}
-      <Section className="pt-32 pb-20 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Animated Background Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
@@ -204,7 +204,7 @@ export default function PhotographyPage() {
                 <span className="text-purple-900 font-bold text-sm">AI-Powered Photography Solutions</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                 <span className="text-gray-900">Transform Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
@@ -212,7 +212,7 @@ export default function PhotographyPage() {
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-700 mb-8 leading-relaxed">
                 Complete photography business automation suite with AI assistants, smart workflows, 
                 gallery management, and analytics to double your bookings in 90 days.
               </p>
@@ -234,12 +234,12 @@ export default function PhotographyPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300">
                   Start Free Trial
                 </Button>
-                <Button className="border-2 border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-purple-600 text-purple-700 hover:bg-purple-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Watch Demo
-                </Button>
+                </button>
               </div>
 
               {/* Trust Badges */}
@@ -307,19 +307,19 @@ export default function PhotographyPage() {
       </Section>
 
       {/* Features Grid */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Everything You Need to
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> Grow Your Studio</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Powerful features designed to automate and scale your photography business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -330,7 +330,7 @@ export default function PhotographyPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{feature.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
                 <ul className="space-y-2 mt-auto">
                   {feature.points.map((point, idx) => (
@@ -347,10 +347,10 @@ export default function PhotographyPage() {
       </Section>
 
       {/* Solutions Section with Tabs */}
-      <Section className="py-20 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-pink-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-pink-50">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Complete
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Studio Automation</span>
             </h2>
@@ -377,7 +377,7 @@ export default function PhotographyPage() {
           </div>
 
           {/* Solutions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {filteredSolutions.map((solution) => (
               <Card
                 key={solution.id}
@@ -403,7 +403,7 @@ export default function PhotographyPage() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -434,19 +434,19 @@ export default function PhotographyPage() {
       <ProvideMoreSection />
       
       {/* Benefits Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why Professional Photographers
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> Choose Us</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Join 1000+ successful photographers growing with our platform
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -456,7 +456,7 @@ export default function PhotographyPage() {
                 <div className={`w-20 h-20 bg-gradient-to-br ${benefit.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl`}>
                   <benefit.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
                 <div className={`inline-block px-5 py-2 bg-gradient-to-r ${benefit.color} text-white rounded-full text-sm font-bold shadow-lg`}>
                   {benefit.metric}
@@ -496,7 +496,7 @@ export default function PhotographyPage() {
               <p className="text-lg text-gray-600">Real results from photographers using our platform</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
               {successStories.map((story, index) => (
                 <Card
                   key={index}
@@ -510,7 +510,7 @@ export default function PhotographyPage() {
                       {story.logo}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{story.name}</h3>
+                      <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{story.name}</h3>
                       <div className="text-purple-600 font-semibold">{story.industry}</div>
                     </div>
                     <div className="ml-auto bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-bold">
@@ -557,7 +557,7 @@ export default function PhotographyPage() {
       </Section>
 
       {/* Benefits Table Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
@@ -576,21 +576,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserGroupIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Lead Management</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Management</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Drowning in "Price?" DMs & inquiries</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Drowning in "Price?" DMs & inquiries</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Instant Inquiry Response & Brochure Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Instant Inquiry Response & Brochure Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Saves hours per week, captures more leads</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves hours per week, captures more leads</p>
                 </div>
               </div>
             </div>
@@ -602,21 +602,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <SparklesIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Conversion</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Conversion</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Leads "ghosting" after getting prices</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Leads "ghosting" after getting prices</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Nurturing & Follow-Up Sequences</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Nurturing & Follow-Up Sequences</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Higher booking rates</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher booking rates</p>
                 </div>
               </div>
             </div>
@@ -631,21 +631,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <StarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Experience</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Experience</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Inconsistent communication & manual work</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Inconsistent communication & manual work</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Client Workflow from Booking to Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Client Workflow from Booking to Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Professional, high-end client service</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Professional, high-end client service</p>
                 </div>
               </div>
             </div>
@@ -657,21 +657,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CurrencyDollarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Financials</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Financials</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Awkwardly chasing late payments</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Awkwardly chasing late payments</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Payment Reminders</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Payment Reminders</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">On-time payments, improved cash flow</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">On-time payments, improved cash flow</p>
                 </div>
               </div>
             </div>
@@ -683,21 +683,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CalendarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Scheduling</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Scheduling</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Client no-shows for sessions</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Client no-shows for sessions</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated SMS & Email Session Reminders</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS & Email Session Reminders</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Reduced no-shows, organized schedule</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Reduced no-shows, organized schedule</p>
                 </div>
               </div>
             </div>
@@ -709,21 +709,21 @@ export default function PhotographyPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ChartBarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Marketing & Growth</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing & Growth</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Difficulty booking during off-seasons</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Difficulty booking during off-seasons</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Targeted Mini-Session & Offer Campaigns</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted Mini-Session & Offer Campaigns</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Fills calendar, generates repeat business</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Fills calendar, generates repeat business</p>
                 </div>
               </div>
             </div>
@@ -893,18 +893,18 @@ export default function PhotographyPage() {
           </div>
 
           {/* Testimonials Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
               What Our 
               <span className="bg-gradient-to-r from-primary to-secondary text-black"> Clients Say</span>
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Hear from photographers who have transformed their businesses with our digital solutions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             <Card className="card-hover card-shimmer p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 border-none shadow-lg relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-primary-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
@@ -969,7 +969,7 @@ export default function PhotographyPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full">

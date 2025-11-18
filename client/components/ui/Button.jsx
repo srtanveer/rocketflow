@@ -20,8 +20,8 @@ const Button = ({
   
   const sizes = {
     sm: "px-4 py-2 text-sm rounded-lg",
-    md: "px-6 py-2 text-sm rounded-full",
-    lg: "px-8 py-4 text-lg rounded-full"
+    md: "px-6 py-2 text-sm rounded-xl",
+    lg: "px-8 py-4 text-lg rounded-xl"
   };
   
   const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "";

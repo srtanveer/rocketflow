@@ -52,6 +52,52 @@
   --secondary-700: #1d4ed8;
   --secondary-800: #1e40af;
   --secondary-900: #1e3a8a;
+  
+  /* Global Typography Scale */
+  /* Main Headings (H1) - Hero/Page Titles */
+  --font-heading-hero: 2.5rem;        /* 40px mobile */
+  --font-heading-hero-sm: 3rem;       /* 48px tablet */
+  --font-heading-hero-lg: 4rem;       /* 64px desktop */
+  
+  /* Section Headings (H2) */
+  --font-heading-section: 2rem;       /* 32px mobile */
+  --font-heading-section-sm: 2.5rem;  /* 40px tablet */
+  --font-heading-section-lg: 3rem;    /* 48px desktop */
+  
+  /* Subsection Headings (H3) */
+  --font-heading-subsection: 1.5rem;  /* 24px mobile */
+  --font-heading-subsection-sm: 1.75rem; /* 28px tablet */
+  --font-heading-subsection-lg: 2rem; /* 32px desktop */
+  
+  /* Card/Component Titles (H4) */
+  --font-heading-card: 1.125rem;      /* 18px mobile */
+  --font-heading-card-sm: 1.25rem;    /* 20px tablet */
+  --font-heading-card-lg: 1.5rem;     /* 24px desktop */
+  
+  /* Body Text - Large (Intro/Lead) */
+  --font-body-large: 1rem;            /* 16px mobile */
+  --font-body-large-sm: 1.125rem;     /* 18px tablet */
+  --font-body-large-lg: 1.25rem;      /* 20px desktop */
+  
+  /* Body Text - Regular */
+  --font-body-regular: 0.875rem;      /* 14px mobile */
+  --font-body-regular-sm: 0.938rem;   /* 15px tablet */
+  --font-body-regular-lg: 1rem;       /* 16px desktop */
+  
+  /* Body Text - Small (Captions/Labels) */
+  --font-body-small: 0.75rem;         /* 12px mobile */
+  --font-body-small-sm: 0.813rem;     /* 13px tablet */
+  --font-body-small-lg: 0.875rem;     /* 14px desktop */
+  
+  /* Button/CTA Text */
+  --font-button: 0.875rem;            /* 14px mobile */
+  --font-button-sm: 0.938rem;         /* 15px tablet */
+  --font-button-lg: 1rem;             /* 16px desktop */
+  
+  /* Badge/Tag Text */
+  --font-badge: 0.75rem;              /* 12px mobile */
+  --font-badge-sm: 0.813rem;          /* 13px tablet */
+  --font-badge-lg: 0.875rem;          /* 14px desktop */
 }
 
 html {

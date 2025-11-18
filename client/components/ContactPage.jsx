@@ -136,7 +136,7 @@ export default function ContactPage() {
               <span className="text-blue-900 font-semibold text-sm">We're Here to Help</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+            <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-6">
               <span className="text-gray-900">Get in</span>
               <br />
               <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text">Touch</span>
@@ -150,7 +150,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Info Cards */}
-      <Section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-b from-white to-blue-50">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {contactInfo.map((info, index) => (
@@ -350,7 +350,7 @@ export default function ContactPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-20 left-20 w-64 h-64 border-4 border-white transform rotate-45 animate-pulse"></div>

@@ -254,7 +254,7 @@ export default function GadgetShopLanding() {
         <Navbar />
         
         {/* Hero Section - Gadget Shop Theme */}
-        <Section className="pt-32 pb-24 relative overflow-hidden">
+        <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
           {/* Decorative Background Pattern */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
             <div className="absolute top-0 left-0 w-full h-full">
@@ -273,7 +273,7 @@ export default function GadgetShopLanding() {
                   <span className="text-coral-900 font-semibold text-sm">RocketFlow for Gadget Retailers</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                   <span className="text-gray-900">Dominate the</span>
                   <br />
                   <span className="text-coral-600">
@@ -327,12 +327,12 @@ export default function GadgetShopLanding() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-coral-600 hover:bg-coral-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                     Start Dominating
                   </Button>
-                  <Button className="border-2 border-coral-600 text-coral-700 hover:bg-coral-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                  <button className="bg-white border-2 border-blue-600 text-blue-700 hover:bg-blue-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                     See How It Works
-                  </Button>
+                  </button>
                 </div>
               </div>
 
@@ -366,14 +366,14 @@ export default function GadgetShopLanding() {
                         <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center mb-4">
                           <ShoppingCartIcon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">37%</div>
+                        <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">37%</div>
                         <div className="text-sm text-gray-600">AOV Increase</div>
                       </Card>
                       <Card animationDelay={0.15} className="border-2 border-orange-100">
                         <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
                           <ArchiveBoxIcon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
+                        <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">98%</div>
                         <div className="text-sm text-gray-600">Stock Recovery</div>
                       </Card>
                     </div>
@@ -406,14 +406,14 @@ export default function GadgetShopLanding() {
         </Section>
 
         {/* Features Showcase - Interactive Cards */}
-        <Section className="py-20 bg-white">
+        <Section className="py-12 sm:py-14 bg-white">
           <Container>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
                 Complete Suite for
                 <span className="text-coral-600"> Tech Retailers</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
                 Everything your gadget shop needs in one powerful platform
               </p>
             </div>
@@ -433,7 +433,7 @@ export default function GadgetShopLanding() {
                   <div className="w-14 h-14 bg-coral-500 rounded-xl flex items-center justify-center mb-4">
                     <feature.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
                   <div className="space-y-2">
                     {feature.stats.map((stat, idx) => (
@@ -452,17 +452,17 @@ export default function GadgetShopLanding() {
         {/* Solutions Grid */}
         <Section className="py-20 bg-gray-50">
           <Container>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
                 Automation for the
                 <span className="text-coral-600"> Fast-Paced Tech Market</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
                 From automated pre-order campaigns to 24/7 AI tech support, comprehensive solutions for every aspect of the gadget market
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {solutions.map((solution, index) => (
                 <Card
                   key={solution.id}
@@ -485,7 +485,7 @@ export default function GadgetShopLanding() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                     {solution.title}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -515,19 +515,19 @@ export default function GadgetShopLanding() {
         <ProvideMoreSection />
 
         {/* Benefits Section */}
-        <Section className="py-20 bg-white">
+        <Section className="py-12 sm:py-14 bg-white">
           <Container>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
                 Why Gadget Retailers
                 <span className="text-coral-600"> Choose Us</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
                 Join hundreds of successful gadget shops transforming their business
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
               {benefits.map((benefit, index) => (
                 <Card
                   key={index}
@@ -537,7 +537,7 @@ export default function GadgetShopLanding() {
                   <div className={`w-16 h-16 bg-${benefit.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{benefit.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
                   <div className={`inline-block px-4 py-2 bg-${benefit.color}-100 text-${benefit.color}-700 rounded-full text-sm font-bold`}>
                     {benefit.metric}
@@ -548,7 +548,7 @@ export default function GadgetShopLanding() {
 
             {/* Stats Bar */}
             <div className="bg-coral-600 rounded-3xl p-12 shadow-2xl">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -579,21 +579,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <BellAlertIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Product Launches</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Product Launches</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Manually managing chaotic pre-order inquiries</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manually managing chaotic pre-order inquiries</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">Automated "Notify Me" Lists & Launch Day Broadcasts</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated "Notify Me" Lists & Launch Day Broadcasts</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Maximizes launch day sales, reduces manual work</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Maximizes launch day sales, reduces manual work</p>
                     </div>
                   </div>
                 </div>
@@ -605,21 +605,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <CurrencyDollarIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Profitability</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Profitability</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Low-margin on primary gadgets, missed upsells</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Low-margin on primary gadgets, missed upsells</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">Automated Post-Purchase Accessory Upsell Sequences</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Post-Purchase Accessory Upsell Sequences</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Increases Average Order Value (AOV) & profit</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increases Average Order Value (AOV) & profit</p>
                     </div>
                   </div>
                 </div>
@@ -634,21 +634,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <ArchiveBoxIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Sales Recovery</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Sales Recovery</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Losing sales on out-of-stock items</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Losing sales on out-of-stock items</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">Automated "Back-in-Stock" Notifications</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated "Back-in-Stock" Notifications</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Recaptures lost revenue, improves customer loyalty</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Recaptures lost revenue, improves customer loyalty</p>
                     </div>
                   </div>
                 </div>
@@ -660,21 +660,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <PhoneIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Customer Support</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Support</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Repetitive technical & policy questions</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Repetitive technical & policy questions</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">24/7 AI Assistant for Specs, Warranty, EMI queries</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">24/7 AI Assistant for Specs, Warranty, EMI queries</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Saves expert staff time, provides instant answers</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves expert staff time, provides instant answers</p>
                     </div>
                   </div>
                 </div>
@@ -686,21 +686,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <ShieldCheckIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Customer Trust</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Trust</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Anxiety and support tickets from pre-order customers</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Anxiety and support tickets from pre-order customers</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">Proactive Pre-Order & Shipping Status Updates via SMS</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Proactive Pre-Order & Shipping Status Updates via SMS</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Builds trust, reduces support load</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Builds trust, reduces support load</p>
                     </div>
                   </div>
                 </div>
@@ -712,21 +712,21 @@ export default function GadgetShopLanding() {
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <TagIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg">Marketing</h4>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                     </div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-gray-700 text-sm">Generic marketing to a diverse tech audience</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Generic marketing to a diverse tech audience</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                      <p className="text-gray-700 text-sm font-medium">Smart Segmentation by Brand & Product Preference</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Smart Segmentation by Brand & Product Preference</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-green-600 text-sm font-bold">Higher ROI on targeted campaigns & upgrade offers</p>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher ROI on targeted campaigns & upgrade offers</p>
                     </div>
                   </div>
                 </div>
@@ -907,17 +907,17 @@ export default function GadgetShopLanding() {
         {/* Case Studies */}
         <Section className="py-20 bg-gray-50">
           <Container>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
                 Success Stories from
                 <span className="text-coral-600"> Tech Retailers</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
                 Real results from real gadget shops
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
               {successStories.map((study, index) => (
                 <Card
                   key={index}
@@ -931,7 +931,7 @@ export default function GadgetShopLanding() {
                       {study.company}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{study.name}</h3>
+                      <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.name}</h3>
                       <div className="text-coral-600 font-semibold">{study.industry}</div>
                     </div>
                   </div>

@@ -278,7 +278,7 @@ export default function EventPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">
                 Transform Your{' '}
                 <span className="relative">
                   <span className="absolute -inset-1 blur-xl bg-gradient-to-r from-blue-600/30 to-indigo-600/30"></span>
@@ -329,16 +329,15 @@ export default function EventPage() {
               <div className="flex gap-6">
                 <Button 
                   variant="primary"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-lg px-8 py-4 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-sm sm:text-base px-8 py-4 shadow-lg hover:shadow-xl font-semibold"
                 >
                   Request Demo
                 </Button>
-                <Button 
-                  variant="secondary"
-                  className="border-2 border-gray-300 hover:border-gray-400 text-lg px-8 py-4"
+                <button
+                  className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 text-sm sm:text-base px-8 py-4 rounded-xl font-semibold transition-all hover:shadow-md"
                 >
                   View Solutions
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -396,7 +395,7 @@ export default function EventPage() {
       </Section>
 
       {/* Automation Services Section */}
-      <Section className="py-24 bg-gradient-to-b from-slate-50 via-white to-white">
+      <Section className="py-16 sm:py-18 bg-gradient-to-b from-slate-50 via-white to-white">
         <Container>
           <div className="text-center mb-20 max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-6">
@@ -408,7 +407,7 @@ export default function EventPage() {
               Transform your event management with AI-powered solutions that streamline operations and enhance attendee experiences.
             </p>
           </div>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gray-100 to-blue-100 rounded-full mb-6">
               <SparklesIcon className="w-5 h-5 text-blue-600 mr-2" />
               <span className="text-gray-800 font-medium">Enterprise Solutions</span>
@@ -497,21 +496,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <InboxIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Lead Management</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Lead Management</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Drowning in "Price?" DMs & inquiries</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Drowning in "Price?" DMs & inquiries</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Instant Inquiry Response & Brochure Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Instant Inquiry Response & Brochure Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Saves hours per week</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves hours per week</p>
                 </div>
               </div>
             </div>
@@ -523,21 +522,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserGroupIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Conversion</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Conversion</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Leads "ghosting" after getting prices</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Leads "ghosting" after getting prices</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Nurturing & Follow-Up Sequences</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Nurturing & Follow-Up Sequences</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Higher booking rates</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Higher booking rates</p>
                 </div>
               </div>
             </div>
@@ -552,21 +551,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <SparklesIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Experience</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Experience</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Inconsistent communication & manual work</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Inconsistent communication & manual work</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Client Workflow from Booking to Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Client Workflow from Booking to Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Professional service</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Professional service</p>
                 </div>
               </div>
             </div>
@@ -578,21 +577,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CurrencyDollarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Financials</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Financials</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Awkwardly chasing late payments</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Awkwardly chasing late payments</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Payment Reminders</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Payment Reminders</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Improved cash flow</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Improved cash flow</p>
                 </div>
               </div>
             </div>
@@ -604,21 +603,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ClockIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Scheduling</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Scheduling</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Client no-shows for sessions</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Client no-shows for sessions</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated SMS & Email Session Reminders</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS & Email Session Reminders</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Reduced no-shows</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Reduced no-shows</p>
                 </div>
               </div>
             </div>
@@ -630,21 +629,21 @@ export default function EventPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MegaphoneIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Marketing & Growth</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing & Growth</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Difficulty booking during off-seasons</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Difficulty booking during off-seasons</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Targeted Mini-Session & Offer Campaigns</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted Mini-Session & Offer Campaigns</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Accelerated growth</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Accelerated growth</p>
                 </div>
               </div>
             </div>
@@ -817,7 +816,7 @@ export default function EventPage() {
       {/* Solutions Grid */}
       <Section className="py-16">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Comprehensive Event Solutions
             </h2>
@@ -862,7 +861,7 @@ export default function EventPage() {
       {/* Benefits Summary Section */}
       <Section className="py-16 bg-gray-50">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Benefits Summary
             </h2>
@@ -870,7 +869,7 @@ export default function EventPage() {
               How Rocket Flow Transforms Your Event Management
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {eventBenefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -892,19 +891,19 @@ export default function EventPage() {
       </Section>
 
       {/* Client Reviews Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
               What Our Clients Say
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-red-600 to-primary rounded-full"></div>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Hear from event organizers who have created unforgettable experiences with our solutions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
               

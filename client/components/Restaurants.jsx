@@ -191,7 +191,7 @@ export default function Restaurants() {
         <Navbar />
         
         {/* Hero Section - Restaurant Theme */}
-        <Section className="pt-32 pb-24 relative overflow-hidden">
+        <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
           {/* Decorative Background Pattern */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
             <div className="absolute top-0 left-0 w-full h-full">
@@ -210,7 +210,7 @@ export default function Restaurants() {
                   <span className="text-primary-900 font-semibold text-sm">Restaurant Growth Solutions</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                   <span className="text-gray-900">Grow Your</span>
                   <br />
                   <span className="text-primary">
@@ -264,12 +264,12 @@ export default function Restaurants() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-primary hover:bg-primary-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-primary hover:bg-primary-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                     Start Growing Today
                   </Button>
-                  <Button className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                  <button className="bg-white border-2 border-primary text-primary hover:bg-primary-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                     Watch Demo
-                  </Button>
+                  </button>
                 </div>
               </div>
 
@@ -279,7 +279,7 @@ export default function Restaurants() {
                   {/* Dashboard Cards Stack */}
                   <div className="space-y-4">
                     {/* Top Card - Analytics */}
-                    <Card animationDelay={0} className="card-glow !bg-primary !text-black">
+                    <Card animationDelay={0} className="!bg-primary !text-black">
                       <div className="flex items-center justify-between mb-6">
                         <div>
                           <div className="text-sm opacity-80 mb-1">Monthly Reservations</div>
@@ -299,24 +299,24 @@ export default function Restaurants() {
 
                     {/* Middle Cards - Side by Side */}
                     <div className="grid grid-cols-2 gap-4">
-                      <Card animationDelay={0.1} className="card-glow border-2 border-primary-100">
+                      <Card animationDelay={0.1} className="border-2 border-primary-100">
                         <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center mb-4">
                           <DevicePhoneMobileIcon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
+                        <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">98%</div>
                         <div className="text-sm text-gray-600">SMS Delivered</div>
                       </Card>
-                      <Card animationDelay={0.15} className="card-glow border-2 border-secondary-100">
+                      <Card animationDelay={0.15} className="border-2 border-secondary-100">
                         <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center mb-4">
                           <HeartIcon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">95%</div>
+                        <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">95%</div>
                         <div className="text-sm text-gray-600">Satisfaction</div>
                       </Card>
                     </div>
 
                     {/* Bottom Card - Activity */}
-                    <Card animationDelay={0.2} className="card-border-gradient border-2 border-primary-100">
+                    <Card animationDelay={0.2} className="border-2 border-primary-100">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold">
                           AI
@@ -343,14 +343,14 @@ export default function Restaurants() {
         </Section>
 
         {/* Features Showcase - Interactive Cards */}
-        <Section className="py-20 bg-white">
+        <Section className="py-12 sm:py-14 bg-white">
           <Container>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
                 Complete Suite for
                 <span className="text-primary"> Restaurants</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
                 Everything you need to connect with diners and scale your restaurant business
               </p>
             </div>
@@ -360,7 +360,7 @@ export default function Restaurants() {
                 <Card
                   key={index}
                   animationDelay={index * 0.1}
-                  className={`card-hover cursor-pointer transition-all duration-300 border-2 ${
+                  className={`cursor-pointer transition-all duration-300 border-2 ${
                     activeFeature === index
                       ? 'bg-primary-50 border-primary-300 scale-105'
                       : 'border-gray-200 hover:border-primary-200'
@@ -370,7 +370,7 @@ export default function Restaurants() {
                   <div className="w-14 h-14 bg-primary-500 rounded-xl flex items-center justify-center mb-4">
                     <feature.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
                   <div className="space-y-2">
                     {feature.stats.map((stat, idx) => (
@@ -389,23 +389,23 @@ export default function Restaurants() {
       {/* Solutions Grid */}
       <Section className="py-20 bg-gray-50">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Digital Solutions for
               <span className="text-primary"> Modern Restaurants</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Comprehensive automation for every aspect of your restaurant business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
+                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
                   hoveredService === solution.id 
-                    ? 'border-primary-300' 
+                    ? 'border-primary-300 scale-105 -translate-y-2' 
                     : 'border-gray-200 hover:border-primary-200'
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
@@ -417,12 +417,12 @@ export default function Restaurants() {
                 </div>
 
                 {/* Icon */}
-                <div className="relative w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
+                <div className="relative w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -452,29 +452,29 @@ export default function Restaurants() {
       <ProvideMoreSection />
 
       {/* Benefits Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why Restaurants
               <span className="text-primary"> Choose Us</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Join hundreds of restaurants who've transformed their customer engagement
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-12">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="card-glow bg-primary-50 border-2 border-primary-100"
+                className="bg-primary-50 border-2 border-primary-100"
               >
                 <div className={`w-16 h-16 bg-${benefit.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
                 <div className={`inline-block px-4 py-2 bg-${benefit.color}-100 text-${benefit.color}-700 rounded-full text-sm font-bold`}>
                   {benefit.metric}
@@ -485,7 +485,7 @@ export default function Restaurants() {
 
           {/* Stats Bar */}
           <div className="bg-primary rounded-3xl p-12 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
               {successMetrics.map((metric, index) => (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -516,21 +516,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ShoppingCartIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Revenue & Orders</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Revenue & Orders</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">High commissions from delivery apps</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">High commissions from delivery apps</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Direct Ordering via Messenger</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Direct Ordering via Messenger</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Increased profit margins</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increased profit margins</p>
                   </div>
                 </div>
               </div>
@@ -542,21 +542,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <CalendarIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Reservations</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Reservations</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Costly no-shows</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Costly no-shows</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated SMS Reminders with Confirmation</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS Reminders with Confirmation</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Slashes no-show rates</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Slashes no-show rates</p>
                   </div>
                 </div>
               </div>
@@ -571,21 +571,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Customer Service</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Service</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Staff overwhelmed with calls/DMs</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Staff overwhelmed with calls/DMs</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">24/7 AI-Powered Assistant</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">24/7 AI-Powered Assistant</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Frees up staff</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Frees up staff</p>
                   </div>
                 </div>
               </div>
@@ -597,21 +597,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <SparklesIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Marketing</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Empty tables on slow weekdays</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Empty tables on slow weekdays</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Targeted Midweek Promotions</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted Midweek Promotions</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Drives footfall during off-peak</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Drives footfall during off-peak</p>
                   </div>
                 </div>
               </div>
@@ -623,21 +623,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <HeartIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Customer Loyalty</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Loyalty</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Low rate of repeat visits</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Low rate of repeat visits</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Post-Dining Feedback & Offers</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Post-Dining Feedback & Offers</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Increases retention & LTV</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increases retention & LTV</p>
                   </div>
                 </div>
               </div>
@@ -649,21 +649,21 @@ export default function Restaurants() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ShoppingBagIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">High-Value Bookings</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">High-Value Bookings</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Disorganized party/catering inquiries</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Disorganized party/catering inquiries</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Streamlined Forms for Events</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Streamlined Forms for Events</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Captures more high-ticket events</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Captures more high-ticket events</p>
                   </div>
                 </div>
               </div>
@@ -707,7 +707,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <ShoppingCartIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Revenue & Orders</span>
@@ -730,7 +730,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <CalendarIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Reservations</span>
@@ -753,7 +753,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Service</span>
@@ -776,7 +776,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <SparklesIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Marketing</span>
@@ -799,7 +799,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <HeartIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Loyalty</span>
@@ -822,7 +822,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <ShoppingBagIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">High-Value Bookings</span>
@@ -850,17 +850,17 @@ export default function Restaurants() {
       {/* Case Studies */}
       <Section className="py-20 bg-gray-50">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Success Stories from
               <span className="text-primary"> Restaurant Owners</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Real results from real restaurants
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             {testimonials.map((study, index) => (
               <Card
                 key={index}
@@ -874,7 +874,7 @@ export default function Restaurants() {
                     {study.company.split(' ').map(w => w[0]).join('')}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{study.company}</h3>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.company}</h3>
                     <div className="text-primary font-semibold">{study.industry}</div>
                   </div>
                 </div>

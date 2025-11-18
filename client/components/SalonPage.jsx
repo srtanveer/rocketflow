@@ -289,7 +289,7 @@ export default function SalonPage() {
       <Navbar />
       
       {/* Hero Section - Dynamic & Eye-catching */}
-      <Section className="pt-32 pb-20 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Animated Background Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
@@ -306,7 +306,7 @@ export default function SalonPage() {
                 <span className="text-purple-900 font-bold text-sm">AI-Powered Salon Solutions</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                 <span className="text-gray-900">Transform Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
@@ -314,7 +314,7 @@ export default function SalonPage() {
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-700 mb-8 leading-relaxed">
                 Complete salon business automation suite with AI assistants, smart scheduling, 
                 client management, and analytics to double your bookings and revenue.
               </p>
@@ -336,12 +336,12 @@ export default function SalonPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300">
                   Start Free Trial
                 </Button>
-                <Button className="border-2 border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-purple-600 text-purple-700 hover:bg-purple-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Watch Demo
-                </Button>
+                </button>
               </div>
 
               {/* Trust Badges */}
@@ -406,19 +406,19 @@ export default function SalonPage() {
       </Section>
 
       {/* Features Grid */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Everything You Need to
               <span className="bg-gradient-to-r from-purple-600 to-fuchsia-600 bg-clip-text text-transparent"> Grow Your Salon</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Powerful features designed to automate and scale your salon business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {features.map((feature, index) => (
               <Card
                 key={index}
@@ -429,7 +429,7 @@ export default function SalonPage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-3">{feature.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
                 <ul className="space-y-2 mt-auto">
                   {feature.points.map((point, idx) => (
@@ -446,10 +446,10 @@ export default function SalonPage() {
       </Section>
 
       {/* Solutions Section with Tabs */}
-      <Section className="py-20 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-pink-50">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-pink-50">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Complete
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Salon Automation</span>
             </h2>
@@ -476,7 +476,7 @@ export default function SalonPage() {
           </div>
 
           {/* Solutions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {filteredSolutions.map((solution) => (
               <Card
                 key={solution.id}
@@ -502,7 +502,7 @@ export default function SalonPage() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -533,7 +533,7 @@ export default function SalonPage() {
       <ProvideMoreSection />
       
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -585,7 +585,7 @@ export default function SalonPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
                 <div className="text-3xl font-bold text-white mb-2">75%</div>
                 <div className="text-white text-opacity-90">Less No-Shows</div>
@@ -604,9 +604,9 @@ export default function SalonPage() {
       </Section>
 
       {/* Benefits Table Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 relative inline-block px-4">
               Summary of Benefits for a
               <span className="bg-gradient-to-r from-primary to-secondary text-black"> Salon & Parlour</span>
@@ -626,21 +626,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CalendarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Appointments</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Appointments</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Costly client no-shows & last-minute cancellations</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Costly client no-shows & last-minute cancellations</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated SMS Appointment Reminders with Confirmation</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS Appointment Reminders with Confirmation</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Dramatically reduces no-shows, secures revenue</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Dramatically reduces no-shows, secures revenue</p>
                 </div>
               </div>
             </div>
@@ -652,21 +652,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <UserGroupIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Management</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Management</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Repetitive inquiries about price and services</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Repetitive inquiries about price and services</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">24/7 AI Receptionist & Instant Service Menu Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">24/7 AI Receptionist & Instant Service Menu Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Saves hours of staff time daily</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves hours of staff time daily</p>
                 </div>
               </div>
             </div>
@@ -681,21 +681,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <StarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Client Loyalty</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Loyalty</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Low rate of repeat business</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Low rate of repeat business</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Re-engagement & Birthday Campaigns</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Re-engagement & Birthday Campaigns</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Increases client retention & lifetime value</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increases client retention & lifetime value</p>
                 </div>
               </div>
             </div>
@@ -707,21 +707,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <GlobeAltIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Marketing</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Empty slots during weekdays or off-seasons</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Empty slots during weekdays or off-seasons</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Targeted Slow Day & Festival Offer Broadcasts</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted Slow Day & Festival Offer Broadcasts</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Fills the appointment book, boosts revenue</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Fills the appointment book, boosts revenue</p>
                 </div>
               </div>
             </div>
@@ -733,21 +733,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CurrencyDollarIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">High-Value Bookings</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">High-Value Bookings</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Disorganized handling of bridal inquiries</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Disorganized handling of bridal inquiries</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Automated Bridal Inquiry Forms & Package Delivery</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Bridal Inquiry Forms & Package Delivery</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Professional process, more high-ticket bookings</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Professional process, more high-ticket bookings</p>
                 </div>
               </div>
             </div>
@@ -759,21 +759,21 @@ export default function SalonPage() {
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <ArrowPathIcon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">Operations</h4>
+                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Operations</h4>
                 </div>
               </div>
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-sm">Manual, time-consuming reminder calls</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manual, time-consuming reminder calls</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-sm font-medium">Fully Automated Communication Workflows</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Fully Automated Communication Workflows</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-sm font-bold">Frees up staff, improves efficiency</p>
+                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Frees up staff, improves efficiency</p>
                 </div>
               </div>
             </div>

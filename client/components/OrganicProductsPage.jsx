@@ -137,7 +137,7 @@ export default function OrganicProductsPage() {
       <Navbar />
       
       {/* Hero Section with Organic Theme */}
-      <Section className="pt-32 pb-20 relative overflow-hidden">
+      <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
@@ -154,7 +154,7 @@ export default function OrganicProductsPage() {
                 <span className="text-green-800 font-semibold text-sm">100% Organic & Natural</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold mb-2 sm:mb-3 lg:mb-4">
                 <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
                   Grow Your
                 </span>
@@ -183,12 +183,12 @@ export default function OrganicProductsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                   Start Growing Today
                 </Button>
-                <Button className="border-2 border-green-600 text-green-700 hover:bg-green-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300">
+                <button className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Watch Demo
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -251,19 +251,19 @@ export default function OrganicProductsPage() {
       </Section>
 
       {/* Our Solutions Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Digital Solutions for
               <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Organic Businesses</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Everything you need to connect with health-conscious customers and scale your organic products business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
@@ -287,7 +287,7 @@ export default function OrganicProductsPage() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
                   {solution.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
@@ -315,7 +315,7 @@ export default function OrganicProductsPage() {
       </Section>
 
       {/* Benefits Section with Organic Vibe */}
-      <Section className="py-20 bg-gradient-to-br from-green-100 via-emerald-50 to-teal-100 relative overflow-hidden">
+      <Section className="py-12 sm:py-14 bg-gradient-to-br from-green-100 via-emerald-50 to-teal-100 relative overflow-hidden">
         {/* Decorative Patterns */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 border-4 border-green-300 rounded-full"></div>
@@ -323,17 +323,17 @@ export default function OrganicProductsPage() {
         </div>
 
         <Container className="relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Why Organic Businesses
               <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Choose Us</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Join hundreds of organic product retailers who've transformed their customer engagement
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -343,7 +343,7 @@ export default function OrganicProductsPage() {
                 <div className={`w-16 h-16 ${benefit.color} bg-opacity-10 rounded-2xl flex items-center justify-center mb-6`}>
                   <benefit.icon className={`w-8 h-8 ${benefit.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4">{benefit.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </Card>
             ))}
@@ -351,7 +351,7 @@ export default function OrganicProductsPage() {
 
           {/* Success Metrics */}
           <div className="mt-20 bg-white rounded-3xl p-12 shadow-2xl border-4 border-green-100">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
               {successMetrics.map((metric, index) => (
                 <div key={index} className="text-center group">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -384,21 +384,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ShoppingCartIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Sales & Orders</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Sales & Orders</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Manual, error-prone order taking from DMs</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manual, error-prone order taking from DMs</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Ordering Assistant in Messenger</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Ordering Assistant in Messenger</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Faster sales, fewer errors, increased revenue</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Faster sales, fewer errors, increased revenue</p>
                   </div>
                 </div>
               </div>
@@ -410,21 +410,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <UserGroupIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Customer Retention</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Retention</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Low rate of repeat purchases</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Low rate of repeat purchases</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Re-order Reminders (e.g., for honey, oil)</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Re-order Reminders (e.g., for honey, oil)</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Massively boosts customer lifetime value</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Massively boosts customer lifetime value</p>
                   </div>
                 </div>
               </div>
@@ -439,21 +439,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Customer Service</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Service</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Repetitive questions about price, delivery, benefits</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Repetitive questions about price, delivery, benefits</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">24/7 AI-Powered Product Expert & FAQ Handler</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">24/7 AI-Powered Product Expert & FAQ Handler</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Saves hours daily, builds customer trust</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves hours daily, builds customer trust</p>
                   </div>
                 </div>
               </div>
@@ -465,21 +465,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <SparklesIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Marketing</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Announcing new stock or offers manually</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Announcing new stock or offers manually</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Targeted "New Stock" Alerts & Promotional Broadcasts</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted "New Stock" Alerts & Promotional Broadcasts</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Sells inventory faster, higher campaign ROI</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Sells inventory faster, higher campaign ROI</p>
                   </div>
                 </div>
               </div>
@@ -491,21 +491,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <TruckIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Operations</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Operations</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Customers constantly asking "Where's my order?"</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Customers constantly asking "Where's my order?"</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Automated Order & Delivery Status Updates via SMS</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Order & Delivery Status Updates via SMS</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Reduces support queries, improves satisfaction</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Reduces support queries, improves satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -517,21 +517,21 @@ export default function OrganicProductsPage() {
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <ChartBarIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-lg">Business Growth</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Business Growth</h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-sm">Difficulty managing B2B or subscriptions</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Difficulty managing B2B or subscriptions</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-sm font-medium">Streamlined Forms for Bulk Orders & Veggie Boxes</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Streamlined Forms for Bulk Orders & Veggie Boxes</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-sm font-bold">Opens new, recurring revenue channels</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Opens new, recurring revenue channels</p>
                   </div>
                 </div>
               </div>
@@ -716,19 +716,19 @@ export default function OrganicProductsPage() {
       </Section>
 
       {/* Testimonials Section */}
-      <Section className="py-20 bg-white">
+      <Section className="py-12 sm:py-14 bg-white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
               Success Stories from
               <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Organic Entrepreneurs</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
               Real results from real organic businesses
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -768,7 +768,7 @@ export default function OrganicProductsPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full mix-blend-overlay animate-blob"></div>

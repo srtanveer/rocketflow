@@ -293,7 +293,7 @@ export default function TutorialPage({ tutorials = null }) {
               <ShinyText className="text-xl font-semibold text-blue-600">RocketFlow Tutorials</ShinyText>
             </div>
             
-            <h1 className="mt-8 text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
+            <h1 className="mt-8 text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold tracking-tight text-gray-900">
               Master Your Business
               <span className="block mt-2">With Our Tutorial Guide</span>
             </h1>
@@ -361,7 +361,7 @@ export default function TutorialPage({ tutorials = null }) {
             <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-blue-100/20 rounded-full blur-3xl" />
           </div>
           
-          <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-5 sm:gap-6">
             {/* Section Navigation Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-2">
@@ -505,7 +505,7 @@ export default function TutorialPage({ tutorials = null }) {
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl transform rotate-12" />
           </div>
           
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="inline-block px-6 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full mb-4">
               <span className="text-blue-600 font-semibold">Stay Secure</span>
             </div>
@@ -514,7 +514,7 @@ export default function TutorialPage({ tutorials = null }) {
               Important security guidelines to keep your admin dashboard protected and secure
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {securityTips.map((tip, index) => (
               <Card 
                 key={index} 
@@ -523,7 +523,7 @@ export default function TutorialPage({ tutorials = null }) {
                 <div className="rounded-2xl w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-4">
                   <tip.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{tip.title}</h3>
+                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-2">{tip.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{tip.description}</p>
                 <div className="mt-auto flex items-center text-blue-600 font-medium">
                   <span>Learn more</span>
@@ -536,7 +536,7 @@ export default function TutorialPage({ tutorials = null }) {
       </Section>
 
       {/* FAQ Section */}
-      <Section className="py-24 bg-gradient-to-br from-white via-blue-50/10 to-white relative">
+      <Section className="py-16 sm:py-18 bg-gradient-to-br from-white via-blue-50/10 to-white relative">
         <Container>
           {/* Decorative Elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -545,7 +545,7 @@ export default function TutorialPage({ tutorials = null }) {
           </div>
           
           <div className="max-w-4xl mx-auto relative">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12">
               <div className="inline-block px-6 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full mb-4">
                 <span className="text-blue-600 font-semibold">Got Questions?</span>
               </div>

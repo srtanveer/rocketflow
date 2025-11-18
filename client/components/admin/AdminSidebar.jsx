@@ -32,6 +32,8 @@ export function AdminSidebar({ className }) {
         <SidebarLink href="/dashboard" icon={<Home size={18} />} label="Dashboard" collapsed={collapsed} />
         <SidebarLink href="/posts" icon={<FileText size={18} />} label="Posts" collapsed={collapsed} />
         <SidebarLink href="/tutorials" icon={<BookOpen size={18} />} label="Tutorials" collapsed={collapsed} />
+        <SidebarLink href="/packages" icon={<Grid size={18} />} label="Packages" collapsed={collapsed} />
+        <SidebarLink href="/features" icon={<Settings size={18} />} label="Features" collapsed={collapsed} />
 
         <div className="text-xs uppercase text-gray-400 px-2 mt-4 mb-1">Settings</div>
         <SidebarLink href="/dashboard/settings" icon={<Settings size={18} />} label="Settings" collapsed={collapsed} />

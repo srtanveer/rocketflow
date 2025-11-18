@@ -5,7 +5,8 @@
  * Usage: node scripts/create-tables.js
  */
 
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') })
 const mysql = require('mysql2/promise')
 
 async function createTables() {
@@ -14,14 +15,16 @@ async function createTables() {
   let connection
   
   try {
-    // Create connection
-    connection = await mysql.createConnection({
-      host: process.env.DB_HOST || '103.243.175.186',
-      port: process.env.DB_PORT || 3306,
-      user: process.env.DB_USER || 'ohddcnbt_root',
-      password: process.env.DB_PASSWORD || 'rocket1234567',
-      database: process.env.DB_NAME || 'ohddcnbt_adminpanel'
-    })
+    // Create connection (use nullish coalescing so empty strings are honored)
+    const dbConfig = {
+      host: process.env.DB_HOST ?? '103.243.175.186',
+      port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
+      user: process.env.DB_USER ?? 'ohddcnbt_root',
+      password: process.env.DB_PASSWORD ?? '',
+      database: process.env.DB_NAME ?? 'ohddcnbt_adminpanel'
+    }
+
+    connection = await mysql.createConnection(dbConfig)
     
     console.log('✅ Connected to database\n')
     
@@ -81,6 +84,55 @@ async function createTables() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `)
     console.log('✅ Tutorial table created\n')
+
+    // Create Package table
+    console.log('📝 Creating Package table...')
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS \`Package\` (
+        \`id\` VARCHAR(191) NOT NULL PRIMARY KEY,
+        \`slug\` VARCHAR(255) NOT NULL UNIQUE,
+        \`name\` VARCHAR(255) NOT NULL,
+        \`description\` TEXT,
+        \`monthly_price\` DECIMAL(10,2) DEFAULT NULL,
+        \`yearly_price\` DECIMAL(10,2) DEFAULT NULL,
+        \`is_popular\` TINYINT(1) DEFAULT 0,
+        \`createdAt\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        INDEX \`idx_package_slug\` (\`slug\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `)
+    console.log('✅ Package table created\n')
+
+    // Create Feature table
+    console.log('📝 Creating Feature table...')
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS \`Feature\` (
+        \`id\` VARCHAR(191) NOT NULL PRIMARY KEY,
+        \`name\` VARCHAR(255) NOT NULL,
+        \`description\` TEXT,
+        \`default_price\` DECIMAL(10,2) DEFAULT NULL,
+        \`createdAt\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        INDEX \`idx_feature_name\` (\`name\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `)
+    console.log('✅ Feature table created\n')
+
+    // Create PackageFeature join table
+    console.log('📝 Creating PackageFeature table...')
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS \`PackageFeature\` (
+        \`id\` VARCHAR(191) NOT NULL PRIMARY KEY,
+        \`package_id\` VARCHAR(191) NOT NULL,
+        \`feature_id\` VARCHAR(191) NOT NULL,
+        \`included\` TINYINT(1) NOT NULL DEFAULT 1,
+        \`feature_price\` DECIMAL(10,2) DEFAULT NULL,
+        \`position\` INT DEFAULT 0,
+        \`createdAt\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE KEY \`ux_pkg_feature\` (\`package_id\`, \`feature_id\`),
+        INDEX \`idx_package\` (\`package_id\`),
+        INDEX \`idx_feature\` (\`feature_id\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `)
+    console.log('✅ PackageFeature table created\n')
     
     // Verify tables exist
     console.log('🔍 Verifying tables...')

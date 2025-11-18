@@ -48,6 +48,39 @@ export default function LandingPage() {
   const [pricingPeriod, setPricingPeriod] = useState('month');
   const [showPricingTable, setShowPricingTable] = useState(false);
 
+  // Live pricing state used to render pricing and feature rows when available.
+  const [packages, setPackages] = useState(null)
+
+  useEffect(() => {
+    const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+    let mounted = true
+    async function loadPricing() {
+      try {
+        const res = await fetch(`${API_BASE}/api/pricing`)
+        if (!res.ok) throw new Error('pricing fetch failed')
+        const data = await res.json()
+        if (mounted) setPackages(Array.isArray(data.packages) ? data.packages : [])
+      } catch (err) {
+        console.warn('pricing load error', err)
+        if (mounted) setPackages([])
+      }
+    }
+    loadPricing()
+    return () => { mounted = false }
+  }, [])
+
+  function getDisplayedPrice(period) {
+    const fallbackMonth = 7
+    const fallbackYear = 30
+    if (!packages || packages.length === 0) {
+      return period === 'month' ? fallbackMonth : fallbackYear
+    }
+    const pkg = packages.find(p => p.is_popular) || packages[0]
+    const monthly = (pkg && pkg.monthly_price != null) ? Number(pkg.monthly_price) : fallbackMonth
+    const yearly = (pkg && pkg.yearly_price != null) ? Number(pkg.yearly_price) : Math.round(monthly * 12 * 0.85 * 100) / 100
+    return period === 'month' ? monthly : yearly
+  }
+
   // Check if mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
@@ -1183,47 +1216,66 @@ export default function LandingPage() {
                             <span className="font-semibold text-gray-800">Features:</span>
                           </td>
                         </tr>
-                        {[
-                          'Auto Feed - WordPress Feed Post',
-                          'Auto Feed - YouTube Video Post',
-                          'Bot',
-                          'Bot - AI Reply',
-                          'Bot - Connectivity : Export, Import & Tree View',
-                          'Bot - Connectivity : JSON API',
-                          'Bot - Connectivity : Webview Builder',
-                          'Bot - Email Auto Responder',
-                          'Bot - Enhancers : Broadcast : Subscriber Bulk Message Send',
-                          'Bot - Enhancers : Engagement : Checkbox Plugin',
-                          'Bot - Enhancers : Engagement : Customer Chat Plugin',
-                          'Bot - Enhancers : Engagement : m.me Links',
-                          'Bot - Enhancers : Engagement : Send to Messenger',
-                          'Bot - Enhancers : Sequence Messaging : Message Send',
-                          'Bot - Enhancers : Sequence Messaging Campaign',
-                          'Bot - HTTP API Integration',
-                          'Bot - Instagram Bot',
-                          'Bot - Persistent Menu',
-                          'Bot - Persistent Menu : Copyright Enabled',
-                          'Bot - Sequence Email',
-                          'Bot - Sequence SMS',
-                          'Bot - User Input Flow Campaign',
-                          'Bot - Visual Flow Builder Access',
-                          'Broadcast - One Time Notification Send',
-                          'Comment Automation : Auto Comment Campaign',
-                          'Comment Automation : Auto Reply Posts',
-                          'Comment Automation : Instagram Auto Comment Reply',
-                          'Comment Reply Enhancers : Bulk Comment Reply Campaign',
-                          'Comment Reply Enhancers : Comment & Bulk Tag Campaign',
-                          'Comment Reply Enhancers : Comment Hide/Delete and Reply with multimedia content',
-                          'Comment Reply Enhancers : Full Page Auto Like/Share',
-                          'Comment Reply Enhancers : Full Page Auto Reply'
-                        ].map((feature, index) => (
-                          <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                            <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{feature}</td>
-                            <td className="px-4 py-2.5 text-left">
-                              <span className="text-green-600 text-lg">∞</span>
-                            </td>
-                          </tr>
-                        ))}
+                        {
+                          // If backend provides packages, use the first package's feature list
+                          packages && packages.length > 0 ? (
+                            (packages[0].features || []).map((f, index) => (
+                              <tr key={f.id ?? index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{f.name || f.feature_name || f.title || `Feature ${index + 1}`}</td>
+                                <td className="px-4 py-2.5 text-left">
+                                  {/* preserve original visual: infinity symbol for included features, dash if not included */}
+                                  {(f.included === 1 || f.included === true || f.included === '1') ? (
+                                    <span className="text-green-600 text-lg">∞</span>
+                                  ) : (
+                                    <span className="text-gray-400">—</span>
+                                  )}
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            [
+                              'Auto Feed - WordPress Feed Post',
+                              'Auto Feed - YouTube Video Post',
+                              'Bot',
+                              'Bot - AI Reply',
+                              'Bot - Connectivity : Export, Import & Tree View',
+                              'Bot - Connectivity : JSON API',
+                              'Bot - Connectivity : Webview Builder',
+                              'Bot - Email Auto Responder',
+                              'Bot - Enhancers : Broadcast : Subscriber Bulk Message Send',
+                              'Bot - Enhancers : Engagement : Checkbox Plugin',
+                              'Bot - Enhancers : Engagement : Customer Chat Plugin',
+                              'Bot - Enhancers : Engagement : m.me Links',
+                              'Bot - Enhancers : Engagement : Send to Messenger',
+                              'Bot - Enhancers : Sequence Messaging : Message Send',
+                              'Bot - Enhancers : Sequence Messaging Campaign',
+                              'Bot - HTTP API Integration',
+                              'Bot - Instagram Bot',
+                              'Bot - Persistent Menu',
+                              'Bot - Persistent Menu : Copyright Enabled',
+                              'Bot - Sequence Email',
+                              'Bot - Sequence SMS',
+                              'Bot - User Input Flow Campaign',
+                              'Bot - Visual Flow Builder Access',
+                              'Broadcast - One Time Notification Send',
+                              'Comment Automation : Auto Comment Campaign',
+                              'Comment Automation : Auto Reply Posts',
+                              'Comment Automation : Instagram Auto Comment Reply',
+                              'Comment Reply Enhancers : Bulk Comment Reply Campaign',
+                              'Comment Reply Enhancers : Comment & Bulk Tag Campaign',
+                              'Comment Reply Enhancers : Comment Hide/Delete and Reply with multimedia content',
+                              'Comment Reply Enhancers : Full Page Auto Like/Share',
+                              'Comment Reply Enhancers : Full Page Auto Reply'
+                            ].map((feature, index) => (
+                              <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{feature}</td>
+                                <td className="px-4 py-2.5 text-left">
+                                  <span className="text-green-600 text-lg">∞</span>
+                                </td>
+                              </tr>
+                            ))
+                          )
+                        }
                         <tr className="bg-blue-50 border-t-2 border-blue-200">
                           <td className="px-4 py-4 text-sm font-semibold text-gray-700 border-r border-blue-200"></td>
                           <td className="px-4 py-4 text-left">

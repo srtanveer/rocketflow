@@ -45,8 +45,9 @@ export default function LandingPage() {
   const [showAllFeatures, setShowAllFeatures] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [pricingPeriod, setPricingPeriod] = useState('month');
   const [showPricingTable, setShowPricingTable] = useState(false);
+  const [packages, setPackages] = useState([]);
+  const [billing, setBilling] = useState('month');
 
   // Check if mobile on mount and resize
   useEffect(() => {
@@ -58,6 +59,32 @@ export default function LandingPage() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Fetch public pricing from backend
+  useEffect(() => {
+    const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+    let mounted = true
+    async function load() {
+      try {
+        const res = await fetch(`${API_BASE}/api/pricing`)
+        if (!res.ok) throw new Error('Failed to load pricing')
+        const data = await res.json()
+        if (mounted) setPackages(data.packages || [])
+      } catch (err) {
+        console.warn('Pricing fetch error:', err)
+      }
+    }
+    load()
+    return () => { mounted = false }
+  }, [])
+
+  function formatPrice(v) {
+    try {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(v)
+    } catch (e) {
+      return `$${v}`
+    }
+  }
 
   // Auto-rotate dashboards
   useEffect(() => {
@@ -1127,9 +1154,9 @@ export default function LandingPage() {
                 {/* Pricing Period Toggle */}
                 <div className="flex justify-center items-center gap-3 mb-8">
                   <button 
-                    onClick={() => setPricingPeriod('month')}
+                    onClick={() => setBilling('month')}
                     className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                      pricingPeriod === 'month' 
+                      billing === 'month' 
                         ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
                         : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
                     }`}
@@ -1137,14 +1164,14 @@ export default function LandingPage() {
                     Month
                   </button>
                   <button 
-                    onClick={() => setPricingPeriod('year')}
+                    onClick={() => setBilling('year')}
                     className={`px-6 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 ${
-                      pricingPeriod === 'year' 
+                      billing === 'year' 
                         ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
                         : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
                     }`}
                   >
-                    Year {pricingPeriod === 'year' && <span className="text-xs bg-white text-blue-600 px-2 py-1 rounded-full font-bold">15% Off</span>}
+                    Year {billing === 'year' && <span className="text-xs bg-white text-blue-600 px-2 py-1 rounded-full font-bold">15% Off</span>}
                   </button>
                 </div>
 
@@ -1161,81 +1188,81 @@ export default function LandingPage() {
 
                 {/* Pricing Table - Only shown when toggled */}
                 {showPricingTable && (
-                  <div className="overflow-x-auto mb-8 animate-fadeIn">
-                    <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
-                      <thead>
-                        <tr className="bg-gradient-to-r from-blue-50 to-blue-100">
-                          <th className="px-4 py-4 text-left text-sm font-bold text-gray-700 border-r border-blue-200">Package</th>
-                          <th className="px-4 py-4 text-left text-sm font-bold text-blue-600">Ultimate</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-gray-50 border-b border-gray-200">
-                          <td className="px-4 py-3 text-sm font-semibold text-gray-700 border-r border-gray-200">Price</td>
-                          <td className="px-4 py-3 text-left">
-                            <div className="text-lg font-bold text-blue-600">
-                              BDT {pricingPeriod === 'month' ? '7' : '30'} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="bg-white border-b border-gray-200">
-                          <td className="px-4 py-3 text-sm text-gray-600 border-r border-gray-200" colSpan="2">
-                            <span className="font-semibold text-gray-800">Features:</span>
-                          </td>
-                        </tr>
-                        {[
-                          'Auto Feed - WordPress Feed Post',
-                          'Auto Feed - YouTube Video Post',
-                          'Bot',
-                          'Bot - AI Reply',
-                          'Bot - Connectivity : Export, Import & Tree View',
-                          'Bot - Connectivity : JSON API',
-                          'Bot - Connectivity : Webview Builder',
-                          'Bot - Email Auto Responder',
-                          'Bot - Enhancers : Broadcast : Subscriber Bulk Message Send',
-                          'Bot - Enhancers : Engagement : Checkbox Plugin',
-                          'Bot - Enhancers : Engagement : Customer Chat Plugin',
-                          'Bot - Enhancers : Engagement : m.me Links',
-                          'Bot - Enhancers : Engagement : Send to Messenger',
-                          'Bot - Enhancers : Sequence Messaging : Message Send',
-                          'Bot - Enhancers : Sequence Messaging Campaign',
-                          'Bot - HTTP API Integration',
-                          'Bot - Instagram Bot',
-                          'Bot - Persistent Menu',
-                          'Bot - Persistent Menu : Copyright Enabled',
-                          'Bot - Sequence Email',
-                          'Bot - Sequence SMS',
-                          'Bot - User Input Flow Campaign',
-                          'Bot - Visual Flow Builder Access',
-                          'Broadcast - One Time Notification Send',
-                          'Comment Automation : Auto Comment Campaign',
-                          'Comment Automation : Auto Reply Posts',
-                          'Comment Automation : Instagram Auto Comment Reply',
-                          'Comment Reply Enhancers : Bulk Comment Reply Campaign',
-                          'Comment Reply Enhancers : Comment & Bulk Tag Campaign',
-                          'Comment Reply Enhancers : Comment Hide/Delete and Reply with multimedia content',
-                          'Comment Reply Enhancers : Full Page Auto Like/Share',
-                          'Comment Reply Enhancers : Full Page Auto Reply'
-                        ].map((feature, index) => (
-                          <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                            <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{feature}</td>
-                            <td className="px-4 py-2.5 text-left">
-                              <span className="text-green-600 text-lg">∞</span>
-                            </td>
-                          </tr>
-                        ))}
-                        <tr className="bg-blue-50 border-t-2 border-blue-200">
-                          <td className="px-4 py-4 text-sm font-semibold text-gray-700 border-r border-blue-200"></td>
-                          <td className="px-4 py-4 text-left">
-                            <a href="https://rocketflow.biz/create_account/selected_package" target="_blank" rel="noopener noreferrer">
-                              <button className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg">
-                                Subscribe
-                              </button>
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div className="w-full">
+                    <div className="flex justify-center mb-4">
+                      <div className="inline-flex rounded-full bg-white shadow-sm border overflow-hidden">
+                        <button
+                          onClick={() => setBilling('month')}
+                          aria-pressed={billing === 'month'}
+                          className={`px-4 py-2 ${billing === 'month' ? 'bg-blue-600 text-white' : 'text-blue-600 hover:bg-blue-50'}`}>
+                          Month
+                        </button>
+                        <button
+                          onClick={() => setBilling('year')}
+                          aria-pressed={billing === 'year'}
+                          className={`px-4 py-2 flex items-center gap-2 ${billing === 'year' ? 'bg-blue-700 text-white' : 'text-blue-600 hover:bg-blue-50'}`}>
+                          Year <span className="ml-2 px-2 py-0.5 text-xs bg-white text-blue-600 rounded-full font-bold">15% Off</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="overflow-x-auto bg-white rounded-md shadow-md">
+                      {packages && packages.length > 0 ? (
+                        <table className="w-full table-fixed">
+                          <thead>
+                            <tr className="text-left border-b">
+                              <th className="px-4 py-3 w-1/3"></th>
+                              {packages.map((p) => (
+                                <th key={p.id} className="px-4 py-3 text-center">{p.name}</th>
+                              ))}
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr className="border-b">
+                              <td className="px-4 py-3">Price</td>
+                              {packages.map((p) => (
+                                <td key={p.id} className="px-4 py-3 text-center font-bold">
+                                  {billing === 'month' ? `${formatPrice(p.monthly_price)}/mo` : `${formatPrice(p.yearly_price)}/yr`}
+                                </td>
+                              ))}
+                            </tr>
+
+                            {/* build unique feature list across packages and render rows */}
+                            {(() => {
+                              const featureMap = new Map();
+                              packages.forEach((p) => {
+                                (p.features || []).forEach((f) => {
+                                  const id = String(f.id ?? f.feature_id ?? f.featureId ?? f.feature_id);
+                                  if (!featureMap.has(id)) {
+                                    featureMap.set(id, f.name || f.title || f.feature_name || f.feature || `Feature ${id}`);
+                                  }
+                                });
+                              });
+
+                              const entries = Array.from(featureMap.entries());
+                              return entries.map(([fid, fname], idx) => (
+                                <tr key={fid} className="border-b">
+                                  <td className="px-4 py-3 text-sm text-gray-600">{idx + 1}</td>
+                                  <th className="px-4 py-3 text-sm text-gray-700">{fname}</th>
+                                  {packages.map((p) => {
+                                    const pf = (p.features || []).find((ff) => String(ff.id ?? ff.feature_id ?? ff.featureId) === fid);
+                                    const included = pf ? (pf.included === 1 || pf.included === true) : false;
+                                    return (
+                                      <td key={p.id} className="px-4 py-3 text-center">
+                                        {included ? <span className="text-green-600 font-bold">✓</span> : <span className="text-red-600">✕</span>}
+                                      </td>
+                                    );
+                                  })}
+                                </tr>
+                              ));
+                            })()}
+                          </tbody>
+                        </table>
+                      ) : (
+                        <div className="p-4 text-sm text-gray-500">Loading prices…</div>
+                      )}
+                    </div>
                   </div>
                 )}
 

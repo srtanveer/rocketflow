@@ -165,3 +165,111 @@ export async function deleteTutorial(slug) {
   toast.success('Tutorial deleted')
   return res.json()
 }
+
+// Packages API
+export async function fetchPackages() {
+  const res = await fetch(`${API}/admin/packages`, { headers: getAuthHeaders() })
+  if (!res.ok) throw new Error('Fetch packages failed')
+  return res.json()
+}
+
+export async function createPackage(pkg) {
+  const res = await fetch(`${API}/admin/packages`, { method: 'POST', headers: getAuthHeaders(), body: JSON.stringify(pkg) })
+  if (!res.ok) {
+    let errText = 'Create package failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  toast.success('Package created')
+  return res.json()
+}
+
+export async function deletePackage(id) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(id)}`, { method: 'DELETE', headers: getAuthHeaders() })
+  if (!res.ok) {
+    let errText = 'Delete package failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  toast.success('Package deleted')
+  return res.json()
+}
+
+export async function fetchPackage(id) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(id)}/details`, { headers: getAuthHeaders() })
+  if (!res.ok) throw new Error('Fetch package failed')
+  return res.json()
+}
+
+export async function updatePackage(id, body) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(id)}`, { method: 'PUT', headers: getAuthHeaders(), body: JSON.stringify(body) })
+  if (!res.ok) {
+    let errText = 'Update package failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  toast.success('Package updated')
+  return res.json()
+}
+
+export async function fetchPackageFeatures(packageId) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(packageId)}/features`, { headers: getAuthHeaders() })
+  if (!res.ok) throw new Error('Fetch package features failed')
+  return res.json()
+}
+
+export async function upsertPackageFeature(packageId, link) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(packageId)}/features`, { method: 'POST', headers: getAuthHeaders(), body: JSON.stringify(link) })
+  if (!res.ok) {
+    let errText = 'Upsert package feature failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  return res.json()
+}
+
+export async function deletePackageFeature(packageId, featureId) {
+  const res = await fetch(`${API}/admin/packages/${encodeURIComponent(packageId)}/features/${encodeURIComponent(featureId)}`, { method: 'DELETE', headers: getAuthHeaders() })
+  if (!res.ok) {
+    let errText = 'Delete package feature failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  return res.json()
+}
+
+// Features API
+export async function fetchFeatures() {
+  const res = await fetch(`${API}/admin/features`, { headers: getAuthHeaders() })
+  if (!res.ok) throw new Error('Fetch features failed')
+  return res.json()
+}
+
+export async function createFeature(f) {
+  const res = await fetch(`${API}/admin/features`, { method: 'POST', headers: getAuthHeaders(), body: JSON.stringify(f) })
+  if (!res.ok) {
+    let errText = 'Create feature failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  toast.success('Feature created')
+  return res.json()
+}
+
+export async function deleteFeature(id) {
+  const res = await fetch(`${API}/admin/features/${encodeURIComponent(id)}`, { method: 'DELETE', headers: getAuthHeaders() })
+  if (!res.ok) {
+    let errText = 'Delete feature failed'
+    try { const j = await res.json(); errText = j.error || j.message || errText } catch(e) {}
+    toast.error(errText)
+    throw new Error(errText)
+  }
+  toast.success('Feature deleted')
+  return res.json()
+}

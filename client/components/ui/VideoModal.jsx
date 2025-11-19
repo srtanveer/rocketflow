@@ -1,9 +1,45 @@
 'use client'
 
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function VideoModal({ isOpen, onClose, videoUrl, title = 'Video' }) {
+  const [overlayLifted, setOverlayLifted] = useState(false);
+  const [isPausedOverlay, setIsPausedOverlay] = useState(false);
+  const playerRef = useRef(null);
+  const playerContainerId = useRef(`yt-player-${Math.random().toString(36).slice(2,9)}`);
+
+  // Helper: extract YouTube video ID from URL
+  const extractYouTubeID = (url) => {
+    try {
+      const u = new URL(url);
+      if (u.hostname === 'youtu.be') return u.pathname.slice(1);
+      if (u.searchParams.has('v')) return u.searchParams.get('v');
+      const m = url.match(/[?&]v=([^&]+)/);
+      return m ? m[1] : null;
+    } catch (e) {
+      const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+      return m ? m[1] : null;
+    }
+  };
+
+  // Load YouTube IFrame API once and return a promise that resolves when ready
+  const loadYouTubeAPI = () => new Promise((resolve) => {
+    if (window.YT && window.YT.Player) return resolve(window.YT);
+    const existing = document.getElementById('youtube-iframe-api');
+    if (existing) {
+      const check = () => {
+        if (window.YT && window.YT.Player) return resolve(window.YT);
+        setTimeout(check, 50);
+      };
+      return check();
+    }
+    const tag = document.createElement('script');
+    tag.id = 'youtube-iframe-api';
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
+    window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+  });
   // Close modal on Escape key
   useEffect(() => {
     const handleEscape = (e) => {
@@ -21,6 +57,62 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = 'Video' 
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
+
+  // reset overlay lift when modal opens
+  useEffect(() => {
+    if (isOpen) setOverlayLifted(false);
+  }, [isOpen]);
+
+  // Initialize YouTube player when modal opens (and clean up on close)
+  useEffect(() => {
+    let mounted = true;
+    if (!isOpen) return;
+    const videoId = extractYouTubeID(videoUrl);
+    if (!videoId) return; // fallback: iframe will be shown
+
+    loadYouTubeAPI().then((YT) => {
+      if (!mounted) return;
+      // create player
+      playerRef.current = new YT.Player(playerContainerId.current, {
+        videoId,
+        playerVars: {
+          autoplay: 1,
+          controls: 1,
+          modestbranding: 1,
+          rel: 0,
+          playsinline: 1,
+          mute: 1,
+          enablejsapi: 1,
+          loop: 1,
+          playlist: videoId,
+          iv_load_policy: 3
+        },
+        events: {
+          onReady: (e) => {
+            try { e.target.playVideo(); } catch (err) {}
+            // lift the UI header once player loaded
+            setOverlayLifted(true);
+          },
+          onStateChange: (e) => {
+            const states = window.YT && window.YT.PlayerState;
+            if (!states) return;
+            // show our pause overlay for any non-playing state to hide YouTube suggestions
+            if (e.data === states.PLAYING) setIsPausedOverlay(false);
+            else setIsPausedOverlay(true);
+          }
+        }
+      });
+    }).catch(() => {});
+
+    return () => {
+      mounted = false;
+      if (playerRef.current && playerRef.current.destroy) {
+        try { playerRef.current.destroy(); } catch (e) {}
+        playerRef.current = null;
+      }
+      setIsPausedOverlay(false);
+    };
+  }, [isOpen, videoUrl]);
 
   if (!isOpen) return null;
 
@@ -73,27 +165,45 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = 'Video' 
           {/* subtle desaturation / blue-grade layer (simulates LUT) */}
           <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'rgba(30,64,175,0.04)', mixBlendMode: 'color' }} />
 
-          {/* YouTube Iframe with full controls (fill container to avoid cropping) */}
-          <iframe
-            className="absolute inset-0 w-full h-full z-10"
-            src={buildVideoUrl()}
-            title={title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-            allowFullScreen
-            loading="lazy"
-            style={{
-              // keep color-grade effect but don't overscale/shift the iframe
-              filter: 'grayscale(12%) saturate(85%) contrast(95%) brightness(97%)'
-            }}
-          />
+          {/* YouTube Player container (we initialize YT.Player here). Falls back to iframe if ID extraction fails. */}
+          <div id={playerContainerId.current} className="absolute inset-0 w-full h-full z-10" />
+          {/* Fallback iframe if extract fails (rare) */}
+          {!extractYouTubeID(videoUrl) && (
+            <iframe
+              className="absolute inset-0 w-full h-full z-10"
+              src={buildVideoUrl()}
+              title={title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+              allowFullScreen
+              loading="lazy"
+              onLoad={() => setOverlayLifted(true)}
+              style={{ filter: 'grayscale(12%) saturate(85%) contrast(95%) brightness(97%)' }}
+            />
+          )}
+
+          {/* Pause overlay: covers the player when paused to hide YouTube suggestions; clicking resumes */}
+          {isPausedOverlay && (
+            <div className="absolute inset-0 z-30 flex items-center justify-center" style={{ background: 'rgba(2,6,23,0.18)' }}>
+              <button
+                onClick={() => { try { playerRef.current && playerRef.current.playVideo(); } catch (e) {} }}
+                className="bg-white/10 hover:bg-white/20 text-white rounded-full p-4"
+                aria-label="Resume video"
+              >
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E0F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3v18l15-9L5 3z" /></svg>
+              </button>
+            </div>
+          )}
 
           {/* Top glassmorphism overlay for UI text */}
-          <div className="absolute left-4 right-4 top-4 z-20 rounded-xl px-4 py-2 flex items-center justify-between"
+          <div
+            className="absolute left-4 right-4 top-4 z-20 rounded-xl px-4 py-2 flex items-center justify-between"
             style={{
               backdropFilter: 'blur(8px) saturate(120%)',
               background: 'linear-gradient(180deg, rgba(30,64,175,0.12), rgba(255,255,255,0.02))',
-              border: '1px solid rgba(147,197,253,0.16)'
+              border: '1px solid rgba(147,197,253,0.16)',
+              transform: overlayLifted ? 'translateY(-140%)' : 'translateY(0)',
+              transition: 'transform 420ms cubic-bezier(.2,.9,.2,1)'
             }}
           >
             <div className="text-sm font-semibold" style={{ color: '#E0F2FE' }}>{title}</div>

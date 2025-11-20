@@ -52,14 +52,27 @@ export default function LandingPage() {
   const [packages, setPackages] = useState(null)
 
   useEffect(() => {
-    const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+  // Normalize API base so users can provide either:
+  // - http://localhost:4000
+  // - http://localhost:4000/
+  // - http://localhost:4000/api
+  // without accidentally ending up with /api/api/... in the request URL.
+  const rawApi = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+  // Keep protocol intact, only trim trailing slashes and a trailing '/api'
+  let API_BASE = String(rawApi)
+  // remove trailing slashes
+  API_BASE = API_BASE.replace(/\/+$/, '')
+  // if user passed the base including '/api', strip that so we can append '/api/pricing' reliably
+  if (API_BASE.toLowerCase().endsWith('/api')) API_BASE = API_BASE.slice(0, -4)
     let mounted = true
     async function loadPricing() {
       try {
-        const res = await fetch(`${API_BASE}/api/pricing`)
-        if (!res.ok) throw new Error('pricing fetch failed')
+        const url = `${API_BASE}/api/pricing`
+        const res = await fetch(url)
+        if (!res.ok) throw new Error(`pricing fetch failed (${res.status})`)
         const data = await res.json()
         if (mounted) setPackages(Array.isArray(data.packages) ? data.packages : [])
+        
       } catch (err) {
         console.warn('pricing load error', err)
         if (mounted) setPackages([])
@@ -78,6 +91,7 @@ export default function LandingPage() {
     const pkg = packages.find(p => p.is_popular) || packages[0]
     const monthly = (pkg && pkg.monthly_price != null) ? Number(pkg.monthly_price) : fallbackMonth
     const yearly = (pkg && pkg.yearly_price != null) ? Number(pkg.yearly_price) : Math.round(monthly * 12 * 0.85 * 100) / 100
+    // (debug logs removed)
     return period === 'month' ? monthly : yearly
   }
 
@@ -1207,7 +1221,7 @@ export default function LandingPage() {
                           <td className="px-4 py-3 text-sm font-semibold text-gray-700 border-r border-gray-200">Price</td>
                           <td className="px-4 py-3 text-left">
                             <div className="text-lg font-bold text-blue-600">
-                              BDT {pricingPeriod === 'month' ? '7' : '30'} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
+                              BDT {getDisplayedPrice(pricingPeriod)} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
                             </div>
                           </td>
                         </tr>

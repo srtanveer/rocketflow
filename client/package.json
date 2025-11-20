@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "build": "next build",
+    "build:cpanel": "next build",
+    "start": "node server.js",
+    "start:standalone": "node .next/standalone/server.js",
     "lint": "eslint"
   },
   "dependencies": {

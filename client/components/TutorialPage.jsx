@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar, Footer, Button, Card, Section, Container, ShinyText, ProvideMoreSection } from '.';
 import {
   ArrowRightIcon,
@@ -23,6 +23,9 @@ import {
 export default function TutorialPage({ tutorials = null }) {
   const [activeVideo, setActiveVideo] = useState('');
   const [activeFaq, setActiveFaq] = useState(null);
+  const primaryEmbed = 'https://www.youtube.com/embed/MZnyjXSUX3Q?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+  const [videoSrc, setVideoSrc] = useState(primaryEmbed);
+  const playPrimaryFromStart = () => setVideoSrc(`${primaryEmbed}&_=${Date.now()}`);
 
   // If server-provided tutorials are passed in, map them into sections;
   // otherwise fall back to the built-in `tutorialSections` static data below.
@@ -224,6 +227,16 @@ export default function TutorialPage({ tutorials = null }) {
   ];
   })();
 
+  // ensure there's a default active video when the page loads
+  useEffect(() => {
+    if (!activeVideo) {
+      const first = tutorialSections.flatMap(s => s.videos)[0];
+      if (first) setActiveVideo(first.id);
+      setVideoSrc(primaryEmbed);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const faqItems = [
     {
       id: 1,
@@ -373,7 +386,7 @@ export default function TutorialPage({ tutorials = null }) {
                         ? 'bg-gradient-to-r from-blue-50/90 to-white border-blue-600 shadow-blue-600/10'
                         : 'bg-white/70 border-gray-100 hover:bg-blue-50/50 hover:border-blue-200 hover:shadow-md hover:shadow-blue-600/5'
                     }`}
-                    onClick={() => setActiveVideo(section.videos[0].id)}
+                    onClick={() => { setActiveVideo(section.videos[0].id); playPrimaryFromStart(); }}
                   >
                     <div className="p-4 flex items-center space-x-3">
                       <div className={`rounded-xl p-3 ${
@@ -404,6 +417,7 @@ export default function TutorialPage({ tutorials = null }) {
                             onClick={(e) => {
                               e.stopPropagation();
                               setActiveVideo(video.id);
+                              playPrimaryFromStart();
                             }}
                             className={`rounded-lg p-2 cursor-pointer ${
                               activeVideo === video.id 
@@ -437,9 +451,7 @@ export default function TutorialPage({ tutorials = null }) {
                 <div className="aspect-video w-full rounded-t-xl overflow-hidden bg-gray-100">
                   <iframe
                     className="w-full h-full"
-                    src={tutorialSections
-                      .flatMap(section => section.videos)
-                      .find(v => v.id === activeVideo)?.videoUrl}
+                    src={videoSrc}
                     title="Tutorial Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -497,7 +509,7 @@ export default function TutorialPage({ tutorials = null }) {
         </Container>
       </Section>
       {/* Security Tips Section */}
-      <Section className="pt-24 pb-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 relative">
+      <Section className="pt-12 pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-100 relative">
         <Container>
           {/* Decorative background */}
           <div className="absolute inset-0 overflow-hidden">
@@ -505,7 +517,7 @@ export default function TutorialPage({ tutorials = null }) {
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl transform rotate-12" />
           </div>
           
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-6 sm:mb-8">
             <div className="inline-block px-6 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full mb-4">
               <span className="text-blue-600 font-semibold">Stay Secure</span>
             </div>
@@ -514,17 +526,17 @@ export default function TutorialPage({ tutorials = null }) {
               Important security guidelines to keep your admin dashboard protected and secure
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {securityTips.map((tip, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+              {securityTips.map((tip, index) => (
               <Card 
                 key={index} 
-                className="card-glow h-64 p-1.5 backdrop-blur-sm bg-white/70 border border-gray-100"
+                className="card-glow h-auto min-h-[11rem] p-2 backdrop-blur-sm bg-white/70 border border-gray-100 overflow-hidden"
               >
                 <div className="rounded-2xl w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-4">
                   <tip.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-2">{tip.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{tip.description}</p>
+                <h3 className="text-base font-semibold text-gray-900 mb-2 break-words">{tip.title}</h3>
+                <p className="text-sm text-gray-600 break-words">{tip.description}</p>
                 <div className="mt-auto flex items-center text-blue-600 font-medium">
                   <span>Learn more</span>
                   <ArrowRightIcon className="w-4 h-4 ml-2" />
@@ -536,7 +548,7 @@ export default function TutorialPage({ tutorials = null }) {
       </Section>
 
       {/* FAQ Section */}
-      <Section className="py-16 sm:py-18 bg-gradient-to-br from-white via-blue-50/10 to-white relative">
+      <Section className="py-10 sm:py-12 bg-gradient-to-br from-white via-blue-50/10 to-white relative">
         <Container>
           {/* Decorative Elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -545,7 +557,7 @@ export default function TutorialPage({ tutorials = null }) {
           </div>
           
           <div className="max-w-4xl mx-auto relative">
-            <div className="text-center mb-10 sm:mb-12">
+            <div className="text-center mb-6 sm:mb-8">
               <div className="inline-block px-6 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full mb-4">
                 <span className="text-blue-600 font-semibold">Got Questions?</span>
               </div>
@@ -554,11 +566,11 @@ export default function TutorialPage({ tutorials = null }) {
                 Find quick answers to common questions about RocketFlow's features and capabilities
               </p>
             </div>
-            <div className="space-y-4 relative">
+            <div className="space-y-3 relative">
               {faqItems.map((faq) => (
                 <div
                   key={faq.id}
-                  className="border border-gray-100 rounded-2xl overflow-hidden bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
+                    className="border border-gray-100 rounded-2xl overflow-hidden bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
                 >
                   <button
                     onClick={() => setActiveFaq(activeFaq === faq.id ? null : faq.id)}
@@ -585,10 +597,10 @@ export default function TutorialPage({ tutorials = null }) {
                   </button>
                   <div
                     className={`transition-all duration-200 ease-in-out ${
-                      activeFaq === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      activeFaq === faq.id ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
                     } overflow-hidden`}
                   >
-                    <div className="px-6 pb-4 text-gray-600">
+                    <div className="px-6 pb-3 text-gray-600 text-sm">
                       {faq.answer}
                     </div>
                   </div>
@@ -600,9 +612,9 @@ export default function TutorialPage({ tutorials = null }) {
       </Section>
 
       {/* Help & Support Section */}
-      <Section className="py-24 bg-blue-50 relative overflow-hidden">
+      <Section className="py-12 bg-blue-50 relative overflow-hidden">
         <Container>
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl px-8 py-20 sm:p-20 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl px-6 py-12 sm:px-12 sm:py-16 relative overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
@@ -610,25 +622,25 @@ export default function TutorialPage({ tutorials = null }) {
             </div>
             
             <div className="relative mx-auto max-w-2xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                <span className="text-white font-semibold">24/7 Support Available</span>
+              <div className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4">
+                <span className="text-white font-semibold text-sm">24/7 Support Available</span>
               </div>
               
-              <h2 className="text-4xl font-bold tracking-tight text-white mb-6">Need Additional Help?</h2>
-              <p className="mx-auto max-w-xl text-lg leading-8 text-blue-50">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-4">Need Additional Help?</h2>
+              <p className="mx-auto max-w-xl text-sm leading-6 text-blue-50">
                 Our expert support team is available around the clock to assist you with any questions about the admin dashboard or landing pages.
               </p>
               
-              <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Button variant="white" className="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition-all duration-300">
-                  <span className="flex items-center justify-center">
-                    <UserCircleIcon className="w-5 h-5 mr-2" />
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button variant="white" className="w-full sm:w-auto bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition-all duration-300">
+                  <span className="flex items-center justify-center text-sm">
+                    <UserCircleIcon className="w-4 h-4 mr-2" />
                     Contact Support
                   </span>
                 </Button>
-                <Button variant="white-outline" className="w-full sm:w-auto border-2 border-white/20 text-white px-8 py-3 rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                  <span className="flex items-center justify-center">
-                    <DocumentTextIcon className="w-5 h-5 mr-2" />
+                <Button variant="white-outline" className="w-full sm:w-auto border-2 border-white/20 text-white px-6 py-2 rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                  <span className="flex items-center justify-center text-sm">
+                    <DocumentTextIcon className="w-4 h-4 mr-2" />
                     View Documentation
                   </span>
                 </Button>

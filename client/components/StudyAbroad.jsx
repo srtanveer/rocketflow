@@ -174,7 +174,7 @@ export default function StudyAbroad() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mb-6 border border-blue-200">
+              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mt-14 mb-6 border border-blue-200">
                 <AcademicCapIcon className="w-5 h-5 text-blue-600 mr-2" />
                 <span className="text-blue-900 font-semibold text-sm">Enterprise-Grade Solutions</span>
               </div>

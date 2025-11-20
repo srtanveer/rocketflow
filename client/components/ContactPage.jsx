@@ -131,7 +131,7 @@ export default function ContactPage() {
 
         <Container className="relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-5 py-2 bg-blue-100 rounded-full mb-6 border border-blue-200">
+            <div className="inline-flex items-center px-5 py-2 bg-blue-100 rounded-full mt-14 mb-6 border border-blue-200">
               <ChatBubbleLeftRightIcon className="w-5 h-5 text-blue-600 mr-2" />
               <span className="text-blue-900 font-semibold text-sm">We're Here to Help</span>
             </div>

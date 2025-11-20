@@ -208,7 +208,7 @@ export default function EcommercePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-red-100 to-pink-100 rounded-full mb-6 border-2 border-red-200 shadow-lg">
+              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-red-100 to-pink-100 rounded-full mt-14 mb-6 border-2 border-red-200 shadow-lg">
                 <ShoppingCartIcon className="w-4 h-4 text-red-600 mr-2" />
                 <span className="text-red-900 font-bold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">AI-Powered E-commerce Solutions</span>
               </div>

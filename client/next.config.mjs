@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Output standalone for production deployment
+  // Use standalone for cPanel Node.js deployment with SSR support
   output: 'standalone',
+  
+  // Enable image optimization with external domains
+  images: {
+    unoptimized: false,
+    domains: ['res.cloudinary.com', 'localhost', '127.0.0.1'],
+    formats: ['image/webp', 'image/avif'],
+  },
   
   // Enable experimental features for better SEO
   experimental: {
@@ -10,15 +17,15 @@ const nextConfig = {
     optimizeServerReact: true,
   },
   
-  // Image optimization
-  images: {
-    // Allow images served from Cloudinary (used by uploads)
-    domains: ['res.cloudinary.com', 'localhost', '127.0.0.1'],
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-  },
+  // Image domains (for external images)
+  // Note: Image optimization is disabled for static export
+  // images: {
+  //   domains: ['res.cloudinary.com', 'localhost', '127.0.0.1'],
+  //   formats: ['image/webp', 'image/avif'],
+  //   deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+  //   imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  //   minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+  // },
   
   // Compression
   compress: true,

@@ -221,7 +221,7 @@ export default function EducationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-purple-100 to-fuchsia-100 rounded-full mb-5 border border-purple-200">
+              <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-purple-100 to-fuchsia-100 rounded-full mt-14 mb-5 border border-purple-200">
                 <AcademicCapIcon className="w-4 h-4 text-purple-600 mr-2" />
                 <span className="text-purple-900 font-semibold text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">IELTS Coaching Excellence</span>
               </div>

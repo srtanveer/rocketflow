@@ -193,7 +193,7 @@ export default function Restaurants() {
         {/* Hero Section - Restaurant Theme */}
         <Section className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
           {/* Decorative Background Pattern */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
             <div className="absolute top-0 left-0 w-full h-full">
               <div className="absolute top-20 left-20 w-64 h-64 border-4 border-primary-200 rounded-full"></div>
               <div className="absolute bottom-20 right-20 w-80 h-80 border-4 border-secondary-200 rounded-full -rotate-12"></div>
@@ -355,14 +355,14 @@ export default function Restaurants() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {features.map((feature, index) => (
                 <Card
                   key={index}
                   animationDelay={index * 0.1}
-                  className={`cursor-pointer transition-all duration-300 border-2 ${
+                  className={`group card-hover h-full flex flex-col cursor-pointer transition-all duration-300 border-2 ${
                     activeFeature === index
-                      ? 'bg-primary-50 border-primary-300 scale-105'
+                      ? 'bg-primary-50 border-primary-300'
                       : 'border-gray-200 hover:border-primary-200'
                   }`}
                   onClick={() => setActiveFeature(index)}
@@ -403,23 +403,24 @@ export default function Restaurants() {
             {solutions.map((solution, index) => (
               <Card
                 key={solution.id}
-                className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 border-gray-100 shadow-lg group overflow-hidden h-full flex flex-col transition-all duration-300 ${
                   hoveredService === solution.id 
-                    ? 'border-primary-300 scale-105 -translate-y-2' 
-                    : 'border-gray-200 hover:border-primary-200'
+                    ? 'border-primary-300' 
+                    : ''
                 }`}
                 onMouseEnter={() => setHoveredService(solution.id)}
                 onMouseLeave={() => setHoveredService(null)}
               >
+                <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
                 {/* Stats Badge */}
                 <div className="absolute top-6 right-6 bg-primary-100 text-primary-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
                   {solution.stats.value}
                 </div>
 
                 {/* Icon */}
-                <div className="relative w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                  <solution.icon className="w-8 h-8 text-white" />
-                </div>
+                  <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <solution.icon className="w-8 h-8 text-white opacity-100" />
+                  </div>
 
                 {/* Content */}
                 <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
@@ -469,7 +470,7 @@ export default function Restaurants() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="bg-primary-50 border-2 border-primary-100"
+                className="card-hover group border-2 border-transparent hover:border-primary-200 transition-all duration-300 h-full flex flex-col"
               >
                 <div className={`w-16 h-16 bg-${benefit.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-8 h-8 text-white" />
@@ -621,7 +622,7 @@ export default function Restaurants() {
                 <div className="bg-gradient-to-r from-red-600 to-rose-600 p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <HeartIcon className="w-6 h-6 text-white" />
+                      <HeartIcon className="w-6 h-6 text-white opacity-100" />
                     </div>
                     <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Customer Loyalty</h4>
                   </div>
@@ -647,7 +648,7 @@ export default function Restaurants() {
                 <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <ShoppingBagIcon className="w-6 h-6 text-white" />
+                      <ShoppingBagIcon className="w-6 h-6 text-white opacity-100" />
                     </div>
                     <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">High-Value Bookings</h4>
                   </div>
@@ -800,8 +801,8 @@ export default function Restaurants() {
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
-                          <HeartIcon className="w-6 h-6 text-white" />
-                        </div>
+                                <HeartIcon className="w-6 h-6 text-white opacity-100" />
+                              </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Loyalty</span>
                       </div>
                     </td>
@@ -823,7 +824,7 @@ export default function Restaurants() {
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
-                          <ShoppingBagIcon className="w-6 h-6 text-white" />
+                          <ShoppingBagIcon className="w-6 h-6 text-white opacity-100" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">High-Value Bookings</span>
                       </div>
@@ -865,7 +866,7 @@ export default function Restaurants() {
               <Card
                 key={index}
                 animationDelay={index * 0.15}
-                className="border-2 border-primary-100"
+                className="card-hover group border-2 border-primary-100 h-full flex flex-col"
                 padding="lg"
               >
                 {/* Company Header */}

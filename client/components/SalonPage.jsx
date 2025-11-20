@@ -301,7 +301,7 @@ export default function SalonPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full mb-8 border-2 border-purple-200 shadow-lg">
+              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full mt-14 mb-8 border-2 border-purple-200 shadow-lg">
                 <ScissorsIcon className="w-5 h-5 text-purple-600 mr-2" />
                 <span className="text-purple-900 font-bold text-sm">AI-Powered Salon Solutions</span>
               </div>

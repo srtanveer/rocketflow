@@ -267,7 +267,7 @@ export default function TravelBookingPage() {
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-full mb-6 border border-teal-200">
+              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-full mt-14 mb-6 border border-teal-200">
                 <GlobeAltIcon className="w-5 h-5 text-teal-600 mr-2" />
                 <span className="text-teal-900 font-semibold text-sm">
                   World-Class Travel Booking

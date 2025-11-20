@@ -47,6 +47,7 @@ export default function LandingPage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [pricingPeriod, setPricingPeriod] = useState('month');
   const [showPricingTable, setShowPricingTable] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(1024); // Default to desktop width for SSR
 
   // Live pricing state used to render pricing and feature rows when available.
   const [packages, setPackages] = useState(null)
@@ -85,6 +86,7 @@ export default function LandingPage() {
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 640); // 640px is sm breakpoint
+      setWindowWidth(window.innerWidth);
     };
     
     checkMobile();
@@ -357,20 +359,14 @@ export default function LandingPage() {
                 {dashboards.map((dashboard, index) => {
                   const rotation = (index - activeDashboard) * 120; // 120 degrees apart
                   const isActive = index === activeDashboard;
-                  const radius = typeof window !== 'undefined' 
-                    ? (window.innerWidth < 640 ? 55 : window.innerWidth < 1024 ? 100 : 140)
-                    : 140;
+                  const radius = windowWidth < 640 ? 55 : windowWidth < 1024 ? 100 : 140;
                   const angle = (rotation * Math.PI) / 180;
                   const x = Math.sin(angle) * radius;
                   const y = -Math.cos(angle) * radius;
                   
                   // Use centered position on mobile, offset position on desktop
-                  const topPosition = typeof window !== 'undefined' 
-                    ? (window.innerWidth < 1024 ? '50%' : '55%')
-                    : '55%';
-                  const leftPosition = typeof window !== 'undefined' 
-                    ? (window.innerWidth < 1024 ? '50%' : '55%')
-                    : '55%';
+                  const topPosition = windowWidth < 1024 ? '50%' : '55%';
+                  const leftPosition = windowWidth < 1024 ? '50%' : '55%';
 
                   return (
                     <div

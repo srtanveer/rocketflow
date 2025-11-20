@@ -258,7 +258,6 @@ export default function GadgetShopLanding() {
           {/* Decorative Background Pattern */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
             <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-20 left-20 w-64 h-64 border-4 border-coral-200 rounded-full"></div>
               <div className="absolute bottom-20 right-20 w-80 h-80 border-4 border-orange-200 rounded-full -rotate-12"></div>
               <div className="absolute top-1/2 left-1/2 w-72 h-72 border-4 border-red-200 rounded-full rotate-12"></div>
             </div>
@@ -268,7 +267,7 @@ export default function GadgetShopLanding() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left Content */}
               <div>
-                <div className="inline-flex items-center px-5 py-2 bg-coral-100 rounded-full mb-6 border border-coral-200">
+                <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mt-14 mb-4 border border-blue-200">
                   <BuildingStorefrontIcon className="w-5 h-5 text-coral-600 mr-2" />
                   <span className="text-coral-900 font-semibold text-sm">RocketFlow for Gadget Retailers</span>
                 </div>

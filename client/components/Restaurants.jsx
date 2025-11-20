@@ -205,7 +205,7 @@ export default function Restaurants() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left Content */}
               <div>
-                <div className="inline-flex items-center px-5 py-2 bg-primary-100 rounded-full mb-6 border border-primary-200">
+                <div className="inline-flex items-center px-5 py-2 bg-primary-100 rounded-full mt-14 mb-6 border border-primary-200">
                   <HeartIcon className="w-5 h-5 text-primary-600 mr-2" />
                   <span className="text-primary-900 font-semibold text-sm">Restaurant Growth Solutions</span>
                 </div>

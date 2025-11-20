@@ -1041,7 +1041,7 @@ export default function LandingPage() {
                     </div>
                   </a>
                 ) : sector.name === 'Restaurants' ? (
-                  <a href="/restaurants" className="block">
+                  <a href="/restaurants" className="block" >
                     <div className={`relative p-6 rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer`}>
                       <div className="text-center">
                         <div className="w-8 h-8 mx-auto mb-3 text-blue-600">

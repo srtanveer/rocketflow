@@ -64,39 +64,39 @@ export default function ContactPage() {
     {
       icon: EnvelopeIcon,
       title: 'Email Us',
-      content: 'support@rocketflow.com',
-      link: 'mailto:support@rocketflow.com',
+      content: 'contact@rocketflow.biz',
+      link: 'mailto:contact@rocketflow.biz',
       color: 'primary'
     },
     {
       icon: PhoneIcon,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      content: '+880 17-5858-7899',
+      link: 'tel:+8801758587899',
       color: 'secondary'
     },
     {
       icon: MapPinIcon,
       title: 'Visit Us',
-      content: '123 Business Street, Tech City, TC 12345',
+      content: 'House - 22, (9th Floor), Road-1, Block-H, Aftab Nagar, Dhaka 1212',
       link: '#',
       color: 'primary'
     },
     {
       icon: ClockIcon,
       title: 'Business Hours',
-      content: 'Mon - Fri: 9AM - 6PM EST',
+      content: 'Sat - Thu: 9AM - 6PM GMT',
       link: '#',
       color: 'secondary'
     }
   ];
 
   const socialLinks = [
-    { icon: FaFacebook, name: 'Facebook', url: '#', color: 'text-blue-600' },
-    { icon: FaTwitter, name: 'Twitter', url: '#', color: 'text-sky-500' },
-    { icon: FaLinkedin, name: 'LinkedIn', url: '#', color: 'text-blue-700' },
-    { icon: FaInstagram, name: 'Instagram', url: '#', color: 'text-pink-600' },
-    { icon: FaYoutube, name: 'YouTube', url: '#', color: 'text-red-600' }
+    { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/rocketflow.biz', color: 'text-blue-600' },
+    // { icon: FaTwitter, name: 'Twitter', url: '#', color: 'text-sky-500' },
+    // { icon: FaLinkedin, name: 'LinkedIn', url: '#', color: 'text-blue-700' },
+    { icon: FaInstagram, name: 'Instagram', url: 'https://www.instagram.com/rocketflowbiz/', color: 'text-pink-600' },
+    // { icon: FaYoutube, name: 'YouTube', url: '#', color: 'text-red-600' }
   ];
 
   const faqs = [
@@ -205,7 +205,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:border-blue-600 focus:outline-none transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Full Name"
                     />
                   </div>
                   <div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:border-blue-600 focus:outline-none transition-colors"
-                      placeholder="john@example.com"
+                      placeholder="mail@example.com"
                     />
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:border-blue-600 focus:outline-none transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+880 1234-567-890"
                     />
                   </div>
                   <div>
@@ -301,13 +301,17 @@ export default function ContactPage() {
             <div className="space-y-8">
               {/* Map or Image */}
               <Card className="border-2 border-blue-100 bg-white shadow-lg overflow-hidden" padding="none">
-                <div className="h-64 bg-gradient-to-br from-blue-50 via-white to-blue-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPinIcon className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">Visit Our Office</h3>
-                    <p className="text-gray-600 mt-2">123 Business Street</p>
-                    <p className="text-gray-600">Tech City, TC 12345</p>
-                  </div>
+                <div className="h-[450px] w-full">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4326.634818704521!2d90.44406337599072!3d23.76557357866014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c710a034b4c9%3A0x1fdefa0ab9ab740a!2sSme%20Cube!5e1!3m2!1sen!2sbd!4v1763876836828!5m2!1sen!2sbd" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="RocketFlow Office Location"
+                  ></iframe>
                 </div>
               </Card>
 

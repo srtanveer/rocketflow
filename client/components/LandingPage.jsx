@@ -274,18 +274,37 @@ export default function LandingPage() {
 
   const sectors = [
     { name: 'Corporate Office', icon: BuildingOfficeIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
-    { name: 'E-commerce', icon: ShoppingCartIcon, color: 'bg-gradient-to-br from-gray-100 to-gray-200' },
-    { name: 'Education', icon: AcademicCapIcon, color: 'bg-gradient-to-br from-blue-100 to-blue-200' },
-    { name: 'Event Management', icon: SparklesIcon, color: 'bg-gradient-to-br from-gray-50 to-gray-100' },
+    { name: 'E-commerce', icon: ShoppingCartIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Education', icon: AcademicCapIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Event Management', icon: SparklesIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
     { name: 'Gadget Shops', icon: ComputerDesktopIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
-    { name: 'Hotels & Resorts', icon: BuildingOffice2Icon, color: 'bg-gradient-to-br from-gray-100 to-blue-50' },
-    { name: 'Organic Products', icon: ShoppingBagIcon, color: 'bg-gradient-to-br from-blue-100 to-gray-100' },
-    { name: 'Photography', icon: CameraIcon, color: 'bg-gradient-to-br from-gray-50 to-blue-50' },
-    { name: 'Restaurants', icon: ShoppingBagIcon, color: 'bg-gradient-to-br from-blue-50 to-gray-100' },
-    { name: 'Salon & Parlor', icon: SparklesIcon, color: 'bg-gradient-to-br from-gray-100 to-blue-100' },
-    { name: 'Study Abroad', icon: PaperAirplaneIcon, color: 'bg-gradient-to-br from-blue-100 to-blue-50' },
-    { name: 'Travel Booking', icon: TicketIcon, color: 'bg-gradient-to-br from-gray-50 to-gray-100' }
+    { name: 'Hotels & Resorts', icon: BuildingOffice2Icon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Organic Products', icon: ShoppingBagIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Photography', icon: CameraIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Restaurants', icon: ShoppingBagIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Salon & Parlor', icon: SparklesIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Study Abroad', icon: PaperAirplaneIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' },
+    { name: 'Travel Booking', icon: TicketIcon, color: 'bg-gradient-to-br from-blue-50 to-blue-100' }
   ];
+
+  // Map known sectors to internal hrefs (optional). Returns null if unknown.
+  function getSectorHref(name) {
+    const map = {
+      'Corporate Office': '/corporate-office',
+      'E-commerce': '/ecommerce',
+      'Education': '/education',
+      'Event Management': '/event',
+      'Gadget Shops': '/gadget-shop',
+      'Hotels & Resorts': '/hotel-and-resort',
+      'Organic Products': '/organic-products',
+      'Photography': '/photography',
+      'Restaurants': '/restaurants',
+      'Salon & Parlor': '/salon',
+      'Study Abroad': '/study-abroad',
+      'Travel Booking': '/travel-booking'
+    };
+    return map[name] || null;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-200 via-blue-50 to-white text-gray-900 overflow-hidden">
@@ -926,152 +945,30 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 lg:gap-4 px-4">
-            {sectors.map((sector, index) => (
-              <div
-                key={sector.name}
-                className="group relative"
-                onMouseEnter={() => setHoveredSector(sector.name)}
-                onMouseLeave={() => setHoveredSector(null)}
-              >
-                {sector.name === 'Education' ? (
-                  <a href="/education" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-7 sm:h-7 lg:w-8 lg:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
+            {sectors.map((sector) => {
+              const href = getSectorHref(sector.name);
+              const card = (
+                <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
+                  <div className="text-center">
+                    <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
+                      <sector.icon className="w-full h-full" />
                     </div>
-                  </a>
-                ) : sector.name === 'Photography' ? (
-                  <Link href="/photography" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-7 sm:h-7 lg:w-8 lg:h-8 mx-auto mb-2 sm:mb-3 text-gray-800">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </Link>
-                ) : sector.name === 'Study Abroad' ? (
-                  <a href="/study-abroad" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-                ) : sector.name === 'Hotels & Resorts' ? (
-                  <a href="/hotel-and-resort" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-gray-700">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-
-                ) : sector.name === 'Organic Products' ? (
-                  <a href="/organic-products" className="block">
-
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-
-                  </a>
-                ) : sector.name === 'Travel Booking' ? (
-                  <a href="/travel-booking" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-gray-700">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-                ) : sector.name === 'Corporate Office' ? (
-                  <a href="/corporate-office" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-                ) : sector.name === 'Gadget Shops' ? (
-                  <a href="/gadget-shop" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-
-
-                ) : sector.name === 'Salon & Parlor' ? (
-                  <a href="/salon" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-gray-700">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-
-                ) : sector.name === 'E-commerce' ? (
-                  <a href="/ecommerce" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-gray-700">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-                ) : sector.name === 'Restaurants' ? (
-                  <a href="/restaurants" className="block">
-                    <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-blue-600">
-                          <sector.icon className="w-full h-full" />
-                        </div>
-                        <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                      </div>
-                    </div>
-                  </a>
-                ) : (  
-                  <div className={`relative h-24 sm:h-auto p-4 sm:p-6 rounded-xl sm:rounded-2xl ${sector.color} shadow-md border border-gray-200 transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:shadow-lg cursor-pointer flex items-center justify-center`}>
-                    <div className="text-center">
-                      <div className="w-8 h-8 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-gray-700">
-                        <sector.icon className="w-full h-full" />
-                      </div>
-                      <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
-                    </div>
+                    <h3 className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold text-gray-800">{sector.name}</h3>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+
+              return (
+                <div
+                  key={sector.name}
+                  className="group relative"
+                  onMouseEnter={() => setHoveredSector(sector.name)}
+                  onMouseLeave={() => setHoveredSector(null)}
+                >
+                  {href ? <Link href={href} className="block">{card}</Link> : card}
+                </div>
+              );
+            })}
           </div>
         </Container>
       </Section>
@@ -1108,7 +1005,7 @@ export default function LandingPage() {
             ].slice(0, (isMobile && !showAllFeatures) ? 4 : undefined).map((feature, index) => (
               <div
                 key={index}
-                className="group relative bg-white border-2 border-blue-100 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group relative bg-white border-2 border-blue-100 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 hover:border-blue-600 "
               >
                 <div className="flex items-start gap-2 sm:gap-3 lg:gap-4">
                   <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">

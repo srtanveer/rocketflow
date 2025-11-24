@@ -531,77 +531,8 @@ export default function SalonPage() {
             
       {/* Provide More Section */}
       <ProvideMoreSection />
-      
-      {/* CTA Section */}
-      <Section className="py-16 sm:py-18 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full animate-pulse animation-delay-2000"></div>
-          </div>
-        </div>
 
-        <Container className="relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-full mb-8">
-              <SparklesIcon className="w-6 h-6 text-black mr-2" />
-              <span className="text-black font-semibold">Limited Time Launch Offer</span>
-            </div>
-
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
-              Ready to Transform Your
-              <br />
-              Salon Business?
-            </h2>
-            
-            <p className="text-xl md:text-2xl text-white text-opacity-90 mb-12 leading-relaxed">
-              Start your 14-day free trial. No credit card required. 
-              Get your salon automated in 24 hours.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button className="bg-white text-purple-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
-                Start Free Trial Now
-              </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-purple-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
-                Book a Demo
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-8 text-white text-opacity-90">
-              <div className="flex items-center gap-2">
-                <ShieldCheckIcon className="w-6 h-6" />
-                <span>14-day free trial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <BoltIcon className="w-6 h-6" />
-                <span>Setup in 24 hours</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ClockIcon className="w-6 h-6" />
-                <span>Cancel anytime</span>
-              </div>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
-                <div className="text-3xl font-bold text-white mb-2">75%</div>
-                <div className="text-white text-opacity-90">Less No-Shows</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
-                <div className="text-3xl font-bold text-white mb-2">40%</div>
-                <div className="text-white text-opacity-90">More Bookings</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
-                <div className="text-3xl font-bold text-white mb-2">500+</div>
-                <div className="text-white text-opacity-90">Happy Salons</div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      {/* See More Button removed as requested */}
 
       {/* Benefits Table Section */}
       <Section className="py-12 sm:py-14 bg-white">
@@ -629,74 +560,9 @@ export default function SalonPage() {
                   <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Appointments</h4>
                 </div>
               </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Costly client no-shows & last-minute cancellations</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated SMS Appointment Reminders with Confirmation</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Dramatically reduces no-shows, secures revenue</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Client Management Card */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-              <div className="bg-gradient-to-r from-pink-600 to-fuchsia-600 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <UserGroupIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Management</h4>
-                </div>
-              </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Repetitive inquiries about price and services</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">24/7 AI Receptionist & Instant Service Menu Delivery</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Saves hours of staff time daily</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Remaining cards - shown only when expanded */}
-            {showAllBenefits && (
-              <>
-            {/* Client Loyalty Card */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-              <div className="bg-gradient-to-r from-fuchsia-600 to-purple-600 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <StarIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Client Loyalty</h4>
-                </div>
-              </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Low rate of repeat business</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Re-engagement & Birthday Campaigns</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Increases client retention & lifetime value</p>
-                </div>
+              <div className="p-4">
+                <p className="text-gray-700">Costly client no-shows & last-minute cancellations</p>
+                <p className="mt-3 text-sm font-semibold text-gray-900">Automated SMS Appointment Reminders with Confirmation</p>
               </div>
             </div>
 
@@ -710,19 +576,9 @@ export default function SalonPage() {
                   <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Marketing</h4>
                 </div>
               </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Empty slots during weekdays or off-seasons</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Targeted Slow Day & Festival Offer Broadcasts</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Fills the appointment book, boosts revenue</p>
-                </div>
+              <div className="p-4">
+                <p className="text-gray-700">Empty slots during weekdays or off-seasons</p>
+                <p className="mt-3 text-sm font-semibold text-green-600">Fills the appointment book, boosts revenue</p>
               </div>
             </div>
 
@@ -736,19 +592,9 @@ export default function SalonPage() {
                   <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">High-Value Bookings</h4>
                 </div>
               </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Disorganized handling of bridal inquiries</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Automated Bridal Inquiry Forms & Package Delivery</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Professional process, more high-ticket bookings</p>
-                </div>
+              <div className="p-4">
+                <p className="text-gray-700">Disorganized handling of bridal inquiries</p>
+                <p className="mt-3 text-sm font-semibold text-green-600">Professional process, more high-ticket bookings</p>
               </div>
             </div>
 
@@ -762,36 +608,14 @@ export default function SalonPage() {
                   <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">Operations</h4>
                 </div>
               </div>
-              <div className="p-4 space-y-3">
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">Manual, time-consuming reminder calls</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                  <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">Fully Automated Communication Workflows</p>
-                </div>
-                <div>
-                  <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                  <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">Frees up staff, improves efficiency</p>
-                </div>
+              <div className="p-4">
+                <p className="text-gray-700">Manual, time-consuming reminder calls</p>
+                <p className="mt-3 text-sm font-semibold text-green-600">Frees up staff, improves efficiency</p>
               </div>
             </div>
-              </>
-            )}
-
-            {/* See More Button */}
-            {!showAllBenefits && (
-              <div className="text-center pt-2">
-                <button
-                  onClick={() => setShowAllBenefits(true)}
-                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                >
-                  See More Benefits
-                </button>
-              </div>
-            )}
           </div>
+
+            {/* See More Button removed from here (moved above) */}
 
           {/* Desktop Table View */}
           <div className="hidden lg:block overflow-x-auto">
@@ -932,6 +756,149 @@ export default function SalonPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Success Stories Section */}
+      <Section className="py-12 sm:py-14">
+        <Container>
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
+              Real Results from
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Real Salons</span>
+            </h2>
+            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
+              See how our salon clients transformed their businesses
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {successStories.map((story, index) => (
+              <Card
+                key={index}
+                animationDelay={index * 0.15}
+                className="card-hover card-shimmer group h-full flex flex-col border-2 border-purple-100 overflow-hidden"
+                padding="lg"
+              >
+                {/* Header */}
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-purple-100">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${story.bgColor} rounded-2xl flex items-center justify-center text-white font-bold text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] shadow-lg transform transition-transform duration-300 group-hover:scale-110`}>
+                    {story.logo}
+                  </div>
+                  <div>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{story.name}</h3>
+                    <div className="text-purple-600 font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{story.industry}</div>
+                  </div>
+                  <div className="ml-auto bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
+                    {story.improvement}
+                  </div>
+                </div>
+
+                {/* Before & After Comparison */}
+                <div className="grid grid-cols-2 gap-5 mb-6 flex-1">
+                  <div>
+                    <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold text-gray-500 uppercase tracking-wider mb-3">Before</div>
+                    <div className="space-y-2">
+                      {Object.entries(story.before).map(([key, value]) => (
+                        <div key={key} className="flex justify-between items-center bg-purple-50 rounded-lg p-2">
+                          <span className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600 capitalize">{key}</span>
+                          <span className="font-bold text-gray-900 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold text-green-600 uppercase tracking-wider mb-3">After</div>
+                    <div className="space-y-2">
+                      {Object.entries(story.after).map(([key, value]) => (
+                        <div key={key} className="flex justify-between items-center bg-green-50 rounded-lg p-2 border border-green-200">
+                          <span className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600 capitalize">{key}</span>
+                          <span className="font-bold text-green-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Testimonial */}
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-5 border-l-4 border-purple-500 mt-auto">
+                  <div className="text-3xl text-purple-300 mb-2">"</div>
+                  <p className="text-gray-700 italic leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{story.testimonial}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* CTA Section - relocated between table and footer */}
+      <Section className="py-16 sm:py-18 bg-gradient-to-r from-purple-700 via-fuchsia-700 to-pink-700 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full animate-pulse animation-delay-2000"></div>
+          </div>
+        </div>
+
+        <Container className="relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-full mb-8">
+              <SparklesIcon className="w-6 h-6 text-black mr-2" />
+              <span className="text-black font-semibold">Limited Time Launch Offer</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
+              Ready to Transform Your
+              <br />
+              Salon Business?
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-white text-opacity-90 mb-12 leading-relaxed">
+              Start your 14-day free trial. No credit card required. 
+              Get your salon automated in 24 hours.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <Button className="bg-white text-purple-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                Start Free Trial Now
+              </Button>
+              <Button className="border-3 border-white text-white hover:bg-white hover:text-purple-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+                Book a Demo
+              </Button>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-8 text-white text-opacity-90">
+              <div className="flex items-center gap-2">
+                <ShieldCheckIcon className="w-6 h-6" />
+                <span>14-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <BoltIcon className="w-6 h-6" />
+                <span>Setup in 24 hours</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ClockIcon className="w-6 h-6" />
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-2">75%</div>
+                <div className="text-white text-opacity-90">Less No-Shows</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-2">40%</div>
+                <div className="text-white text-opacity-90">More Bookings</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-2">500+</div>
+                <div className="text-white text-opacity-90">Happy Salons</div>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

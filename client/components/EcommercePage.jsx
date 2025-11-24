@@ -870,12 +870,12 @@ export default function EcommercePage() {
               <Card
                 key={index}
                 animationDelay={index * 0.15}
-                className="border-2 border-red-100"
+                className="card-hover card-shimmer group h-full flex flex-col border-2 border-red-100 overflow-hidden"
                 padding="lg"
               >
                 {/* Header */}
                 <div className="flex items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-red-100">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${story.bgColor} rounded-2xl flex items-center justify-center text-white font-bold text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] shadow-lg`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${story.bgColor} rounded-2xl flex items-center justify-center text-white font-bold text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] shadow-lg transform transition-transform duration-300 group-hover:scale-110`}>
                     {story.logo}
                   </div>
                   <div>
@@ -888,7 +888,7 @@ export default function EcommercePage() {
                 </div>
 
                 {/* Before & After Comparison */}
-                <div className="grid grid-cols-2 gap-5 mb-6">
+                <div className="grid grid-cols-2 gap-5 mb-6 flex-1">
                   <div>
                     <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold text-gray-500 uppercase tracking-wider mb-3">Before</div>
                     <div className="space-y-2">
@@ -914,7 +914,7 @@ export default function EcommercePage() {
                 </div>
 
                 {/* Testimonial */}
-                <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-5 border-l-4 border-red-500">
+                <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-5 border-l-4 border-red-500 mt-auto">
                   <div className="text-3xl text-red-300 mb-2">"</div>
                   <p className="text-gray-700 italic leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{story.testimonial}</p>
                 </div>
@@ -937,8 +937,8 @@ export default function EcommercePage() {
         <Container className="relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full mb-6">
-              <SparklesIcon className="w-5 h-5 text-white mr-2" />
-              <span className="text-white font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Limited Time Offer</span>
+              <SparklesIcon className="w-5 h-5 text-black mr-2" />
+              <span className="text-black font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">Limited Time Offer</span>
             </div>
 
             <h2 className="text-[2.5rem] leading-tight sm:text-[3rem] sm:leading-tight lg:text-[4rem] lg:leading-tight font-bold text-white mb-6">

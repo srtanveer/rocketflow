@@ -16,7 +16,8 @@ import {
   HeartIcon,
   CpuChipIcon,
   ClockIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function OrganicProductsPage() {
@@ -132,6 +133,29 @@ export default function OrganicProductsPage() {
     }
   ];
 
+  const caseStudies = [
+    {
+      company: 'Green Harvest Organics',
+      result: '70% Waste Reduction',
+      timeframe: 'In 4 Months',
+      companyAbbrev: 'GH',
+      industry: 'Organic Retail',
+      challenge: 'High spoilage and poor pre-order coordination leading to lost revenue',
+      solution: 'Implemented automated pre-order flows, stock alerts and AI-driven inventory predictions',
+      results: ['70% reduction in spoilage', '50% increase in launch-day conversions']
+    },
+    {
+      company: 'Nature Fresh Co',
+      result: '45% Online Sales Growth',
+      timeframe: 'In 3 Months',
+      companyAbbrev: 'NF',
+      industry: 'Farm-to-Table Retail',
+      challenge: 'Slow repeat purchases and low customer retention',
+      solution: 'Deployed personalized recommendation emails, SMS reminders and loyalty automation',
+      results: ['45% uplift in online sales', '30% higher repeat purchase rate']
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       <Navbar />
@@ -183,10 +207,11 @@ export default function OrganicProductsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Start Growing Today
                 </Button>
-                <button className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-green-600 text-green-700 hover:bg-green-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Watch Demo
                 </button>
               </div>
@@ -249,6 +274,8 @@ export default function OrganicProductsPage() {
           </div>
         </Container>
       </Section>
+
+      
 
       {/* Our Solutions Section */}
       <Section className="py-12 sm:py-14 bg-white">
@@ -338,7 +365,7 @@ export default function OrganicProductsPage() {
               <Card
                 key={index}
                 animationDelay={index * 0.1}
-                className="border-2 border-transparent hover:border-green-200"
+                className="card-hover group border-2 border-transparent hover:border-green-200 transition-all duration-300"
               >
                 <div className={`w-16 h-16 ${benefit.color} bg-opacity-10 rounded-2xl flex items-center justify-center mb-6`}>
                   <benefit.icon className={`w-8 h-8 ${benefit.color}`} />
@@ -715,60 +742,81 @@ export default function OrganicProductsPage() {
         </Container>
       </Section>
 
-      {/* Testimonials Section */}
-      <Section className="py-12 sm:py-14 bg-white">
+      
+
+      {/* CTA Section */}
+      {/* Case Studies - Organic Retailers (moved here) */}
+      <Section className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
         <Container>
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
-              Success Stories from
-              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Organic Entrepreneurs</span>
+              Case Studies -
+              <span className="text-green-600"> Organic Retailers</span>
             </h2>
             <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
-              Real results from real organic businesses
+              Real results from organic stores using RocketFlow to reduce waste and increase repeat purchases
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-6">
+            {caseStudies.map((study, index) => (
+              <Card
                 key={index}
-                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-green-100 relative overflow-hidden group"
+                animationDelay={index * 0.15}
+                className="card-hover border-2 border-green-100"
+                padding="lg"
               >
-                {/* Decorative Element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-200 to-emerald-200 rounded-full opacity-20 transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500"></div>
-
-                {/* Stars */}
-                <div className="flex gap-1 mb-6 relative z-10">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-
-                {/* Content */}
-                <p className="text-gray-700 text-lg italic mb-8 leading-relaxed relative z-10">
-                  "{testimonial.content}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    {testimonial.avatar}
+                {/* Company Header */}
+                <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
+                  <div className="w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                    {study.companyAbbrev}
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
-                    <div className="text-gray-600">{testimonial.role}</div>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.company}</h3>
+                    <div className="text-green-600 font-semibold">{study.industry}</div>
                   </div>
                 </div>
-              </div>
+
+                {/* Challenge */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Challenge</span>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{study.challenge}</p>
+                </div>
+
+                {/* Solution */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Solution</span>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{study.solution}</p>
+                </div>
+
+                {/* Results */}
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Results</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {study.results.map((result, idx) => (
+                      <div key={idx} className="flex items-center gap-3 bg-green-50 rounded-xl p-4 border border-green-100">
+                        <div className="text-2xl">✓</div>
+                        <span className="text-gray-900 font-semibold">{result}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* CTA Section */}
-      <Section className="py-16 sm:py-18 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
+      <Section className="py-24 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full mix-blend-overlay animate-blob"></div>
@@ -794,11 +842,12 @@ export default function OrganicProductsPage() {
               and boost sales by 60%
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-white text-green-700 hover:bg-gray-100 px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Get Started Free
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-green-700 px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-green-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
                 Schedule Demo
               </Button>
             </div>

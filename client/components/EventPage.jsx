@@ -25,7 +25,8 @@ import {
   CurrencyDollarIcon,
   CheckCircleIcon,
   RocketLaunchIcon,
-  BuildingOfficeIcon
+  BuildingOfficeIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function EventPage() {
@@ -251,6 +252,29 @@ export default function EventPage() {
     }
   ];
 
+  const successStories = [
+    {
+      name: 'Aurora Events',
+      industry: 'Weddings',
+      logo: 'AE',
+      bgColor: 'from-pink-500 to-rose-600',
+      before: { sales: '$8K/mo', bookings: '60', support: '8hrs/day' },
+      after: { sales: '$22K/mo', bookings: '170', support: '24/7 auto' },
+      improvement: '+180% bookings',
+      testimonial: 'RocketFlow automated our inquiry pipeline and the number of confirmed bookings skyrocketed. The team can now focus on design, not follow-ups.'
+    },
+    {
+      name: 'Summit Conferences',
+      industry: 'Conferences',
+      logo: 'SC',
+      bgColor: 'from-blue-500 to-indigo-600',
+      before: { attendees: '1.2K', retention: '30%', ops: 'manual' },
+      after: { attendees: '3.8K', retention: '75%', ops: 'automated' },
+      improvement: '+220% attendee retention',
+      testimonial: 'From registration to post-event analytics, RocketFlow gave us the tools to operate at scale while improving attendee satisfaction.'
+    }
+  ];
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
@@ -329,12 +353,13 @@ export default function EventPage() {
               <div className="flex gap-6">
                 <Button 
                   variant="primary"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-sm sm:text-base px-8 py-4 shadow-lg hover:shadow-xl font-semibold"
+                  className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-sm sm:text-base px-8 py-4 shadow-lg hover:shadow-xl font-semibold flex items-center justify-center gap-2"
                 >
+                  <PlayIcon className="w-5 h-5" />
                   Request Demo
                 </Button>
                 <button
-                  className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 text-sm sm:text-base px-8 py-4 rounded-xl font-semibold transition-all hover:shadow-md"
+                  className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white text-sm sm:text-base px-8 py-4 rounded-xl font-semibold transition-all hover:shadow-md"
                 >
                   View Solutions
                 </button>
@@ -430,7 +455,7 @@ export default function EventPage() {
                 key={service.id}
                 onMouseEnter={() => setHoveredAutomation(service.id)}
                 onMouseLeave={() => setHoveredAutomation(null)}
-                className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300 hover:scale-105"
+                className="card-hover card-shimmer group h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)] transition-all duration-300"
               >
                 <div className="absolute top-0 right-0 p-4">
                   {service.stats && (
@@ -443,8 +468,8 @@ export default function EventPage() {
                   )}
                 </div>
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient || 'from-blue-500 to-indigo-600'} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative z-10 flex-1">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -890,75 +915,74 @@ export default function EventPage() {
         </Container>
       </Section>
 
-      {/* Client Reviews Section */}
-      <Section className="py-12 sm:py-14 bg-white">
+      {/* Success Stories Section (Ecommerce style) */}
+      <Section className="py-12 sm:py-14">
         <Container>
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
-              What Our Clients Say
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-red-600 to-primary rounded-full"></div>
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
+              Real Results from
+              <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent"> Real Stores</span>
             </h2>
             <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
-              Hear from event organizers who have created unforgettable experiences with our solutions
+              See how our clients transformed their businesses
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
-              
-              <div className="relative">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-primary flex items-center justify-center text-white font-bold text-xl mr-5 shadow-md">
-                    MA
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {successStories.map((story, index) => (
+              <Card
+                key={index}
+                animationDelay={index * 0.15}
+                className="card-hover card-shimmer group h-full flex flex-col border-2 border-red-100 overflow-hidden"
+                padding="lg"
+              >
+                {/* Header */}
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 pb-6 border-b border-red-100">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${story.bgColor} rounded-2xl flex items-center justify-center text-white font-bold text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] shadow-lg transform transition-transform duration-300 group-hover:scale-110`}>
+                    {story.logo}
                   </div>
                   <div>
-                    <div className="font-bold text-xl text-gray-900">Morshed Alam</div>
-                    <div className="text-gray-600">Wedding Planner, Dream Events</div>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{story.name}</h3>
+                    <div className="text-red-600 font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{story.industry}</div>
+                  </div>
+                  <div className="ml-auto bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
+                    {story.improvement}
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="text-4xl text-red-500 absolute -top-5 -left-2 opacity-40">"</div>
-                  <p className="text-gray-700 italic text-lg relative z-10 mb-5 pl-4">
-                    The automated event management system has revolutionized how we plan weddings. The seamless coordination and real-time updates have made our events run flawlessly.
-                  </p>
-                  <div className="text-4xl text-red-500 absolute bottom-0 right-0 opacity-40">"</div>
-                </div>
-                <div className="flex text-secondary mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-6 h-6 fill-current text-yellow-500" />
-                  ))}
-                </div>
-              </div>
-            </Card>
-            
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-[0_4px_20px_-2px_rgba(59,130,246,0.1)] hover:shadow-[0_8px_25px_-5px_rgba(59,130,246,0.2)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
-              
-              <div className="relative">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-red-500 flex items-center justify-center text-white font-bold text-xl mr-5 shadow-md">
-                    MR
+
+                {/* Before & After Comparison */}
+                <div className="grid grid-cols-2 gap-5 mb-6 flex-1">
+                  <div>
+                    <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold text-gray-500 uppercase tracking-wider mb-3">Before</div>
+                    <div className="space-y-2">
+                      {Object.entries(story.before).map(([key, value]) => (
+                        <div key={key} className="flex justify-between items-center bg-red-50 rounded-lg p-2">
+                          <span className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600 capitalize">{key}</span>
+                          <span className="font-bold text-gray-900 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <div className="font-bold text-xl text-gray-900">Md Real</div>
-                    <div className="text-gray-600">Director, Corporate Events Pro</div>
+                    <div className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-bold text-green-600 uppercase tracking-wider mb-3">After</div>
+                    <div className="space-y-2">
+                      {Object.entries(story.after).map(([key, value]) => (
+                        <div key={key} className="flex justify-between items-center bg-green-50 rounded-lg p-2 border border-green-200">
+                          <span className="text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] text-gray-600 capitalize">{key}</span>
+                          <span className="font-bold text-green-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="text-4xl text-primary absolute -top-5 -left-2 opacity-40">"</div>
-                  <p className="text-gray-700 italic text-lg relative z-10 mb-5 pl-4">
-                    The platform's automation features have transformed how we handle corporate events. We can now manage twice as many events with better precision and attendee satisfaction.
-                  </p>
-                  <div className="text-4xl text-primary absolute bottom-0 right-0 opacity-40">"</div>
+
+                {/* Testimonial */}
+                <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-5 border-l-4 border-red-500 mt-auto">
+                  <div className="text-3xl text-red-300 mb-2">"</div>
+                  <p className="text-gray-700 italic leading-relaxed text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem]">{story.testimonial}</p>
                 </div>
-                <div className="flex text-secondary mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-6 h-6 fill-current text-yellow-500" />
-                  ))}
-                </div>
-              </div>
-            </Card>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
@@ -973,8 +997,13 @@ export default function EventPage() {
                 Let's work together to bring your vision to life. Contact us today to start planning your next successful event.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button variant="white">Contact Us</Button>
-                <Button variant="white-outline">View Portfolio</Button>
+                <Button className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
+                  Contact Us
+                </Button>
+                <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-500 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
+                  View Portfolio
+                </Button>
               </div>
             </div>
           </div>

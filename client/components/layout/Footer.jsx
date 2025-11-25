@@ -16,10 +16,18 @@ const Footer = () => {
     industries: {
       title: 'Industries',
       links: [
-        { name: 'Photography', href: '/photography' },
-        { name: 'Education', href: '/education' },
-        { name: 'Hotels & Resorts', href: '/hotel-and-resort' },
+        { name: 'Corporate Office', href: '/corporate-office' },
         { name: 'E-commerce', href: '/ecommerce' },
+        { name: 'Restaurants', href: '/restaurants' },
+        { name: 'Hotels & Resorts', href: '/hotel-and-resort' },
+        { name: 'Organic Products', href: '/organic-products' },
+        { name: 'Salon', href: '/salon' },
+        { name: 'Travel Booking', href: '/travel-booking' },
+        { name: 'Gadget Shop', href: '/gadget-shop' },
+        { name: 'Photography', href: '/photography' },
+        { name: 'Event', href: '/event' },
+        { name: 'Education', href: '/education' },
+        { name: 'Study Abroad', href: '/study-abroad' },
       ]
     },
     company: {
@@ -85,9 +93,9 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-white to-blue-50 border-t border-blue-200">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* Brand Section */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="lg:w-1/5">
             <div className="text-2xl font-bold text-blue-600 mb-4">
               RocketFlow
             </div>
@@ -110,18 +118,19 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
-          {Object.entries(footerSections).map(([key, section]) => (
-            <div key={key}>
+          {/* Footer Links - Flexbox for natural spacing */}
+          <div className="flex-1 flex flex-wrap gap-8 lg:gap-12">
+            {/* Services */}
+            <div className="flex-shrink-0">
               <h3 className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
-                {section.title}
+                {footerSections.services.title}
               </h3>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
+              <ul className="space-y-2">
+                {footerSections.services.links.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap"
                     >
                       {link.name}
                     </a>
@@ -129,7 +138,73 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          ))}
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px bg-blue-200"></div>
+
+            {/* Industries - 2 columns with more space */}
+            <div className="flex-shrink-0">
+              <h3 className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
+                {footerSections.industries.title}
+              </h3>
+              <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                {footerSections.industries.links.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px bg-blue-200"></div>
+
+            {/* Company */}
+            <div className="flex-shrink-0">
+              <h3 className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
+                {footerSections.company.title}
+              </h3>
+              <ul className="space-y-2">
+                {footerSections.company.links.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px bg-blue-200"></div>
+
+            {/* Support */}
+            <div className="flex-shrink-0">
+              <h3 className="text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
+                {footerSections.support.title}
+              </h3>
+              <ul className="space-y-2">
+                {footerSections.support.links.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Newsletter Subscription */}

@@ -36,6 +36,7 @@ import {
   ShieldCheckIcon,
   UsersIcon,
   ClockIcon,
+  PlayIcon,
 } from "@heroicons/react/24/outline";
 
 export default function HotelandResort() {
@@ -392,10 +393,11 @@ export default function HotelandResort() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Book Room
                 </Button>
-                <button className="bg-white border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Explore Packages
                 </button>
               </div>
@@ -984,31 +986,11 @@ export default function HotelandResort() {
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            {/* Button 1 */}
-            <Button
-              className="
-          bg-white text-cyan-700 
-          px-12 py-5 rounded-xl font-bold text-lg 
-          shadow-2xl 
-          transition-all duration-300 
-          hover:scale-105 hover:shadow-3xl 
-          border border-transparent hover:border-white
-        "
-            >
+            <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+              <PlayIcon className="w-5 h-5" />
               Book a Room Now
             </Button>
-
-            {/* Button 2 */}
-            <Button
-              className="
-          text-white 
-          px-12 py-5 rounded-xl font-bold text-lg 
-          backdrop-blur-sm bg-white bg-opacity-10
-          transition-all duration-300 
-          hover:scale-105 hover:shadow-3xl 
-          border border-transparent hover:border-white
-        "
-            >
+            <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-cyan-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
               Contact Hotel Expert
             </Button>
           </div>

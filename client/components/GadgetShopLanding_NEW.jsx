@@ -39,7 +39,8 @@ import {
   FireIcon,
   ChartPieIcon,
   BuildingStorefrontIcon,
-  CalendarIcon
+  CalendarIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function GadgetShopLanding() {
@@ -326,10 +327,11 @@ export default function GadgetShopLanding() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-gradient-to-r from-coral-600 to-red-600 hover:from-coral-700 hover:to-red-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <PlayIcon className="w-5 h-5" />
                     Start Dominating
                   </Button>
-                  <button className="bg-white border-2 border-blue-600 text-blue-700 hover:bg-blue-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                  <button className="bg-transparent border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                     See How It Works
                   </button>
                 </div>
@@ -341,7 +343,7 @@ export default function GadgetShopLanding() {
                   {/* Dashboard Cards Stack */}
                   <div className="space-y-4">
                     {/* Top Card - Analytics */}
-                    <Card animationDelay={0} className="!bg-coral-600 !text-black">
+                    <Card animationDelay={0} className="card-hover !bg-coral-600 !text-black">
                       <div className="flex items-center justify-between mb-6">
                         <div>
                           <div className="text-sm opacity-80 mb-1">Monthly Pre-Orders</div>
@@ -361,14 +363,14 @@ export default function GadgetShopLanding() {
 
                     {/* Middle Cards - Side by Side */}
                     <div className="grid grid-cols-2 gap-4">
-                      <Card animationDelay={0.1} className="border-2 border-coral-100">
+                      <Card animationDelay={0.1} className="card-hover border-2 border-coral-100">
                         <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center mb-4">
                           <ShoppingCartIcon className="w-6 h-6 text-white" />
                         </div>
                         <div className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">37%</div>
                         <div className="text-sm text-gray-600">AOV Increase</div>
                       </Card>
-                      <Card animationDelay={0.15} className="border-2 border-orange-100">
+                      <Card animationDelay={0.15} className="card-hover border-2 border-orange-100">
                         <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
                           <ArchiveBoxIcon className="w-6 h-6 text-white" />
                         </div>
@@ -378,7 +380,7 @@ export default function GadgetShopLanding() {
                     </div>
 
                     {/* Bottom Card - Activity */}
-                    <Card animationDelay={0.2} className="border-2 border-coral-100">
+                    <Card animationDelay={0.2} className="card-hover border-2 border-coral-100">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-10 h-10 bg-coral-500 rounded-full flex items-center justify-center text-white font-bold">
                           AI
@@ -422,7 +424,7 @@ export default function GadgetShopLanding() {
                 <Card
                   key={index}
                   animationDelay={index * 0.1}
-                  className={`cursor-pointer transition-all duration-300 border-2 ${
+                  className={`card-hover group cursor-pointer transition-all duration-300 border-2 ${
                     activeFeature === index
                       ? 'bg-gradient-to-br from-coral-50 to-orange-50 border-coral-300 scale-105'
                       : 'border-gray-200 hover:border-coral-200'
@@ -465,9 +467,9 @@ export default function GadgetShopLanding() {
               {solutions.map((solution, index) => (
                 <Card
                   key={solution.id}
-                  className={`relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
+                  className={`card-hover card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl hover:shadow-2xl transition-all duration-500 transform overflow-hidden group ${
                     hoveredService === solution.id 
-                      ? 'border-coral-300 scale-105 -translate-y-2' 
+                      ? 'border-coral-300' 
                       : 'border-gray-200 hover:border-coral-200'
                   }`}
                   onMouseEnter={() => setHoveredService(solution.id)}
@@ -531,7 +533,7 @@ export default function GadgetShopLanding() {
                 <Card
                   key={index}
                   animationDelay={index * 0.1}
-                  className="bg-coral-50 border-2 border-coral-100"
+                  className="card-hover bg-coral-50 border-2 border-coral-100"
                 >
                   <div className={`w-16 h-16 bg-${benefit.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                     <benefit.icon className="w-8 h-8 text-white" />
@@ -921,7 +923,7 @@ export default function GadgetShopLanding() {
                 <Card
                   key={index}
                   animationDelay={index * 0.15}
-                  className="border-2 border-coral-100"
+                  className="card-hover border-2 border-coral-100"
                   padding="lg"
                 >
                   {/* Company Header */}
@@ -1003,10 +1005,11 @@ export default function GadgetShopLanding() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-                <Button className="bg-white text-coral-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-coral-600 to-red-600 hover:from-coral-700 hover:to-red-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Start Your 7-Day Free Trial
                 </Button>
-                <Button className="border-3 border-white text-white hover:bg-white hover:text-coral-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+                <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-coral-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
                   Schedule a Demo
                 </Button>
               </div>

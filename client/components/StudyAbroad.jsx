@@ -16,7 +16,8 @@ import {
   AcademicCapIcon,
   BuildingLibraryIcon,
   UserGroupIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function StudyAbroad() {
@@ -155,6 +156,26 @@ export default function StudyAbroad() {
     }
   ];
 
+  const caseStudies = [
+    {
+      company: 'International Study Group',
+      companyAbbrev: 'IS',
+      industry: 'Study Abroad Consultancy',
+      challenge: 'Manual email responses causing delays and losing potential students',
+      solution: 'Implemented AI-powered auto-reply system with personalized responses',
+      results: ['70% faster response time', '45% increase in application conversions']
+    },
+    {
+      company: 'Global Education Consultants',
+      companyAbbrev: 'GE',
+      industry: 'Consultancy Network',
+      challenge: 'Limited communication channels with international students',
+      solution: 'Deployed multi-channel communication system with SMS and chat support',
+      results: ['85% increase in student engagement', 'Improved satisfaction metrics']
+    },
+
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
       <Navbar />
@@ -233,10 +254,11 @@ export default function StudyAbroad() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Get Started Today
                 </Button>
-                <button className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-600 hover:text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   View Success Stories
                 </button>
               </div>
@@ -1045,80 +1067,73 @@ export default function StudyAbroad() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Section className="py-12 sm:py-14 bg-white">
+      {/* Case Studies Section */}
+      <Section className="py-20 bg-white">
         <Container>
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 relative inline-block">
-              What Our 
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Clients Say</span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
+              Case Studies
+              <span className="text-blue-600"> &amp; Results</span>
             </h2>
             <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
-              Hear from study abroad consultants who have transformed their businesses with our solutions
+              Real outcomes from study abroad consultancies using our platform
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-5 sm:gap-6">
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-blue-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-indigo-100 to-transparent opacity-30 rounded-full"></div>
-              
-              <div className="relative">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl mr-5 shadow-md">
-                    JD
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-6">
+            {caseStudies.map((study, index) => (
+              <Card
+                key={index}
+                animationDelay={index * 0.15}
+                className="card-hover border-2 border-blue-100 h-full flex flex-col"
+                padding="lg"
+              >
+                {/* Company Header */}
+                <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
+                  <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                    {study.companyAbbrev}
                   </div>
                   <div>
-                    <div className="font-bold text-xl text-gray-900">John Davis</div>
-                    <div className="text-gray-600">Director, Global Study Solutions</div>
+                    <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-1">{study.company}</h3>
+                    <div className="text-blue-600 font-semibold">{study.industry}</div>
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="text-4xl text-blue-500 absolute -top-5 -left-2 opacity-40">"</div>
-                  <p className="text-gray-700 italic text-lg relative z-10 mb-5 pl-4">
-                    The automated email and chatbot system has completely transformed our response time. We're now able to engage with students 24/7, resulting in a 45% increase in successful applications.
-                  </p>
-                  <div className="text-4xl text-blue-500 absolute bottom-0 right-0 opacity-40">"</div>
-                </div>
-                <div className="flex mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-6 h-6 fill-current text-blue-500" />
-                  ))}
-                </div>
-              </div>
-            </Card>
-            
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border-none shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-radial from-indigo-100 to-transparent opacity-50 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-radial from-purple-100 to-transparent opacity-30 rounded-full"></div>
-              
-              <div className="relative">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl mr-5 shadow-md">
-                    AP
+
+                {/* Challenge */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Challenge</span>
                   </div>
-                  <div>
-                    <div className="font-bold text-xl text-gray-900">Anna Peterson</div>
-                    <div className="text-gray-600">CEO, Study Abroad Connect</div>
+                  <p className="text-gray-700 leading-relaxed">{study.challenge}</p>
+                </div>
+
+                {/* Solution */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Solution</span>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{study.solution}</p>
+                </div>
+
+                {/* Results */}
+                <div className="mt-auto">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="font-bold text-gray-900 uppercase text-sm tracking-wider">Results</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {study.results.map((result, idx) => (
+                      <div key={idx} className="flex items-center gap-3 bg-green-50 rounded-xl p-4 border border-green-100">
+                        <div className="text-2xl">✓</div>
+                        <span className="text-gray-900 font-semibold">{result}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="text-4xl text-indigo-500 absolute -top-5 -left-2 opacity-40">"</div>
-                  <p className="text-gray-700 italic text-lg relative z-10 mb-5 pl-4">
-                    The document processing system has cut our application processing time by 60%. We can now handle twice as many applications with the same team size, and with greater accuracy.
-                  </p>
-                  <div className="text-4xl text-indigo-500 absolute bottom-0 right-0 opacity-40">"</div>
-                </div>
-                <div className="flex mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-6 h-6 fill-current text-indigo-500" />
-                  ))}
-                </div>
-              </div>
-            </Card>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
@@ -1147,10 +1162,11 @@ export default function StudyAbroad() {
               and enhanced student experiences with our cutting-edge solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-white text-indigo-700 hover:bg-gray-100 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-lg">
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-lg flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Schedule a Demo
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-lg">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-lg">
                 Download Brochure
               </Button>
             </div>

@@ -26,7 +26,8 @@ import {
   ShieldCheckIcon,
   UsersIcon,
   ClipboardDocumentCheckIcon,
-  PresentationChartLineIcon
+  PresentationChartLineIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function EducationPage() {
@@ -280,10 +281,11 @@ export default function EducationPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 hover:from-purple-700 hover:via-fuchsia-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Start Free Trial
                 </Button>
-                <button className="bg-white border-2 border-purple-600 text-purple-700 hover:bg-purple-50 px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all hover:shadow-md">
                   Watch Demo
                 </button>
               </div>
@@ -949,10 +951,11 @@ export default function EducationPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button className="bg-white text-purple-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+              <Button className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Start Free 14-Day Trial
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-purple-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-purple-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
                 Schedule a Demo
               </Button>
             </div>

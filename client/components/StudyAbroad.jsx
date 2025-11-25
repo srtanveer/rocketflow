@@ -16,7 +16,8 @@ import {
   AcademicCapIcon,
   BuildingLibraryIcon,
   UserGroupIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function StudyAbroad() {
@@ -253,10 +254,11 @@ export default function StudyAbroad() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Get Started Today
                 </Button>
-                <button className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-600 hover:text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   View Success Stories
                 </button>
               </div>
@@ -1160,10 +1162,11 @@ export default function StudyAbroad() {
               and enhanced student experiences with our cutting-edge solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-white text-indigo-700 hover:bg-gray-100 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-lg">
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-lg flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Schedule a Demo
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-lg">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-lg">
                 Download Brochure
               </Button>
             </div>

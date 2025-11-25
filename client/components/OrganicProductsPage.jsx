@@ -16,7 +16,8 @@ import {
   HeartIcon,
   CpuChipIcon,
   ClockIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function OrganicProductsPage() {
@@ -206,10 +207,11 @@ export default function OrganicProductsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
                   Start Growing Today
                 </Button>
-                <button className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                <button className="bg-transparent border-2 border-green-600 text-green-700 hover:bg-green-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                   Watch Demo
                 </button>
               </div>
@@ -841,10 +843,11 @@ export default function OrganicProductsPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button className="bg-white text-green-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Get Started Free
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-green-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-green-700 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
                 Schedule Demo
               </Button>
             </div>

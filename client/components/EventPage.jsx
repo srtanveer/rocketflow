@@ -25,7 +25,8 @@ import {
   CurrencyDollarIcon,
   CheckCircleIcon,
   RocketLaunchIcon,
-  BuildingOfficeIcon
+  BuildingOfficeIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function EventPage() {
@@ -352,12 +353,13 @@ export default function EventPage() {
               <div className="flex gap-6">
                 <Button 
                   variant="primary"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-sm sm:text-base px-8 py-4 shadow-lg hover:shadow-xl font-semibold"
+                  className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-sm sm:text-base px-8 py-4 shadow-lg hover:shadow-xl font-semibold flex items-center justify-center gap-2"
                 >
+                  <PlayIcon className="w-5 h-5" />
                   Request Demo
                 </Button>
                 <button
-                  className="bg-white border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50 text-sm sm:text-base px-8 py-4 rounded-xl font-semibold transition-all hover:shadow-md"
+                  className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white text-sm sm:text-base px-8 py-4 rounded-xl font-semibold transition-all hover:shadow-md"
                 >
                   View Solutions
                 </button>
@@ -995,8 +997,13 @@ export default function EventPage() {
                 Let's work together to bring your vision to life. Contact us today to start planning your next successful event.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button variant="white" className="border-2 border-white">Contact Us</Button>
-                <Button variant="white-outline" className="border-2 border-white">View Portfolio</Button>
+                <Button className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                  <PlayIcon className="w-5 h-5" />
+                  Contact Us
+                </Button>
+                <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-500 px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
+                  View Portfolio
+                </Button>
               </div>
             </div>
           </div>

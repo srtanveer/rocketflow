@@ -18,7 +18,8 @@ import {
   TagIcon,
   CubeIcon,
   ArrowTrendingUpIcon,
-  ClockIcon
+  ClockIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function EcommercePage() {
@@ -243,11 +244,12 @@ export default function EcommercePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 hover:from-red-700 hover:via-rose-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-red-500/50 transform hover:scale-105 transition-all duration-300">
-                  Start Free Trial
-                </Button>
-                <button className="bg-white border-2 border-red-600 text-red-700 hover:bg-red-50 px-8 py-3 rounded-xl font-semibold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all hover:shadow-md">
-                  See Live Demo
+                <button className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center gap-2 transition-all duration-200 shadow-lg hover:shadow-xl">
+                  <PlayIcon className="w-5 h-5" />
+                  How It Works
+                </button>
+                <button className="bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200">
+                  Try It For Free →
                 </button>
               </div>
 
@@ -953,10 +955,11 @@ export default function EcommercePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center mb-8">
-              <Button className="bg-white text-red-700 hover:bg-gray-100 px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+              <Button className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Start Free Trial Now
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-red-700 px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-red-700 px-10 py-4 rounded-xl font-bold text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] transition-all duration-300">
                 Schedule a Demo
               </Button>
             </div>

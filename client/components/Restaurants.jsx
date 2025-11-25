@@ -18,7 +18,8 @@ import {
   ClockIcon,
   GlobeAltIcon,
   CalendarIcon,
-  ShoppingBagIcon
+  ShoppingBagIcon,
+  PlayIcon
 } from '@heroicons/react/24/outline';
 
 export default function Restaurants() {
@@ -264,10 +265,11 @@ export default function Restaurants() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-primary hover:bg-primary-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                  <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary-700 hover:to-secondary-700 text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <PlayIcon className="w-5 h-5" />
                     Start Growing Today
                   </Button>
-                  <button className="bg-white border-2 border-primary text-primary hover:bg-primary-50 px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
+                  <button className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-4 rounded-xl font-semibold text-sm sm:text-base transition-all hover:shadow-md">
                     Watch Demo
                   </button>
                 </div>
@@ -948,10 +950,11 @@ export default function Restaurants() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-black px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary-700 hover:to-secondary-700 text-white px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 flex items-center justify-center gap-2">
+                <PlayIcon className="w-5 h-5" />
                 Get Started Free
               </Button>
-              <Button className="border-3 border-white text-white hover:bg-white hover:text-black px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 backdrop-blur-sm bg-white bg-opacity-10">
+              <Button className="bg-transparent border-3 border-white text-white hover:bg-white hover:text-black px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300">
                 Schedule Demo
               </Button>
             </div>

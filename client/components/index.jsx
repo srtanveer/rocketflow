@@ -28,3 +28,7 @@ export { default as EcommercePage } from './EcommercePage';
 export { default as TravelBooking } from './TravelBooking';
 export { default as Restaurants } from './Restaurants';
 export { default as ContactPage } from './ContactPage';
+export { default as GDPRPage } from './GDPRPage';
+export { default as EventPage } from './EventPage';
+export { default as PrivacyPolicyPage } from './PrivacyPolicyPage';
+export { default as TermsOfServicePage } from './TermsOfServicePage';

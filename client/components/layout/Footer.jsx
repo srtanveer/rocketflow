@@ -5,12 +5,14 @@ const Footer = () => {
 
   const footerSections = {
     services: {
-      title: 'Services',
+      title: 'Use Case',
       links: [
-        { name: 'AI Chatbots', href: '/tutorial' },
-        { name: 'Auto Reply Systems', href: '/corporate-office' },
-        { name: 'Website Development', href: '/corporate-office' },
-        { name: 'Mobile Applications', href: '/corporate-office' },
+        { name: 'Grow Your Followers', href: '#' },
+        { name: 'Collect Emails', href: '#' },
+        { name: 'Request to Follow', href: '#' },
+        { name: 'Respond to Comments', href: '#' },
+        { name: 'Send Links in DM', href: '#' },
+
       ]
     },
     industries: {
@@ -34,9 +36,7 @@ const Footer = () => {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/corporate-office' },
-        { name: 'Our Team', href: '/corporate-office' },
-        { name: 'Careers', href: '/corporate-office' },
-        { name: 'Blog', href: '/blog' },
+        { name: 'GDPR', href: '/gdpr' },
       ]
     },
     support: {
@@ -240,10 +240,10 @@ const Footer = () => {
             </div>
             
             <div className="flex space-x-6 text-sm text-gray-500">
-              <a href="#" className="hover:text-blue-600 transition-colors duration-200">
+              <a href="/privacy-policy" className="hover:text-blue-600 transition-colors duration-200">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-blue-600 transition-colors duration-200">
+              <a href="/terms-of-service" className="hover:text-blue-600 transition-colors duration-200">
                 Terms of Service
               </a>
               <a href="#" className="hover:text-blue-600 transition-colors duration-200">

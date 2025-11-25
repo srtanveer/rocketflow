@@ -295,6 +295,25 @@ export default function ContactPage() {
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
+
+              {/* Social Media */}
+              <div className="mt-8 pt-8 border-t-2 border-blue-100">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text mb-6">
+                  Connect With Us
+                </h3>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      className={`w-12 h-12 rounded-xl bg-blue-50 hover:bg-blue-100 flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.color}`}
+                      title={social.name}
+                    >
+                      <social.icon className="w-6 h-6" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </Card>
 
             {/* Additional Info */}
@@ -312,25 +331,6 @@ export default function ContactPage() {
                     referrerPolicy="no-referrer-when-downgrade"
                     title="RocketFlow Office Location"
                   ></iframe>
-                </div>
-              </Card>
-
-              {/* Social Media */}
-              <Card className="border-2 border-blue-100 bg-white shadow-lg" padding="lg">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text mb-6">
-                  Connect With Us
-                </h3>
-                <div className="flex gap-4">
-                  {socialLinks.map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.url}
-                      className={`w-12 h-12 rounded-xl bg-blue-50 hover:bg-blue-100 flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.color}`}
-                      title={social.name}
-                    >
-                      <social.icon className="w-6 h-6" />
-                    </a>
-                  ))}
                 </div>
               </Card>
 

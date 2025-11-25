@@ -138,8 +138,8 @@ export default function HotelandResort() {
   const stats = [
     { icon: UsersIcon, number: "1.2M+", label: "Trips Booked" },
     { icon: ClockIcon, number: "2min", label: "Avg Booking Time" },
-    { icon: FaBell, number: "24/7", label: "Active Concierge" },
-    { icon: FaChartPie, number: "98%", label: "Guest Satisfaction" },
+    { icon: UsersIcon, number: "24/7", label: "Active Concierge" },
+    { icon: ClockIcon, number: "98%", label: "Guest Satisfaction" },
   ];
 
   // Additional standalone Travel Solutions section data (won't replace existing `solutions`)
@@ -543,78 +543,82 @@ export default function HotelandResort() {
       </Section>
 
       {/* Travel Solutions (moved here to sit at the bottom of the Features Section) */}
-      <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
-        <Container>
-          <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
-              Travel Solutions
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}
-                For Every Journey
-              </span>
-            </h2>
-            <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
-              AI-powered travel tools for smooth and hassle-free trips
-            </p>
-          </div>
+      <div className="">
+        <Section className="py-12 sm:py-14 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+          <Container>
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-gray-900 mb-4">
+                Travel Solutions
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {" "}
+                  For Every Journey
+                </span>
+              </h2>
+              <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-3xl mx-auto">
+                AI-powered travel tools for smooth and hassle-free trips
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {travelSolutions.map((solution) => (
-              <Card
-                key={solution.id}
-                className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
-                  hoveredService === solution.id
-                    ? "border-indigo-300"
-                    : "border-gray-200 hover:border-indigo-200"
-                }`}
-                onMouseEnter={() => setHoveredService(solution.id)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                ></div>
-
-                <div className="absolute top-6 right-6 bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
-                  {solution.stats.value}
-                </div>
-
-                <div
-                  className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {travelSolutions.map((solution) => (
+                <Card
+                  key={solution.id}
+                  className={`card-shimmer relative p-8 rounded-3xl bg-white border-2 shadow-xl overflow-hidden group ${
+                    hoveredService === solution.id
+                      ? "border-indigo-300"
+                      : "border-gray-200 hover:border-indigo-200"
+                  }`}
+                  onMouseEnter={() => setHoveredService(solution.id)}
+                  onMouseLeave={() => setHoveredService(null)}
                 >
-                  <solution.icon className="w-8 h-8 text-white" />
-                </div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  ></div>
 
-                <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
-                  {solution.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
-                  {solution.description}
-                </p>
-
-                <div className="space-y-3 relative z-10">
-                  {solution.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-sm">
-                      <div
-                        className={`w-2 h-2 bg-gradient-to-r ${solution.gradient} rounded-full flex-shrink-0`}
-                      ></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-gray-100 relative z-10">
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">
-                    {solution.stats.label}
+                  <div className="absolute top-6 right-6 bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
+                    {solution.stats.value}
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-      
-      
-            <ProvideMoreSection />
+
+                  <div
+                    className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-xl`}
+                  >
+                    <solution.icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem] font-bold text-gray-900 mb-4 relative z-10">
+                    {solution.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed relative z-10">
+                    {solution.description}
+                  </p>
+
+                  <div className="space-y-3 relative z-10">
+                    {solution.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-3 text-sm"
+                      >
+                        <div
+                          className={`w-2 h-2 bg-gradient-to-r ${solution.gradient} rounded-full flex-shrink-0`}
+                        ></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t border-gray-100 relative z-10">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider">
+                      {solution.stats.label}
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+
+        <ProvideMoreSection />
+      </div>
 
       {/* Benefits & Stats */}
       <Section className="py-12 sm:py-14 bg-white">
@@ -640,7 +644,11 @@ export default function HotelandResort() {
                 className="card-glow bg-gradient-to-br from-slate-50 to-cyan-50 border-2 border-cyan-100"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br from-${benefit.color === 'blue' ? 'teal' : benefit.color}-500 to-${benefit.color === 'blue' ? 'cyan' : benefit.color}-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                  className={`w-16 h-16 bg-gradient-to-br from-${
+                    benefit.color === "blue" ? "teal" : benefit.color
+                  }-500 to-${
+                    benefit.color === "blue" ? "cyan" : benefit.color
+                  }-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                 >
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
@@ -664,12 +672,12 @@ export default function HotelandResort() {
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <stat.icon className="w-8 h-8 text-black" />
-                    </div>
+                    <stat.icon className="w-8 h-8 text-black" />
+                  </div>
                   <div className="text-4xl font-bold text-white mb-2">
                     {stat.number}
                   </div>
-                    <div className="text-cyan-100 font-semibold">
+                  <div className="text-cyan-100 font-semibold">
                     {stat.label}
                   </div>
                 </div>
@@ -697,26 +705,43 @@ export default function HotelandResort() {
           {/* Mobile Card View */}
           <div className="block lg:hidden space-y-4 px-4">
             {benefits.slice(0, 2).map((benefit, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                <div className={`bg-gradient-to-r from-${benefit.color}-600 to-${benefit.color}-700 p-4`}>
+              <div
+                key={idx}
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200"
+              >
+                <div
+                  className={`bg-gradient-to-r from-${benefit.color}-600 to-${benefit.color}-700 p-4`}
+                >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <benefit.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">{benefit.title}</h4>
+                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">
+                      {benefit.title}
+                    </h4>
                   </div>
                 </div>
                 <div className="p-4 space-y-3">
                   <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{benefit.description}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                      Problem
+                    </p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">
+                      {benefit.description}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">{benefit.metric}</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                      Rocket Flow Solution
+                    </p>
+                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">
+                      {benefit.metric}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
+                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                      Impact
+                    </p>
                     <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
                       {benefit.title.includes("Efficiency")
                         ? "Faster operations"
@@ -730,38 +755,56 @@ export default function HotelandResort() {
             ))}
 
             {/* Remaining cards - shown only when expanded */}
-            {showAllBenefits && benefits.slice(2).map((benefit, idx) => (
-              <div key={idx + 2} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                <div className={`bg-gradient-to-r from-${benefit.color}-600 to-${benefit.color}-700 p-4`}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <benefit.icon className="w-6 h-6 text-white" />
+            {showAllBenefits &&
+              benefits.slice(2).map((benefit, idx) => (
+                <div
+                  key={idx + 2}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200"
+                >
+                  <div
+                    className={`bg-gradient-to-r from-${benefit.color}-600 to-${benefit.color}-700 p-4`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <benefit.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">
+                        {benefit.title}
+                      </h4>
                     </div>
-                    <h4 className="font-bold text-white text-[1.125rem] sm:text-[1.25rem] lg:text-[1.5rem]">{benefit.title}</h4>
+                  </div>
+                  <div className="p-4 space-y-3">
+                    <div>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                        Problem
+                      </p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">
+                        {benefit.description}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                        Rocket Flow Solution
+                      </p>
+                      <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">
+                        {benefit.metric}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                        Impact
+                      </p>
+                      <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
+                        {benefit.title.includes("Efficiency")
+                          ? "Faster operations"
+                          : benefit.title.includes("Security")
+                          ? "Data protected"
+                          : "Enhanced experience"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="p-4 space-y-3">
-                  <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem]">{benefit.description}</p>
-                  </div>
-                  <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Rocket Flow Solution</p>
-                    <p className="text-gray-700 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-medium">{benefit.metric}</p>
-                  </div>
-                  <div>
-                    <p className="text-[0.625rem] sm:text-[0.688rem] lg:text-[0.75rem] font-semibold text-gray-500 uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-green-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-bold">
-                      {benefit.title.includes("Efficiency")
-                        ? "Faster operations"
-                        : benefit.title.includes("Security")
-                        ? "Data protected"
-                        : "Enhanced experience"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
 
             {/* See More Button */}
             {!showAllBenefits && benefits.length > 2 && (
@@ -941,6 +984,7 @@ export default function HotelandResort() {
             <br />
             with Ease & Confidence
           </h2>
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
             <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-12 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
               <PlayIcon className="w-5 h-5" />
@@ -952,6 +996,7 @@ export default function HotelandResort() {
           </div>
         </Container>
       </Section>
+
       <Footer />
     </div>
   );

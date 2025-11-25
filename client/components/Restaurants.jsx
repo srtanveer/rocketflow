@@ -421,7 +421,7 @@ export default function Restaurants() {
 
                 {/* Icon */}
                   <div className={`relative w-16 h-16 bg-gradient-to-br ${solution.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <solution.icon className="w-8 h-8 text-white opacity-100" />
+                    <solution.icon className="w-8 h-8 text-black opacity-100" />
                   </div>
 
                 {/* Content */}
@@ -710,7 +710,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <ShoppingCartIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Revenue & Orders</span>
@@ -733,7 +733,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <CalendarIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Reservations</span>
@@ -756,7 +756,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Service</span>
@@ -779,7 +779,7 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                           <SparklesIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">Marketing</span>
@@ -802,8 +802,8 @@ export default function Restaurants() {
                   <tr className="group hover:bg-primary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
-                                <HeartIcon className="w-6 h-6 text-white opacity-100" />
+                        <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-rose-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                                <HeartIcon className="w-6 h-6 text-white" />
                               </div>
                         <span className="font-bold text-gray-900 text-lg">Customer Loyalty</span>
                       </div>
@@ -825,8 +825,8 @@ export default function Restaurants() {
                   <tr className="group hover:bg-secondary-50 transition-all duration-300">
                     <td className="px-6 py-6 border-r border-gray-200">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-secondary-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
-                          <ShoppingBagIcon className="w-6 h-6 text-white opacity-100" />
+                        <div className="w-12 h-12 bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                          <ShoppingBagIcon className="w-6 h-6 text-white" />
                         </div>
                         <span className="font-bold text-gray-900 text-lg">High-Value Bookings</span>
                       </div>
@@ -838,7 +838,7 @@ export default function Restaurants() {
                       <p className="text-gray-700 leading-relaxed font-medium">Streamlined Forms for Events</p>
                     </td>
                     <td className="px-6 py-6">
-                      <p className="text-secondary-700 leading-relaxed font-bold">
+                      <p className="text-green-600 leading-relaxed font-bold">
                         Captures more high-ticket events
                       </p>
                     </td>

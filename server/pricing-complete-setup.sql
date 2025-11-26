@@ -13,8 +13,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- SCHEMA CREATION (Separate from Package system)
 -- ============================================
 
--- Create PricingFeature table (separate from Feature table)
-CREATE TABLE IF NOT EXISTS `PricingFeature` (
+-- Create pricingfeature table (separate from Feature table)
+CREATE TABLE IF NOT EXISTS `pricingfeature` (
   `id` VARCHAR(191) NOT NULL PRIMARY KEY,
   `name` VARCHAR(255) NOT NULL,
   `description` TEXT DEFAULT NULL,
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS `PricingFeature` (
   INDEX `idx_pricing_feature_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Create PricingPlan table (separate from Package table)
-CREATE TABLE IF NOT EXISTS `PricingPlan` (
+-- Create pricingplan table (separate from Package table)
+CREATE TABLE IF NOT EXISTS `pricingplan` (
   `id` VARCHAR(191) NOT NULL PRIMARY KEY,
   `slug` VARCHAR(255) NOT NULL UNIQUE,
   `name` VARCHAR(255) NOT NULL,
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `PricingPlan` (
   INDEX `idx_pricing_plan_order` (`display_order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Create PricingPlanFeature join table
-CREATE TABLE IF NOT EXISTS `PricingPlanFeature` (
+-- Create pricingplanfeature join table
+CREATE TABLE IF NOT EXISTS `pricingplanfeature` (
   `id` VARCHAR(191) NOT NULL PRIMARY KEY,
   `plan_id` VARCHAR(191) NOT NULL,
   `feature_id` VARCHAR(191) NOT NULL,
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `PricingPlanFeature` (
   `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   INDEX `idx_ppf_plan` (`plan_id`),
   INDEX `idx_ppf_feature` (`feature_id`),
-  CONSTRAINT `fk_ppf_plan` FOREIGN KEY (`plan_id`) REFERENCES `PricingPlan`(`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_ppf_feature` FOREIGN KEY (`feature_id`) REFERENCES `PricingFeature`(`id`) ON DELETE CASCADE
+  CONSTRAINT `fk_ppf_plan` FOREIGN KEY (`plan_id`) REFERENCES `pricingplan`(`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_ppf_feature` FOREIGN KEY (`feature_id`) REFERENCES `pricingfeature`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ============================================
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `PricingPlanFeature` (
 -- ============================================
 
 -- Insert Pricing Features
-INSERT INTO `PricingFeature` (id, name, description, icon) VALUES
+INSERT INTO `pricingfeature` (id, name, description, icon) VALUES
 -- SMS Features
 ('pf-sms-1k', '1,000 SMS/month', 'Send up to 1,000 SMS messages per month', 'message'),
 ('pf-sms-10k', '10,000 SMS/month', 'Send up to 10,000 SMS messages per month', 'message'),
@@ -101,7 +101,7 @@ INSERT INTO `PricingFeature` (id, name, description, icon) VALUES
 ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 -- Insert Pricing Plans
-INSERT INTO `PricingPlan` (id, slug, name, description, icon, color, monthly_price, yearly_price, is_popular, is_custom, display_order) VALUES
+INSERT INTO `pricingplan` (id, slug, name, description, icon, color, monthly_price, yearly_price, is_popular, is_custom, display_order) VALUES
 ('plan-starter', 'starter', 'Starter', 'Perfect for small businesses getting started', 'sparkles', 'blue', 29.00, 290.00, 0, 0, 1),
 ('plan-professional', 'professional', 'Professional', 'For growing businesses that need more power', 'bolt', 'primary', 79.00, 790.00, 1, 0, 2),
 ('plan-enterprise', 'enterprise', 'Enterprise', 'Custom solutions for large organizations', 'rocket', 'secondary', NULL, NULL, 0, 1, 3)
@@ -115,7 +115,7 @@ ON DUPLICATE KEY UPDATE
 -- ============================================
 -- STARTER PLAN FEATURES
 -- ============================================
-INSERT INTO `PricingPlanFeature` (id, plan_id, feature_id, included, position) VALUES
+INSERT INTO `pricingplanfeature` (id, plan_id, feature_id, included, position) VALUES
 ('ppf-starter-1', 'plan-starter', 'pf-sms-1k', 1, 0),
 ('ppf-starter-2', 'plan-starter', 'pf-ai-basic', 1, 1),
 ('ppf-starter-3', 'plan-starter', 'pf-email-5k', 1, 2),
@@ -133,7 +133,7 @@ ON DUPLICATE KEY UPDATE
 -- ============================================
 -- PROFESSIONAL PLAN FEATURES
 -- ============================================
-INSERT INTO `PricingPlanFeature` (id, plan_id, feature_id, included, position) VALUES
+INSERT INTO `pricingplanfeature` (id, plan_id, feature_id, included, position) VALUES
 ('ppf-pro-1', 'plan-professional', 'pf-sms-10k', 1, 0),
 ('ppf-pro-2', 'plan-professional', 'pf-ai-advanced', 1, 1),
 ('ppf-pro-3', 'plan-professional', 'pf-email-50k', 1, 2),
@@ -151,7 +151,7 @@ ON DUPLICATE KEY UPDATE
 -- ============================================
 -- ENTERPRISE PLAN FEATURES
 -- ============================================
-INSERT INTO `PricingPlanFeature` (id, plan_id, feature_id, included, position) VALUES
+INSERT INTO `pricingplanfeature` (id, plan_id, feature_id, included, position) VALUES
 ('ppf-ent-1', 'plan-enterprise', 'pf-sms-unlimited', 1, 0),
 ('ppf-ent-2', 'plan-enterprise', 'pf-ai-premium', 1, 1),
 ('ppf-ent-3', 'plan-enterprise', 'pf-email-unlimited', 1, 2),

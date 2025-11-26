@@ -27,12 +27,12 @@ app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps, Postman, or curl)
     if (!origin) return callback(null, true)
-    
+
     // In development, allow all origins
     if (process.env.NODE_ENV !== 'production') {
       return callback(null, true)
     }
-    
+
     // In production, check against allowed origins
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true)
@@ -54,8 +54,6 @@ const authRoutes = require('./routes/auth')
 const postsRoutes = require('./routes/posts')
 const tutorialsRoutes = require('./routes/tutorials')
 const uploadsRoutes = require('./routes/uploads')
-const packagesRoutes = require('./routes/packages')
-const featuresRoutes = require('./routes/features')
 const pricingRoutes = require('./routes/pricing')
 const adminRoutes = require('./routes/admin')
 
@@ -64,8 +62,6 @@ app.use('/api/auth', authRoutes)
 app.use('/api/posts', postsRoutes)
 app.use('/api/tutorials', tutorialsRoutes)
 app.use('/api/uploads', uploadsRoutes)
-app.use('/api/admin/packages', packagesRoutes)
-app.use('/api/admin/features', featuresRoutes)
 app.use('/api/pricing', pricingRoutes)
 // grouped admin router (keeps same endpoints and adds a grouped mount)
 app.use('/api/admin', adminRoutes)
@@ -75,8 +71,6 @@ app.use('/auth', authRoutes)
 app.use('/posts', postsRoutes)
 app.use('/tutorials', tutorialsRoutes)
 app.use('/uploads', uploadsRoutes)
-app.use('/admin/packages', packagesRoutes)
-app.use('/admin/features', featuresRoutes)
 app.use('/pricing', pricingRoutes)
 // grouped admin router for backward compatibility
 app.use('/admin', adminRoutes)
@@ -93,7 +87,7 @@ app.use((req, res) => {
 // Global error handler
 app.use((err, req, res, next) => {
   console.error('Global error handler:', err)
-  res.status(err.status || 500).json({ 
+  res.status(err.status || 500).json({
     error: err.message || 'Internal server error',
     ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
   })

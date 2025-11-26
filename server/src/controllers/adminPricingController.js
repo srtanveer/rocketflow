@@ -250,10 +250,101 @@ async function getAllFeatures(req, res) {
     }
 }
 
+// Create a new pricing feature
+async function createPricingFeature(req, res) {
+    const { name, description, icon } = req.body
+
+    if (!name) {
+        return res.status(400).json({ error: 'Feature name is required' })
+    }
+
+    try {
+        const featureId = uuidv4()
+
+        await pool.query(
+            `INSERT INTO pricingfeature (id, name, description, icon)
+       VALUES (?, ?, ?, ?)`,
+            [featureId, name, description || null, icon || null]
+        )
+
+        res.status(201).json({
+            message: 'Feature created successfully',
+            id: featureId,
+            feature: { id: featureId, name, description, icon }
+        })
+    } catch (err) {
+        console.error('Error creating feature:', err)
+
+        if (err.code === 'ER_DUP_ENTRY') {
+            return res.status(400).json({ error: 'A feature with this name already exists' })
+        }
+
+        res.status(500).json({ error: 'Failed to create feature' })
+    }
+}
+
+// Update a pricing feature
+async function updatePricingFeature(req, res) {
+    const { id } = req.params
+    const { name, description, icon } = req.body
+
+    if (!name) {
+        return res.status(400).json({ error: 'Feature name is required' })
+    }
+
+    try {
+        const [result] = await pool.query(
+            `UPDATE pricingfeature
+       SET name = ?, description = ?, icon = ?
+       WHERE id = ?`,
+            [name, description || null, icon || null, id]
+        )
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Feature not found' })
+        }
+
+        res.json({ message: 'Feature updated successfully' })
+    } catch (err) {
+        console.error('Error updating feature:', err)
+
+        if (err.code === 'ER_DUP_ENTRY') {
+            return res.status(400).json({ error: 'A feature with this name already exists' })
+        }
+
+        res.status(500).json({ error: 'Failed to update feature' })
+    }
+}
+
+// Delete a pricing feature
+async function deletePricingFeature(req, res) {
+    const { id } = req.params
+
+    try {
+        // First, remove all plan-feature associations
+        await pool.query(`DELETE FROM pricingplanfeature WHERE feature_id = ?`, [id])
+
+        // Then delete the feature itself
+        const [result] = await pool.query(`DELETE FROM pricingfeature WHERE id = ?`, [id])
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Feature not found' })
+        }
+
+        res.json({ message: 'Feature deleted successfully' })
+    } catch (err) {
+        console.error('Error deleting feature:', err)
+        res.status(500).json({ error: 'Failed to delete feature' })
+    }
+}
+
 module.exports = {
     getAllPricingPlans,
     createPricingPlan,
     updatePricingPlan,
     deletePricingPlan,
-    getAllFeatures
+    getAllFeatures,
+    createPricingFeature,
+    updatePricingFeature,
+    deletePricingFeature
 }

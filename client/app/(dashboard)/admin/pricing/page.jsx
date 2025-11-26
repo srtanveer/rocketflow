@@ -31,7 +31,7 @@ export default function AdminPricingManagement() {
         features: []
     });
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+    const API_URL = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000';
 
     // Get auth token from localStorage
     const getAuthToken = () => {

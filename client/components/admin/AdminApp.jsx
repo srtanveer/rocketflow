@@ -83,14 +83,14 @@ export default function AdminApp() {
         </button>
       </form>
 
-      <div className="mt-4 text-center">
+      {/* <div className="mt-4 text-center">
         <button
           onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
           className="text-blue-500 hover:underline"
         >
           {mode === 'login' ? 'Need an account? Signup' : 'Already have an account? Login'}
         </button>
-      </div>
+      </div> */}
 
       {status && (
         <div className={`mt-4 text-center text-sm ${status.includes('Success') ? 'text-green-600' : 'text-red-600'}`}>

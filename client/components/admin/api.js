@@ -1,6 +1,12 @@
 import { toast } from 'react-toastify'
 
-const API = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+// const API = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+
+const API =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:4000'
+    : process.env.NEXT_PUBLIC_ADMIN_API;
+
 
 export async function login(email, password) {
   const res = await fetch(`${API}/auth/login`, {

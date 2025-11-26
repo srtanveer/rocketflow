@@ -25,15 +25,15 @@ import {
   CalendarIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/outline';
-import { 
-  FaFacebook, 
-  FaFacebookMessenger, 
-  FaInstagram, 
-  FaTwitter, 
-  FaLinkedin, 
-  FaReddit, 
-  FaMedium, 
-  FaBlogger, 
+import {
+  FaFacebook,
+  FaFacebookMessenger,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+  FaReddit,
+  FaMedium,
+  FaBlogger,
   FaGoogle
 } from 'react-icons/fa';
 
@@ -52,18 +52,18 @@ export default function LandingPage() {
   const [packages, setPackages] = useState(null)
 
   useEffect(() => {
-  // Normalize API base so users can provide either:
-  // - http://localhost:4000
-  // - http://localhost:4000/
-  // - http://localhost:4000/api
-  // without accidentally ending up with /api/api/... in the request URL.
-  const rawApi = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
-  // Keep protocol intact, only trim trailing slashes and a trailing '/api'
-  let API_BASE = String(rawApi)
-  // remove trailing slashes
-  API_BASE = API_BASE.replace(/\/+$/, '')
-  // if user passed the base including '/api', strip that so we can append '/api/pricing' reliably
-  if (API_BASE.toLowerCase().endsWith('/api')) API_BASE = API_BASE.slice(0, -4)
+    // Normalize API base so users can provide either:
+    // - http://localhost:4000
+    // - http://localhost:4000/
+    // - http://localhost:4000/api
+    // without accidentally ending up with /api/api/... in the request URL.
+    const rawApi = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
+    // Keep protocol intact, only trim trailing slashes and a trailing '/api'
+    let API_BASE = String(rawApi)
+    // remove trailing slashes
+    API_BASE = API_BASE.replace(/\/+$/, '')
+    // if user passed the base including '/api', strip that so we can append '/api/pricing' reliably
+    if (API_BASE.toLowerCase().endsWith('/api')) API_BASE = API_BASE.slice(0, -4)
     let mounted = true
     async function loadPricing() {
       try {
@@ -72,7 +72,7 @@ export default function LandingPage() {
         if (!res.ok) throw new Error(`pricing fetch failed (${res.status})`)
         const data = await res.json()
         if (mounted) setPackages(Array.isArray(data.packages) ? data.packages : [])
-        
+
       } catch (err) {
         console.warn('pricing load error', err)
         if (mounted) setPackages([])
@@ -88,10 +88,16 @@ export default function LandingPage() {
     if (!packages || packages.length === 0) {
       return period === 'month' ? fallbackMonth : fallbackYear
     }
-    const pkg = packages.find(p => p.is_popular) || packages[0]
+
+    // Try to find package by name: Ultimate, Professional, or the popular one
+    const pkg = packages.find(p => p.name === 'Ultimate') ||
+      packages.find(p => p.name === 'Professional') ||
+      packages.find(p => p.is_popular) ||
+      packages[0]
+
     const monthly = (pkg && pkg.monthly_price != null) ? Number(pkg.monthly_price) : fallbackMonth
     const yearly = (pkg && pkg.yearly_price != null) ? Number(pkg.yearly_price) : Math.round(monthly * 12 * 0.85 * 100) / 100
-    // (debug logs removed)
+
     return period === 'month' ? monthly : yearly
   }
 
@@ -100,7 +106,7 @@ export default function LandingPage() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 640); // 640px is sm breakpoint
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -339,21 +345,21 @@ export default function LandingPage() {
                   <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 bg-clip-text text-transparent">Social Media</span>
                 </h1>
                 <p className="text-[1rem] leading-relaxed sm:text-[1.125rem] lg:text-[1.25rem] text-gray-600 max-w-xl mx-auto sm:mx-0">
-                  Level up your campaigns, business, marketing and social reach using our 
+                  Level up your campaigns, business, marketing and social reach using our
                   cutting-edge features and ultimately turn your audiences into valued customers.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-stretch sm:items-start mb-4 sm:mb-0">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   onClick={() => setIsVideoModalOpen(true)}
                   className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all py-2.5 sm:py-2.5 text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] font-semibold rounded-xl whitespace-nowrap"
                 >
                   <PlayIcon className="w-5 h-5 text-white flex-shrink-0" />
                   How It Works
                 </Button>
-                
+
                 <Link href="/pricing" className="w-full sm:w-auto">
                   <button className="w-full px-5 py-2.5 bg-white text-blue-600 font-semibold hover:bg-blue-50 border-2 border-blue-600 rounded-xl transition-all hover:shadow-md text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] whitespace-nowrap">
                     Try It For Free →
@@ -390,38 +396,35 @@ export default function LandingPage() {
                 {dashboards.map((dashboard, index) => {
                   const rotation = (index - activeDashboard) * 120; // 120 degrees apart
                   const isActive = index === activeDashboard;
-                  const radius = typeof window !== 'undefined' 
+                  const radius = typeof window !== 'undefined'
                     ? (window.innerWidth < 640 ? 55 : window.innerWidth < 1024 ? 100 : 140)
                     : 140;
                   const angle = (rotation * Math.PI) / 180;
                   const x = Math.sin(angle) * radius;
                   const y = -Math.cos(angle) * radius;
-                  
+
                   // Use centered position on mobile, offset position on desktop
-                  const topPosition = typeof window !== 'undefined' 
+                  const topPosition = typeof window !== 'undefined'
                     ? (window.innerWidth < 1024 ? '50%' : '55%')
                     : '55%';
-                  const leftPosition = typeof window !== 'undefined' 
+                  const leftPosition = typeof window !== 'undefined'
                     ? (window.innerWidth < 1024 ? '50%' : '55%')
                     : '55%';
 
                   return (
                     <div
                       key={dashboard.id}
-                      className={`absolute transition-all duration-1000 ease-in-out ${
-                        isActive ? 'scale-100 opacity-100 z-20' : 'scale-75 opacity-40 z-10'
-                      }`}
+                      className={`absolute transition-all duration-1000 ease-in-out ${isActive ? 'scale-100 opacity-100 z-20' : 'scale-75 opacity-40 z-10'
+                        }`}
                       style={{
                         top: topPosition,
                         left: leftPosition,
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) ${
-                          isActive ? 'scale(1)' : 'scale(0.75)'
-                        }`,
+                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) ${isActive ? 'scale(1)' : 'scale(0.75)'
+                          }`,
                       }}
                     >
-                      <div className={`bg-gradient-to-br from-white to-blue-50 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl p-3 sm:p-5 lg:p-8 w-52 sm:w-80 lg:w-96 border border-blue-100 sm:border-2 ${
-                        isActive ? 'border-blue-300' : 'border-blue-100'
-                      }`}>
+                      <div className={`bg-gradient-to-br from-white to-blue-50 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl p-3 sm:p-5 lg:p-8 w-52 sm:w-80 lg:w-96 border border-blue-100 sm:border-2 ${isActive ? 'border-blue-300' : 'border-blue-100'
+                        }`}>
                         {/* Dashboard Header */}
                         <div className="flex items-center justify-between mb-2 sm:mb-3 lg:mb-4">
                           <h3 className="text-[0.75rem] sm:text-[0.938rem] lg:text-[1rem] font-bold text-gray-900">{dashboard.title}</h3>
@@ -468,11 +471,10 @@ export default function LandingPage() {
                     <button
                       key={index}
                       onClick={() => setActiveDashboard(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeDashboard
-                          ? 'bg-blue-600 w-8'
-                          : 'bg-blue-200 hover:bg-blue-400'
-                      }`}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeDashboard
+                        ? 'bg-blue-600 w-8'
+                        : 'bg-blue-200 hover:bg-blue-400'
+                        }`}
                     />
                   ))}
                 </div>
@@ -512,10 +514,10 @@ export default function LandingPage() {
         <Container className="relative z-10">
           <div className="pt-8 sm:pt-10">
             <p className="text-center text-blue-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] uppercase tracking-widest mb-10 sm:mb-12 font-bold">Seamlessly Integrated With</p>
-            
+
             {/* Integration Hub - Network Design */}
             <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
-              
+
               {/* SVG Connection Lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
                 <defs>
@@ -549,19 +551,19 @@ export default function LandingPage() {
                 {/* Connection lines from center to each platform - 6 platforms in hexagonal pattern */}
                 {/* Top Left - Facebook */}
                 <line x1="50%" y1="50%" x2="25%" y2="14%" stroke="url(#lineGradient1)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0s' }} />
-                
+
                 {/* Top Right - Google */}
                 <line x1="50%" y1="50%" x2="75%" y2="16%" stroke="url(#lineGradient6)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
-                
+
                 {/* Right - Instagram */}
                 <line x1="50%" y1="50%" x2="88%" y2="51%" stroke="url(#lineGradient2)" strokeWidth="4" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
-                
+
                 {/* Bottom Right - Twitter/X */}
                 <line x1="50%" y1="50%" x2="75%" y2="86%" stroke="url(#lineGradient5)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '0.6s' }} />
-                
+
                 {/* Bottom Left - WhatsApp */}
                 <line x1="50%" y1="50%" x2="25%" y2="84%" stroke="url(#lineGradient3)" strokeWidth="4" className="animate-pulse" style={{ animationDelay: '0.8s' }} />
-                
+
                 {/* Left - Messenger */}
                 <line x1="50%" y1="50%" x2="12%" y2="49%" stroke="url(#lineGradient1)" strokeWidth="3" className="animate-pulse" style={{ animationDelay: '1s' }} />
               </svg>
@@ -572,18 +574,18 @@ export default function LandingPage() {
                   {/* Outer glow rings */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-300 via-white to-blue-300 rounded-full blur-3xl opacity-40 animate-pulse" style={{ width: '200px', height: '200px', left: '-50px', top: '-50px' }}></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full blur-2xl opacity-30" style={{ width: '180px', height: '180px', left: '-40px', top: '-40px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
-                  
+
                   {/* Main globe container */}
                   <div className="relative bg-white rounded-full p-8 shadow-2xl border-4 border-white/80" style={{ width: '150px', height: '150px' }}>
                     {/* Inner gradient glow */}
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-100/60 to-white"></div>
-                    
+
                     {/* Logo */}
                     <div className="relative z-10 w-full h-full flex items-center justify-center">
                       <img src="/RF-small-logo.webp" alt="RocketFlow" className="w-20 h-20 object-contain" />
                     </div>
                   </div>
-                  
+
                   {/* Orbiting ring */}
                   <div className="absolute inset-0 border-2 border-white/40 border-dashed rounded-full animate-spin" style={{ width: '150px', height: '150px', animationDuration: '20s' }}>
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-lg"></div>
@@ -592,7 +594,7 @@ export default function LandingPage() {
               </div>
 
               {/* Platform Icons - 6 icons arranged in perfect hexagon */}
-              
+
               {/* Top Left - Facebook */}
               <div className="absolute top-[12%] left-[22%] z-10 group">
                 <div className="relative">
@@ -629,7 +631,7 @@ export default function LandingPage() {
                   <div className="absolute -inset-3 bg-gradient-to-r from-gray-700 to-black rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
                   <div className="relative bg-white rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 border-2 border-gray-200">
                     <svg className="w-10 h-10 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </div>
                 </div>
@@ -661,7 +663,7 @@ export default function LandingPage() {
         </Container>
       </Section>
 
-      
+
 
       {/* Services Section */}
       <Section id="services" className="">
@@ -734,7 +736,7 @@ export default function LandingPage() {
           </div>
         </Container>
       </Section>
-{/* Reach Your Audiences Section */}
+      {/* Reach Your Audiences Section */}
       <Section id="channels" className="py-6 sm:py-8 lg:py-10">
         <Container>
           <div className="text-center mb-4 sm:mb-6 px-4">
@@ -752,11 +754,10 @@ export default function LandingPage() {
               <button
                 key={channel.id}
                 onClick={() => setActiveChannel(channel.id)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold transition-all duration-300 ${
-                  activeChannel === channel.id
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-105'
-                    : 'bg-white text-blue-600 hover:bg-blue-50 border border-blue-600 sm:border-2 hover:border-blue-700'
-                }`}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] font-semibold transition-all duration-300 ${activeChannel === channel.id
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-105'
+                  : 'bg-white text-blue-600 hover:bg-blue-50 border border-blue-600 sm:border-2 hover:border-blue-700'
+                  }`}
               >
                 {channel.icon} {channel.name}
               </button>
@@ -775,48 +776,48 @@ export default function LandingPage() {
                     <div className="relative h-5 sm:h-6 bg-black">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-4 sm:h-5 bg-black rounded-b-2xl"></div>
                     </div>
-                    
+
                     {/* Content - Using Real Images/Videos */}
                     <div className="relative h-[480px] sm:h-[570px] w-full bg-white flex items-center justify-center overflow-hidden">
                       {activeChannel === 'facebook' && channels.facebook.image && (
-                        <img 
-                          src={channels.facebook.image} 
+                        <img
+                          src={channels.facebook.image}
                           alt="Facebook Automation"
                           className="w-full h-full object-cover"
                         />
                       )}
-                      
+
                       {activeChannel === 'messenger' && channels.messenger.image && (
-                        <img 
-                          src={channels.messenger.image} 
+                        <img
+                          src={channels.messenger.image}
                           alt="Messenger Chatbot"
                           className="w-full h-full object-cover"
                         />
                       )}
-                      
+
                       {activeChannel === 'instagram' && channels.instagram.image && (
-                        <img 
-                          src={channels.instagram.image} 
+                        <img
+                          src={channels.instagram.image}
                           alt="Instagram Marketing"
                           className="w-full h-full object-cover"
                         />
                       )}
-                      
+
                       {activeChannel === 'sms' && channels.sms.video && (
-                        <video 
-                          autoPlay 
-                          loop 
-                          muted 
+                        <video
+                          autoPlay
+                          loop
+                          muted
                           playsInline
                           className="w-full h-full object-cover"
                         >
                           <source src={channels.sms.video} type="video/webm" />
                         </video>
                       )}
-                      
+
                       {activeChannel === 'email' && channels.email.image && (
-                        <img 
-                          src={channels.email.image} 
+                        <img
+                          src={channels.email.image}
                           alt="Email Marketing"
                           className="w-full h-full object-cover"
                         />
@@ -860,7 +861,7 @@ export default function LandingPage() {
                 <span className="text-blue-600">»</span> Provide More In Less Time
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem]">
-                Rocket Flow has the most complete features for Facebook, Messenger, Instagram 
+                Rocket Flow has the most complete features for Facebook, Messenger, Instagram
                 and other marketing platforms that can outrun any other 3rd party tools existing today.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -911,10 +912,10 @@ export default function LandingPage() {
             <div className="relative flex justify-center">
               <div className="relative w-full max-w-md">
                 <div className="relative h-[565px] w-[300px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-gray-100 p-8">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
+                  <video
+                    autoPlay
+                    loop
+                    muted
                     playsInline
                     className="w-full rounded-2xl shadow-lg"
                   >
@@ -930,7 +931,7 @@ export default function LandingPage() {
       </Section>
 
       {/* Sell Online Section */}
-      
+
 
       {/* Target Sectors Section */}
       <Section id="industries" className="">
@@ -983,7 +984,7 @@ export default function LandingPage() {
               <span className="text-blue-600">»</span> All Amazing Features We Provide
             </h2>
             <p className="text-[0.875rem] sm:text-[0.938rem] lg:text-[1rem] text-gray-600 max-w-3xl mx-auto">
-              Take a quick peek on our major features which we are so proud of. Try us for 
+              Take a quick peek on our major features which we are so proud of. Try us for
               free and find out why Rocket Flow is the right choice for you.
             </p>
           </div>
@@ -1056,37 +1057,35 @@ export default function LandingPage() {
             <div className="relative backdrop-blur-xl bg-white/80 border-2 border-blue-200 rounded-3xl p-8 sm:p-10 shadow-2xl hover:bg-white/90 hover:border-blue-300 transition-all duration-500">
               {/* Glass Shine Effect */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-50/30 to-transparent opacity-50"></div>
-              
+
               {/* Content */}
               <div className="relative z-10">
                 <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-bold mb-4 sm:mb-5 bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text">
                   Start Your 1 Week Free Trial Today!
                 </h2>
                 <p className="text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Try Rocket Flow for 1 Week - no commitment, no credit card needed and risk-free. 
-                  Get the feel of our powerful software and decide which package is suitable for 
+                  Try Rocket Flow for 1 Week - no commitment, no credit card needed and risk-free.
+                  Get the feel of our powerful software and decide which package is suitable for
                   you and your brand.
                 </p>
-                
+
                 {/* Pricing Period Toggle */}
                 <div className="flex justify-center items-center gap-3 mb-8">
-                  <button 
+                  <button
                     onClick={() => setPricingPeriod('month')}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                      pricingPeriod === 'month' 
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
-                        : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
-                    }`}
+                    className={`px-6 py-3 rounded-xl font-semibold transition-all ${pricingPeriod === 'month'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                      : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
+                      }`}
                   >
                     Month
                   </button>
-                  <button 
+                  <button
                     onClick={() => setPricingPeriod('year')}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 ${
-                      pricingPeriod === 'year' 
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
-                        : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
-                    }`}
+                    className={`px-6 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 ${pricingPeriod === 'year'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                      : 'bg-white text-gray-900 border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
+                      }`}
                   >
                     Year {pricingPeriod === 'year' && <span className="text-xs bg-white text-blue-600 px-2 py-1 rounded-full font-bold">15% Off</span>}
                   </button>
@@ -1109,93 +1108,132 @@ export default function LandingPage() {
                     <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
                       <thead>
                         <tr className="bg-gradient-to-r from-blue-50 to-blue-100">
-                          <th className="px-4 py-4 text-left text-sm font-bold text-gray-700 border-r border-blue-200">Package</th>
-                          <th className="px-4 py-4 text-left text-sm font-bold text-blue-600">Ultimate</th>
+                          <th className="px-4 py-4 text-left text-sm font-bold text-gray-700 border-r border-blue-200">Features</th>
+                          {packages && packages.length > 0 ? (
+                            packages.map((pkg, idx) => (
+                              <th key={pkg.id || idx} className={`px-4 py-4 text-left text-sm font-bold ${pkg.is_popular ? 'text-blue-600 bg-blue-100' : 'text-gray-700'} ${idx < packages.length - 1 ? 'border-r border-blue-200' : ''}`}>
+                                {pkg.name}
+                                {pkg.is_popular && <span className="ml-2 text-xs bg-blue-600 text-white px-2 py-1 rounded-full">Popular</span>}
+                              </th>
+                            ))
+                          ) : (
+                            <th className="px-4 py-4 text-left text-sm font-bold text-blue-600">Loading...</th>
+                          )}
                         </tr>
                       </thead>
                       <tbody>
+                        {/* Price Row */}
                         <tr className="bg-gray-50 border-b border-gray-200">
                           <td className="px-4 py-3 text-sm font-semibold text-gray-700 border-r border-gray-200">Price</td>
-                          <td className="px-4 py-3 text-left">
-                            <div className="text-lg font-bold text-blue-600">
-                              BDT {getDisplayedPrice(pricingPeriod)} / {pricingPeriod === 'month' ? '30 Days' : 'Year'}
-                            </div>
-                          </td>
-                        </tr>
-                        <tr className="bg-white border-b border-gray-200">
-                          <td className="px-4 py-3 text-sm text-gray-600 border-r border-gray-200" colSpan="2">
-                            <span className="font-semibold text-gray-800">Features:</span>
-                          </td>
-                        </tr>
-                        {
-                          // If backend provides packages, use the first package's feature list
-                          packages && packages.length > 0 ? (
-                            (packages[0].features || []).map((f, index) => (
-                              <tr key={f.id ?? index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                                <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{f.name || f.feature_name || f.title || `Feature ${index + 1}`}</td>
-                                <td className="px-4 py-2.5 text-left">
-                                  {/* preserve original visual: infinity symbol for included features, dash if not included */}
-                                  {(f.included === 1 || f.included === true || f.included === '1') ? (
-                                    <span className="text-green-600 text-lg">∞</span>
+                          {packages && packages.length > 0 ? (
+                            packages.map((pkg, idx) => (
+                              <td key={pkg.id || idx} className={`px-4 py-3 text-left ${idx < packages.length - 1 ? 'border-r border-gray-200' : ''}`}>
+                                <div className={`text-lg font-bold ${pkg.is_popular ? 'text-blue-600' : 'text-gray-900'}`}>
+                                  {pkg.is_custom ? (
+                                    'Custom'
                                   ) : (
-                                    <span className="text-gray-400">—</span>
+                                    <>
+                                      BDT {pricingPeriod === 'month' ? (pkg.monthly_price || 0) : (pkg.yearly_price || 0)}
+                                      <span className="text-sm font-normal text-gray-600"> / {pricingPeriod === 'month' ? '30 Days' : 'Year'}</span>
+                                    </>
                                   )}
-                                </td>
-                              </tr>
+                                </div>
+                              </td>
                             ))
                           ) : (
-                            [
-                              'Auto Feed - WordPress Feed Post',
-                              'Auto Feed - YouTube Video Post',
-                              'Bot',
-                              'Bot - AI Reply',
-                              'Bot - Connectivity : Export, Import & Tree View',
-                              'Bot - Connectivity : JSON API',
-                              'Bot - Connectivity : Webview Builder',
-                              'Bot - Email Auto Responder',
-                              'Bot - Enhancers : Broadcast : Subscriber Bulk Message Send',
-                              'Bot - Enhancers : Engagement : Checkbox Plugin',
-                              'Bot - Enhancers : Engagement : Customer Chat Plugin',
-                              'Bot - Enhancers : Engagement : m.me Links',
-                              'Bot - Enhancers : Engagement : Send to Messenger',
-                              'Bot - Enhancers : Sequence Messaging : Message Send',
-                              'Bot - Enhancers : Sequence Messaging Campaign',
-                              'Bot - HTTP API Integration',
-                              'Bot - Instagram Bot',
-                              'Bot - Persistent Menu',
-                              'Bot - Persistent Menu : Copyright Enabled',
-                              'Bot - Sequence Email',
-                              'Bot - Sequence SMS',
-                              'Bot - User Input Flow Campaign',
-                              'Bot - Visual Flow Builder Access',
-                              'Broadcast - One Time Notification Send',
-                              'Comment Automation : Auto Comment Campaign',
-                              'Comment Automation : Auto Reply Posts',
-                              'Comment Automation : Instagram Auto Comment Reply',
-                              'Comment Reply Enhancers : Bulk Comment Reply Campaign',
-                              'Comment Reply Enhancers : Comment & Bulk Tag Campaign',
-                              'Comment Reply Enhancers : Comment Hide/Delete and Reply with multimedia content',
-                              'Comment Reply Enhancers : Full Page Auto Like/Share',
-                              'Comment Reply Enhancers : Full Page Auto Reply'
-                            ].map((feature, index) => (
-                              <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                                <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{feature}</td>
-                                <td className="px-4 py-2.5 text-left">
-                                  <span className="text-green-600 text-lg">∞</span>
+                            <td className="px-4 py-3 text-left">
+                              <div className="text-sm text-gray-500">Loading...</div>
+                            </td>
+                          )}
+                        </tr>
+
+                        {/* Features Header */}
+                        <tr className="bg-white border-b border-gray-200">
+                          <td className="px-4 py-3 text-sm text-gray-600 border-r border-gray-200" colSpan={packages && packages.length > 0 ? packages.length + 1 : 2}>
+                            <span className="font-semibold text-gray-800">Feature Comparison:</span>
+                          </td>
+                        </tr>
+
+                        {/* Feature Rows */}
+                        {packages && packages.length > 0 && packages[0].features ? (
+                          // Get all unique features from all packages
+                          (() => {
+                            const allFeatures = new Map();
+                            packages.forEach(pkg => {
+                              (pkg.features || []).forEach(f => {
+                                if (!allFeatures.has(f.name)) {
+                                  allFeatures.set(f.name, f);
+                                }
+                              });
+                            });
+
+                            return Array.from(allFeatures.values()).map((feature, index) => (
+                              <tr key={feature.id || index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">
+                                  {feature.name}
                                 </td>
+                                {packages.map((pkg, pkgIdx) => {
+                                  const pkgFeature = (pkg.features || []).find(f => f.name === feature.name);
+                                  const isIncluded = pkgFeature && (pkgFeature.included === 1 || pkgFeature.included === true || pkgFeature.included === '1');
+
+                                  return (
+                                    <td key={pkgIdx} className={`px-4 py-2.5 text-center ${pkgIdx < packages.length - 1 ? 'border-r border-gray-200' : ''}`}>
+                                      {isIncluded ? (
+                                        <span className="text-green-600 text-lg">✓</span>
+                                      ) : (
+                                        <span className="text-gray-400">—</span>
+                                      )}
+                                    </td>
+                                  );
+                                })}
                               </tr>
-                            ))
-                          )
-                        }
+                            ));
+                          })()
+                        ) : (
+                          // Fallback hardcoded features
+                          [
+                            'Auto Feed - WordPress Feed Post',
+                            'Auto Feed - YouTube Video Post',
+                            'Bot',
+                            'Bot - AI Reply',
+                            'Bot - Connectivity : Export, Import & Tree View',
+                            'Bot - Connectivity : JSON API',
+                            'Bot - Connectivity : Webview Builder',
+                            'Bot - Email Auto Responder',
+                            'Bot - Enhancers : Broadcast : Subscriber Bulk Message Send'
+                          ].map((feature, index) => (
+                            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                              <td className="px-4 py-2.5 text-xs sm:text-sm text-gray-600 border-r border-gray-200 text-left">{feature}</td>
+                              <td className="px-4 py-2.5 text-center">
+                                <span className="text-green-600 text-lg">✓</span>
+                              </td>
+                            </tr>
+                          ))
+                        )}
+
+                        {/* CTA Row */}
                         <tr className="bg-blue-50 border-t-2 border-blue-200">
                           <td className="px-4 py-4 text-sm font-semibold text-gray-700 border-r border-blue-200"></td>
-                          <td className="px-4 py-4 text-left">
-                            <a href="https://rocketflow.biz/create_account/selected_package" target="_blank" rel="noopener noreferrer">
-                              <button className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg">
+                          {packages && packages.length > 0 ? (
+                            packages.map((pkg, idx) => (
+                              <td key={pkg.id || idx} className={`px-4 py-4 text-center ${idx < packages.length - 1 ? 'border-r border-blue-200' : ''}`}>
+                                <a href="https://rocketflow.biz/create_account/selected_package" target="_blank" rel="noopener noreferrer">
+                                  <button className={`px-6 py-2.5 font-bold rounded-lg transition-all shadow-md hover:shadow-lg ${pkg.is_popular
+                                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800'
+                                      : 'bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50'
+                                    }`}>
+                                    {pkg.is_custom ? 'Contact Sales' : 'Subscribe'}
+                                  </button>
+                                </a>
+                              </td>
+                            ))
+                          ) : (
+                            <td className="px-4 py-4 text-center">
+                              <button className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg">
                                 Subscribe
                               </button>
-                            </a>
-                          </td>
+                            </td>
+                          )}
                         </tr>
                       </tbody>
                     </table>
@@ -1236,7 +1274,7 @@ export default function LandingPage() {
                     <span className="text-blue-600">⊙</span> Is it safe and legal?
                   </summary>
                   <p className="mt-3 text-gray-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] pl-6">
-                    Using our platform is absolutely safe and legal! We're just leveraging on the 
+                    Using our platform is absolutely safe and legal! We're just leveraging on the
                     open APIs of different Social Networking sites, nothing that breaks the rules.
                   </p>
                 </details>
@@ -1246,7 +1284,7 @@ export default function LandingPage() {
                     <span className="text-blue-600">⊙</span> I am a beginner on this stuffs, can I learn this easy?
                   </summary>
                   <p className="mt-3 text-gray-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] pl-6">
-                    Absolutely! Our platform is designed to be user-friendly and intuitive. We provide 
+                    Absolutely! Our platform is designed to be user-friendly and intuitive. We provide
                     comprehensive guides and tutorials to help you get started quickly.
                   </p>
                 </details>
@@ -1256,7 +1294,7 @@ export default function LandingPage() {
                     <span className="text-blue-600">⊙</span> Is there a dashboard available?
                   </summary>
                   <p className="mt-3 text-gray-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] pl-6">
-                    Yes! We have a powerful, intuitive dashboard where you can manage all your campaigns, 
+                    Yes! We have a powerful, intuitive dashboard where you can manage all your campaigns,
                     view analytics, and control all aspects of your marketing automation.
                   </p>
                 </details>
@@ -1266,7 +1304,7 @@ export default function LandingPage() {
                     <span className="text-blue-600">⊙</span> Can I unsubscribe anytime? How about refunds?
                   </summary>
                   <p className="mt-3 text-gray-600 text-[0.75rem] sm:text-[0.813rem] lg:text-[0.875rem] pl-6">
-                    Yes, you can cancel your subscription at any time. We also offer refunds within a 
+                    Yes, you can cancel your subscription at any time. We also offer refunds within a
                     certain period if you're not satisfied with our service.
                   </p>
                 </details>

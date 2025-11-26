@@ -6,7 +6,10 @@ const {
     createPricingPlan,
     updatePricingPlan,
     deletePricingPlan,
-    getAllFeatures
+    getAllFeatures,
+    createPricingFeature,
+    updatePricingFeature,
+    deletePricingFeature
 } = require('../controllers/adminPricingController')
 
 // All routes require authentication and admin role
@@ -18,7 +21,10 @@ router.post('/plans', createPricingPlan)
 router.put('/plans/:id', updatePricingPlan)
 router.delete('/plans/:id', deletePricingPlan)
 
-// Get all features (for dropdown/selection)
+// Features management
 router.get('/features', getAllFeatures)
+router.post('/features', createPricingFeature)
+router.put('/features/:id', updatePricingFeature)
+router.delete('/features/:id', deletePricingFeature)
 
 module.exports = router

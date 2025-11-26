@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar, Footer, Button, Card, Section, Container } from '../../components';
 import {
   CheckIcon,
@@ -20,8 +20,65 @@ import {
 export default function Pricing() {
   const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' or 'yearly'
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [pricingPlans, setPricingPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const pricingPlans = [
+  // Fetch pricing data from API
+  useEffect(() => {
+    const fetchPricing = async () => {
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000';
+        const response = await fetch(`${API_URL}/api/pricing`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch pricing');
+        }
+
+        const data = await response.json();
+
+        // Transform API data to match component structure
+        const transformedPlans = (data.packages || []).map(pkg => {
+          // Map icon names to actual icon components
+          const iconMap = {
+            'sparkles': SparklesIcon,
+            'bolt': BoltIcon,
+            'rocket': RocketLaunchIcon
+          };
+
+          return {
+            name: pkg.name,
+            icon: iconMap[pkg.icon] || SparklesIcon,
+            description: pkg.description || '',
+            color: pkg.color || 'blue',
+            monthlyPrice: pkg.monthly_price ? Number(pkg.monthly_price) : null,
+            yearlyPrice: pkg.yearly_price ? Number(pkg.yearly_price) : null,
+            savings: pkg.monthly_price && pkg.yearly_price
+              ? Math.round((pkg.monthly_price * 12) - pkg.yearly_price)
+              : 0,
+            features: (pkg.features || []).map(f => ({
+              name: f.name,
+              included: f.included
+            })),
+            popular: pkg.is_popular || false,
+            custom: pkg.is_custom || false
+          };
+        });
+
+        setPricingPlans(transformedPlans);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching pricing:', error);
+        // Fallback to default plans if API fails
+        setPricingPlans(getDefaultPlans());
+        setLoading(false);
+      }
+    };
+
+    fetchPricing();
+  }, []);
+
+  // Fallback default plans
+  const getDefaultPlans = () => [
     {
       name: 'Starter',
       icon: SparklesIcon,
@@ -163,7 +220,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       {/* Hero Section */}
       <Section className="pt-32 pb-16 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -183,7 +240,7 @@ export default function Pricing() {
               <br />
               <span className="text-primary">Perfect Plan</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
               Start with a 14-day free trial. No credit card required. Cancel anytime.
             </p>
@@ -195,13 +252,11 @@ export default function Pricing() {
               </span>
               <button
                 onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-                className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${
-                  billingCycle === 'yearly' ? 'bg-primary' : 'bg-gray-300'
-                }`}
+                className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${billingCycle === 'yearly' ? 'bg-primary' : 'bg-gray-300'
+                  }`}
               >
-                <div className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${
-                  billingCycle === 'yearly' ? 'translate-x-8' : ''
-                }`}></div>
+                <div className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${billingCycle === 'yearly' ? 'translate-x-8' : ''
+                  }`}></div>
               </button>
               <span className={`text-sm font-semibold ${billingCycle === 'yearly' ? 'text-gray-900' : 'text-gray-500'}`}>
                 Yearly
@@ -219,80 +274,89 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <Section className="py-20 bg-gray-50">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <Card
-                key={plan.name}
-                animationDelay={index * 0.1}
-                className={`relative border-2 transition-all duration-300 ${
-                  plan.popular 
-                    ? 'border-primary shadow-2xl scale-105 bg-white' 
+          {loading ? (
+            <div className="text-center py-20">
+              <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-gray-600">Loading pricing plans...</p>
+            </div>
+          ) : pricingPlans.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-600">No pricing plans available at the moment.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {pricingPlans.map((plan, index) => (
+                <Card
+                  key={plan.name}
+                  animationDelay={index * 0.1}
+                  className={`relative border-2 transition-all duration-300 ${plan.popular
+                    ? 'border-primary shadow-2xl scale-105 bg-white'
                     : 'border-gray-200 hover:border-primary-200 bg-white'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg">
-                      Most Popular
-                    </div>
-                  </div>
-                )}
-
-                {/* Plan Header */}
-                <div className="text-center mb-8">
-                  <div className={`w-16 h-16 bg-${plan.color}-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
-                    <plan.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-gray-600 text-sm">{plan.description}</p>
-                </div>
-
-                {/* Pricing */}
-                <div className="text-center mb-8 pb-8 border-b border-gray-200">
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-5xl font-extrabold text-gray-900">{getPrice(plan)}</span>
-                    <span className="text-gray-600 font-medium">{getPeriod(plan)}</span>
-                  </div>
-                  {billingCycle === 'yearly' && plan.savings && (
-                    <div className="mt-2 text-sm text-green-600 font-semibold">
-                      Save ${plan.savings}/year
+                    }`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg">
+                        Most Popular
+                      </div>
                     </div>
                   )}
-                </div>
 
-                {/* Features */}
-                <div className="space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      {feature.included ? (
-                        <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <CheckIcon className="w-3 h-3 text-green-600 stroke-[3]" />
-                        </div>
-                      ) : (
-                        <div className="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <XMarkIcon className="w-3 h-3 text-gray-400 stroke-[3]" />
-                        </div>
-                      )}
-                      <span className={`text-sm ${feature.included ? 'text-gray-900 font-medium' : 'text-gray-400'}`}>
-                        {feature.name}
-                      </span>
+                  {/* Plan Header */}
+                  <div className="text-center mb-8">
+                    <div className={`w-16 h-16 bg-${plan.color}-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                      <plan.icon className="w-8 h-8 text-white" />
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                    <p className="text-gray-600 text-sm">{plan.description}</p>
+                  </div>
 
-                {/* CTA Button */}
-                <Button 
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
-                    plan.popular
+                  {/* Pricing */}
+                  <div className="text-center mb-8 pb-8 border-b border-gray-200">
+                    <div className="flex items-baseline justify-center gap-2">
+                      <span className="text-5xl font-extrabold text-gray-900">{getPrice(plan)}</span>
+                      <span className="text-gray-600 font-medium">{getPeriod(plan)}</span>
+                    </div>
+                    {billingCycle === 'yearly' && plan.savings && (
+                      <div className="mt-2 text-sm text-green-600 font-semibold">
+                        Save ${plan.savings}/year
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-4 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        {feature.included ? (
+                          <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckIcon className="w-3 h-3 text-green-600 stroke-[3]" />
+                          </div>
+                        ) : (
+                          <div className="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <XMarkIcon className="w-3 h-3 text-gray-400 stroke-[3]" />
+                          </div>
+                        )}
+                        <span className={`text-sm ${feature.included ? 'text-gray-900 font-medium' : 'text-gray-400'}`}>
+                          {feature.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <Button
+                    className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${plan.popular
                       ? 'bg-primary hover:bg-primary-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105'
                       : 'border-2 border-primary text-white bg-primary hover:bg-primary-700'
-                  }`}
-                >
-                  {plan.custom ? 'Contact Sales' : 'Start Free Trial'}
-                </Button>
-              </Card>
-            ))}
-          </div>
+                      }`}
+                  >
+                    {plan.custom ? 'Contact Sales' : 'Start Free Trial'}
+                  </Button>
+                </Card>
+              ))}
+            </div>
+          )}
         </Container>
       </Section>
 
@@ -369,7 +433,7 @@ export default function Pricing() {
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
               Ready to Get Started?
             </h2>
-            
+
             <p className="text-xl md:text-2xl text-white text-opacity-90 mb-12 leading-relaxed">
               Join thousands of businesses already growing with RocketFlow
             </p>

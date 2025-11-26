@@ -3,52 +3,57 @@ const { pool } = require('../db')
 async function getPricing(req, res) {
   try {
     const [rows] = await pool.query(
-      `SELECT p.id AS package_id, p.name AS package_name, p.slug, p.monthly_price, p.yearly_price, p.is_popular,
-              pf.feature_id, pf.feature_price, pf.included,
-              f.name AS feature_name, f.description AS feature_description
-       FROM \`Package\` p
-       LEFT JOIN \`PackageFeature\` pf ON pf.package_id = p.id
-       LEFT JOIN \`Feature\` f ON f.id = pf.feature_id
-       ORDER BY p.monthly_price ASC`
+      `SELECT p.id AS plan_id, p.name AS plan_name, p.slug, p.description, p.icon, p.color,
+              p.monthly_price, p.yearly_price, p.is_popular, p.is_custom,
+              ppf.feature_id, ppf.included,
+              f.name AS feature_name, f.description AS feature_description, f.icon AS feature_icon
+       FROM pricingplan p
+       LEFT JOIN pricingplanfeature ppf ON ppf.plan_id = p.id
+       LEFT JOIN pricingfeature f ON f.id = ppf.feature_id
+       ORDER BY p.display_order ASC, ppf.position ASC`
     )
 
-    const packagesMap = new Map()
+    const plansMap = new Map()
 
     for (const r of rows) {
-      const pkgId = r.package_id
-      if (!packagesMap.has(pkgId)) {
+      const planId = r.plan_id
+      if (!plansMap.has(planId)) {
         const monthly = r.monthly_price != null ? parseFloat(r.monthly_price) : 0
         let yearly = r.yearly_price != null ? parseFloat(r.yearly_price) : null
         // If no explicit yearly price, compute 12 months with 15% discount
-        if (yearly === null) {
+        if (yearly === null && monthly > 0) {
           yearly = Math.round(monthly * 12 * 0.85 * 100) / 100
         }
 
-        packagesMap.set(pkgId, {
-          id: pkgId,
-          name: r.package_name,
+        plansMap.set(planId, {
+          id: planId,
+          name: r.plan_name,
           slug: r.slug,
+          description: r.description,
+          icon: r.icon,
+          color: r.color,
           monthly_price: monthly,
           yearly_price: yearly,
           is_popular: !!r.is_popular,
+          is_custom: !!r.is_custom,
           features: []
         })
       }
 
       if (r.feature_id) {
-        const pkg = packagesMap.get(pkgId)
-        pkg.features.push({
+        const plan = plansMap.get(planId)
+        plan.features.push({
           id: r.feature_id,
           name: r.feature_name,
           description: r.feature_description,
-          included: !!r.included,
-          feature_price: r.feature_price != null ? parseFloat(r.feature_price) : null
+          icon: r.feature_icon,
+          included: !!r.included
         })
       }
     }
 
-    const packages = Array.from(packagesMap.values())
-    res.json({ packages })
+    const plans = Array.from(plansMap.values())
+    res.json({ packages: plans })
   } catch (err) {
     console.error('Error fetching pricing:', err)
     res.status(500).json({ error: 'Failed to fetch pricing' })

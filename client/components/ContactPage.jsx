@@ -93,10 +93,10 @@ export default function ContactPage() {
 
   const socialLinks = [
     { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/rocketflow.biz', color: 'text-blue-600' },
-    // { icon: FaTwitter, name: 'Twitter', url: '#', color: 'text-sky-500' },
-    // { icon: FaLinkedin, name: 'LinkedIn', url: '#', color: 'text-blue-700' },
+    { icon: FaTwitter, name: 'Twitter', url: '#', color: 'text-sky-500' },
+    { icon: FaLinkedin, name: 'LinkedIn', url: '#', color: 'text-blue-700' },
     { icon: FaInstagram, name: 'Instagram', url: 'https://www.instagram.com/rocketflowbiz/', color: 'text-pink-600' },
-    // { icon: FaYoutube, name: 'YouTube', url: '#', color: 'text-red-600' }
+    { icon: FaYoutube, name: 'YouTube', url: '#', color: 'text-red-600' }
   ];
 
   const faqs = [

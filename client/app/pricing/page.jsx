@@ -209,12 +209,12 @@ export default function Pricing() {
 
   const getPrice = (plan) => {
     if (plan.custom) return 'Custom';
-    return billingCycle === 'monthly' ? `$${plan.monthlyPrice}` : `$${plan.yearlyPrice}`;
+    return billingCycle === 'monthly' ? `${plan.monthlyPrice}` : `${plan.yearlyPrice}`;
   };
 
   const getPeriod = (plan) => {
     if (plan.custom) return '';
-    return billingCycle === 'monthly' ? '/month' : '/year';
+    return billingCycle === 'monthly' ? 'BDT/month' : 'BDT/year';
   };
 
   return (
@@ -222,7 +222,7 @@ export default function Pricing() {
       <Navbar />
 
       {/* Hero Section */}
-      <Section className="pt-32 pb-16 bg-white relative overflow-hidden">
+      <Section className="pt-20 pb-4 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-20 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
@@ -230,23 +230,22 @@ export default function Pricing() {
 
         <Container className="relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-5 py-2 bg-primary-100 rounded-full mb-6 border border-primary-200">
+            <div className="inline-flex items-center px-4 py-1.5 bg-primary-100 rounded-full border border-primary-200">
               <StarIcon className="w-5 h-5 text-primary-600 mr-2" />
               <span className="text-primary-900 font-semibold text-sm">Simple, Transparent Pricing</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              <span className="text-gray-900">Choose Your</span>
-              <br />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 leading-tight">
+              <span className="text-gray-900">Choose Your </span>
               <span className="text-primary">Perfect Plan</span>
             </h1>
 
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+            <p className="text-base text-gray-600 mb-4 leading-relaxed">
               Start with a 14-day free trial. No credit card required. Cancel anytime.
             </p>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="flex items-center justify-center gap-3">
               <span className={`text-sm font-semibold ${billingCycle === 'monthly' ? 'text-gray-900' : 'text-gray-500'}`}>
                 Monthly
               </span>
@@ -272,7 +271,7 @@ export default function Pricing() {
       </Section>
 
       {/* Pricing Cards */}
-      <Section className="py-20 bg-gray-50">
+      <Section className="py-2 bg-gray-50">
         <Container>
           {loading ? (
             <div className="text-center py-20">
@@ -284,7 +283,7 @@ export default function Pricing() {
               <p className="text-gray-600">No pricing plans available at the moment.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {pricingPlans.map((plan, index) => (
                 <Card
                   key={plan.name}
@@ -303,41 +302,47 @@ export default function Pricing() {
                   )}
 
                   {/* Plan Header */}
-                  <div className="text-center mb-8">
-                    <div className={`w-16 h-16 bg-${plan.color}-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
-                      <plan.icon className="w-8 h-8 text-white" />
+                  <div className="text-center mb-4">
+                    <div className={`w-12 h-12 bg-${plan.color}-500 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-lg`}>
+                      <plan.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                    <p className="text-gray-600 text-sm">{plan.description}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{plan.name}</h3>
+                    <p className="text-gray-600 text-xs">{plan.description}</p>
                   </div>
 
                   {/* Pricing */}
-                  <div className="text-center mb-8 pb-8 border-b border-gray-200">
-                    <div className="flex items-baseline justify-center gap-2">
-                      <span className="text-5xl font-extrabold text-gray-900">{getPrice(plan)}</span>
-                      <span className="text-gray-600 font-medium">{getPeriod(plan)}</span>
-                    </div>
-                    {billingCycle === 'yearly' && plan.savings && (
-                      <div className="mt-2 text-sm text-green-600 font-semibold">
-                        Save ${plan.savings}/year
-                      </div>
+                  <div className="text-center mb-4 pb-4 border-b border-gray-200">
+                    {plan.custom ? (
+                      <div className="text-3xl font-extrabold text-gray-900">Custom</div>
+                    ) : (
+                      <>
+                        <div className="flex items-baseline justify-center gap-2">
+                          <span className="text-3xl font-extrabold text-gray-900">{getPrice(plan)}</span>
+                          <span className="text-gray-600 font-medium text-sm">{getPeriod(plan)}</span>
+                        </div>
+                        {billingCycle === 'yearly' && plan.savings && plan.savings > 0 && (
+                          <div className="mt-2 text-sm text-green-600 font-semibold">
+                            Save {plan.savings} BDT/year
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-2 mb-4">
                     {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
+                      <div key={idx} className="flex items-start gap-2">
                         {feature.included ? (
-                          <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckIcon className="w-3 h-3 text-green-600 stroke-[3]" />
+                          <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckIcon className="w-2.5 h-2.5 text-green-600 stroke-[3]" />
                           </div>
                         ) : (
-                          <div className="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <XMarkIcon className="w-3 h-3 text-gray-400 stroke-[3]" />
+                          <div className="w-4 h-4 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <XMarkIcon className="w-2.5 h-2.5 text-gray-400 stroke-[3]" />
                           </div>
                         )}
-                        <span className={`text-sm ${feature.included ? 'text-gray-900 font-medium' : 'text-gray-400'}`}>
+                        <span className={`text-xs ${feature.included ? 'text-gray-900 font-medium' : 'text-gray-400'}`}>
                           {feature.name}
                         </span>
                       </div>
@@ -346,7 +351,7 @@ export default function Pricing() {
 
                   {/* CTA Button */}
                   <Button
-                    className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${plan.popular
+                    className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all duration-300 ${plan.popular
                       ? 'bg-primary hover:bg-primary-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105'
                       : 'border-2 border-primary text-white bg-primary hover:bg-primary-700'
                       }`}
@@ -361,7 +366,7 @@ export default function Pricing() {
       </Section>
 
       {/* Features Grid */}
-      <Section className="py-20 bg-white">
+      <Section className="py-10 bg-white">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

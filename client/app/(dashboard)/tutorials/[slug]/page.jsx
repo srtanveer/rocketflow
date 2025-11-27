@@ -4,32 +4,30 @@ import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
-import Container from '../../../../components/ui/Container'
-import Section from '../../../../components/ui/Section'
-import { AdminSidebar } from '../../../../components/admin/AdminSidebar'
 import { fetchTutorial, updateTutorial } from '../../../../components/admin/api'
+import { ArrowLeftIcon, PhotoIcon, FilmIcon, ListBulletIcon } from '@heroicons/react/24/outline'
+import { toast } from 'react-toastify'
 
 const BlogEditor = dynamic(() => import('../../../../components/admin/BlogEditor'), {
   ssr: false,
-  loading: () => <div className="border rounded-xl p-4 bg-white min-h-[200px] flex items-center justify-center text-gray-400">Loading editor...</div>
+  loading: () => <div className="border rounded-xl p-8 bg-gray-50 flex items-center justify-center text-gray-400 animate-pulse">Loading editor...</div>
 })
 
 export default function EditTutorialPage({ params }) {
-  // Next.js may pass params as a Promise — unwrap with React.use()
   const { slug } = React.use(params)
   const router = useRouter()
   const [item, setItem] = useState(null)
   const [editorContent, setEditorContent] = useState('')
   const [stepsText, setStepsText] = useState('')
-  const [status, setStatus] = useState('')
-  const featuredInputRef = useRef()
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
 
   useEffect(() => {
     const token = localStorage.getItem('rf_token')
     if (!token) { router.push('/admin'); return }
-    if (!slug) { router.push('/posts'); return }
+    if (!slug) { router.push('/tutorials'); return }
     load()
-  }, [router])
+  }, [router, slug])
 
   async function load() {
     try {
@@ -38,16 +36,16 @@ export default function EditTutorialPage({ params }) {
       setEditorContent(data.content)
       setStepsText((data.steps || []).join('\n'))
     } catch (err) {
-      setStatus(err.message || 'Failed to load tutorial')
+      toast.error(err.message || 'Failed to load tutorial')
       const msg = (err && err.message) || ''
       if (msg.toLowerCase().includes('not found') || msg.toLowerCase().includes('404')) {
-        router.push('/posts')
+        router.push('/tutorials')
         return
       }
+    } finally {
+      setLoading(false)
     }
   }
-
-  // tutorials use videoUrl and steps instead of a featured image
 
   async function handleImageUpload(file) {
     const formData = new FormData(); formData.append('file', file)
@@ -59,47 +57,155 @@ export default function EditTutorialPage({ params }) {
 
   async function handleSave(e) {
     e.preventDefault()
-    if (!item.videoUrl) { setStatus('Video URL is required'); return }
+    if (!item.videoUrl) { toast.error('Video URL is required'); return }
+
+    setSaving(true)
     try {
       const steps = stepsText.split('\n').map(l => l.trim()).filter(Boolean)
       const updated = { ...item, content: editorContent, steps }
       await updateTutorial(slug, updated)
+      toast.success('Tutorial updated successfully')
       router.push('/tutorials')
-    } catch (err) { setStatus(err.message || 'Update failed') }
+    } catch (err) {
+      toast.error(err.message || 'Update failed')
+    } finally {
+      setSaving(false)
+    }
   }
 
-  if (!item) return (<div className="flex min-h-screen"><AdminSidebar /><main className="flex-1 p-8">Loading...</main></div>)
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-coral-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading tutorial...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!item) return null
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <AdminSidebar />
-      <main className="flex-1 p-8">
-        <Container>
-          <Section>
-            <h2 className="text-2xl font-bold mb-4">Edit Tutorial</h2>
-            <form onSubmit={handleSave} className="space-y-4">
-              <input value={item.title} onChange={(e) => setItem({ ...item, title: e.target.value })} className="w-full border p-2 rounded" />
-              <input value={item.slug} onChange={(e) => setItem({ ...item, slug: e.target.value })} className="w-full border p-2 rounded" />
-              <input value={item.excerpt} onChange={(e) => setItem({ ...item, excerpt: e.target.value })} className="w-full border p-2 rounded" />
+    <div className="flex-1 p-8 bg-gray-50 min-h-screen">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-8">
+          <button
+            onClick={() => router.push('/tutorials')}
+            className="p-2 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-gray-200 hover:shadow-sm"
+          >
+            <ArrowLeftIcon className="w-5 h-5 text-gray-500" />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Edit Tutorial</h1>
+            <p className="text-gray-500 mt-1">Update tutorial content and details</p>
+          </div>
+        </div>
 
-              <BlogEditor value={editorContent} onChange={setEditorContent} onImageUpload={handleImageUpload} />
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+          <form onSubmit={handleSave} className="p-8 space-y-8">
+            {/* Basic Info Section */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 border-b border-gray-100 pb-2">Basic Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                  <input
+                    value={item.title}
+                    onChange={(e) => setItem({ ...item, title: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-coral-500 focus:border-transparent outline-none transition-all"
+                    placeholder="Tutorial Title"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Slug</label>
+                  <input
+                    value={item.slug}
+                    onChange={(e) => setItem({ ...item, slug: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-coral-500 focus:border-transparent outline-none transition-all bg-gray-50"
+                    placeholder="tutorial-slug"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Excerpt</label>
+                <textarea
+                  value={item.excerpt}
+                  onChange={(e) => setItem({ ...item, excerpt: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-coral-500 focus:border-transparent outline-none transition-all min-h-[80px]"
+                  placeholder="Brief description of the tutorial..."
+                />
+              </div>
+            </div>
 
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Video URL <span className="text-gray-500">(embed)</span></label>
-                <input value={item.videoUrl || ''} onChange={(e) => setItem({ ...item, videoUrl: e.target.value })} className="w-full border p-2 rounded" />
-                <label className="block text-sm font-medium mt-2">Steps (one per line)</label>
-                <textarea value={stepsText} onChange={(e) => setStepsText(e.target.value)} className="w-full border p-2 rounded h-40" />
+            {/* Content Section */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 border-b border-gray-100 pb-2">Content</h3>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Main Content</label>
+                <div className="prose-editor-wrapper border border-gray-200 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-coral-500 transition-all">
+                  <BlogEditor value={editorContent} onChange={setEditorContent} onImageUpload={handleImageUpload} />
+                </div>
+              </div>
+            </div>
+
+            {/* Media & Steps Section */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 border-b border-gray-100 pb-2">Media & Steps</h3>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <FilmIcon className="w-4 h-4" /> Video URL
+                </label>
+                <input
+                  value={item.videoUrl || ''}
+                  onChange={(e) => setItem({ ...item, videoUrl: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-coral-500 focus:border-transparent outline-none transition-all"
+                  placeholder="https://www.youtube.com/embed/..."
+                />
+                <p className="text-xs text-gray-500 mt-1 ml-1">Must be an embeddable URL (e.g. YouTube Embed)</p>
               </div>
 
-              <div className="flex gap-2">
-                <button className="bg-coral-500 text-white px-4 py-2 rounded">Save</button>
-                <button type="button" onClick={() => router.push('/tutorials')} className="bg-gray-100 px-4 py-2 rounded">Cancel</button>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <ListBulletIcon className="w-4 h-4" /> Steps
+                </label>
+                <textarea
+                  value={stepsText}
+                  onChange={(e) => setStepsText(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-coral-500 focus:border-transparent outline-none transition-all min-h-[200px] font-mono text-sm"
+                  placeholder="Step 1: Do this&#10;Step 2: Do that&#10;Step 3: Finish"
+                />
+                <p className="text-xs text-gray-500 mt-1 ml-1">Enter each step on a new line.</p>
               </div>
-            </form>
-            {status && <div className="mt-3 text-red-600">{status}</div>}
-          </Section>
-        </Container>
-      </main>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end gap-4 pt-6 border-t border-gray-100">
+              <button
+                type="button"
+                onClick={() => router.push('/tutorials')}
+                className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={saving}
+                className="px-6 py-2.5 bg-coral-500 text-white rounded-xl hover:bg-coral-600 transition-colors font-medium shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                {saving ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Saving...
+                  </>
+                ) : 'Save Changes'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

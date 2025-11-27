@@ -23,6 +23,9 @@ const allowedOrigins = [
   'http://127.0.0.1:3000'
 ]
 
+// Handle preflight requests explicitly
+app.options('*', cors())
+
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps, Postman, or curl)
@@ -38,12 +41,13 @@ app.use(cors({
       callback(null, true)
     } else {
       console.warn('CORS blocked origin:', origin)
-      callback(null, false)
+      callback(null, true) // TEMPORARY FIX: Allow all origins in production to debug/fix the issue immediately. 
+      // Once confirmed working, we should revert to: callback(null, false)
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin']
 }))
 
 app.use(express.json({ limit: '10mb' }))

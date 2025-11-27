@@ -71,7 +71,7 @@ export default function Dashboard() {
     },
     {
       title: 'Revenue',
-      value: '$12.4K',
+      value: '12.4K BDT',
       change: '+23%',
       icon: DollarSign,
       color: 'from-coral-500 to-coral-600',

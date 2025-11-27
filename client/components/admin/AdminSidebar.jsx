@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from "../../lib/utils"
-import { Home, FileText, BookOpen, Settings, LogOut, Menu, X, DollarSign, Sparkles } from "lucide-react"
+import { Home, FileText, BookOpen, Settings, LogOut, Menu, X, DollarSign, Sparkles, List } from "lucide-react"
 import { useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { logout as apiLogout } from './api'
@@ -97,6 +97,13 @@ export function AdminSidebar({ className }) {
             label="Pricing"
             collapsed={collapsed}
             active={pathname?.startsWith('/admin/pricing')}
+          />
+          <SidebarLink
+            href="/admin/features"
+            icon={<List size={20} />}
+            label="Features"
+            collapsed={collapsed}
+            active={pathname?.startsWith('/admin/features')}
           />
         </div>
 

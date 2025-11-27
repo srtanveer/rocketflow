@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import { cn } from '../../../lib/utils'
-import Container from '../../../components/ui/Container'
 import { fetchTutorials, createTutorial, deleteTutorial } from '../../../components/admin/api'
 import confirmWithToast from '../../../components/ui/confirmWithToast'
 import { toast } from 'react-toastify'
@@ -271,7 +270,7 @@ export default function TutorialsPage() {
 
   return (
     <main className="flex-1 p-8 bg-gray-50 min-h-screen">
-      <Container>
+      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Tutorials</h1>
@@ -370,7 +369,7 @@ export default function TutorialsPage() {
             </div>
           )}
         </div>
-      </Container>
+      </div>
     </main>
   )
 }

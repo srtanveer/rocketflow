@@ -25,7 +25,7 @@ export default function FeaturesPage() {
         icon: ''
     })
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'
+    const API_URL = process.env.NEXT_PUBLIC_ADMIN_API || 'http://localhost:4000'
 
     const getAuthToken = () => {
         if (typeof window !== 'undefined') {
